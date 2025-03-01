@@ -1,0 +1,105 @@
+.gallery {
+    padding: 0;
+    display: flex;
+    gap: 1em;
+    flex-wrap: wrap;
+    margin-bottom: 4em;
+    
+    &::after,
+    li {
+        flex: 1 1 200px;
+        display: block;
+    }
+
+    &::after {
+        content: '';
+    }
+
+
+    &:has(li:hover) li {
+        opacity: 0.2;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+
+    li {
+        transition: opacity 0.3s ease-in;
+        
+        a {
+            display: block;
+            aspect-ratio: 16/9;
+            overflow: hidden;
+            position: relative;
+            border-radius: 0.3em;
+            box-shadow: 0 0 0.5em 0 rgb(0, 0, 0, 0.2);
+            border: 1px solid #fff;
+            transition: scale 0.3s ease-in-out;
+            position: relative;
+
+            &:hover {
+                scale: 1.2;
+                z-index: 10;
+            }
+        }
+
+        .img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            translate: -50% -50%;
+        }
+    }
+}
+
+.carousel {
+    overflow: auto;
+    display: flex;
+    padding: 1em 0;
+    gap: 1em;
+    scroll-snap-type: x proximity;
+
+    li {
+        flex: 0 0 300px;
+        display: block;
+        scroll-snap-align: center;
+
+        a {
+            display: block;
+            aspect-ratio: 16/9;
+            overflow: hidden;
+            position: relative;
+            border-radius: 0.3em;
+            border: 1px solid #fff;
+        }
+    }
+}
+
+dialog {
+    max-width: 700px;
+    margin: auto;
+    position: relative;
+    border: none;
+    border-radius: 1em;
+    box-shadow: 0 0 2em 0 rgb(0, 0, 0, 0.3);
+
+    button {
+        position: absolute;
+        top: 1em;
+        right: 1em;
+        background: #000;
+        color: #fff;
+        border-radius: 0.3em;
+        border: none;
+        font-size: 0.9em;
+        padding: 0.5em 1em;
+        cursor: pointer;
+    }
+
+    &::backdrop {
+        background: rgb(0, 0, 0, 0.9);
+        opacity: 1;
+        transition: opacity 0.3s ease-in;
+    }
+}
