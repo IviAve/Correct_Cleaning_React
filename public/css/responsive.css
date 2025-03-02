@@ -56,6 +56,7 @@
 
     .feature_section .feature_container {
         flex-direction: column;
+        margin: 30px;
     }
 
     .feature_section .feature_container .box {

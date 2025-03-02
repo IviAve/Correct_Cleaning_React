@@ -1,105 +1,86 @@
-.gallery {
-    padding: 0;
-    display: flex;
-    gap: 1em;
-    flex-wrap: wrap;
-    margin-bottom: 4em;
-    
-    &::after,
-    li {
-        flex: 1 1 200px;
-        display: block;
-    }
+.App {
+    text-align: center;
+    padding: 20px;
+}
 
-    &::after {
-        content: '';
-    }
-
-
-    &:has(li:hover) li {
-        opacity: 0.2;
-
-        &:hover {
-            opacity: 1;
-        }
-    }
-
-    li {
-        transition: opacity 0.3s ease-in;
-        
-        a {
-            display: block;
-            aspect-ratio: 16/9;
-            overflow: hidden;
-            position: relative;
-            border-radius: 0.3em;
-            box-shadow: 0 0 0.5em 0 rgb(0, 0, 0, 0.2);
-            border: 1px solid #fff;
-            transition: scale 0.3s ease-in-out;
-            position: relative;
-
-            &:hover {
-                scale: 1.2;
-                z-index: 10;
-            }
-        }
-
-        .img {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            translate: -50% -50%;
-        }
-    }
+h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
 }
 
 .carousel {
-    overflow: auto;
     display: flex;
-    padding: 1em 0;
+    overflow-x: auto;
     gap: 1em;
+    padding: 1em 0;
     scroll-snap-type: x proximity;
+    justify-content: center;
+}
 
-    li {
-        flex: 0 0 300px;
-        display: block;
-        scroll-snap-align: center;
+.gallery {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5em;
+    margin-bottom: 4em;
+}
 
-        a {
-            display: block;
-            aspect-ratio: 16/9;
-            overflow: hidden;
-            position: relative;
-            border-radius: 0.3em;
-            border: 1px solid #fff;
-        }
-    }
+.gallery li {
+    flex: 1 1 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.3s ease-in;
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.3em;
+    box-shadow: 0 0 0.5em 0 rgba(0, 0, 0, 0.2);
+}
+
+.gallery li:hover {
+    opacity: 1;
+    transform: scale(1.1);
+    z-index: 10;
+}
+
+.gallery img {
+    width: 100%;
+    height: auto;
+    max-height: 180px;
+    display: block;
+    border-radius: 0.3em;
+    border: 1px solid #fff;
+    transition: transform 0.3s ease-in-out;
 }
 
 dialog {
     max-width: 700px;
     margin: auto;
-    position: relative;
     border: none;
     border-radius: 1em;
-    box-shadow: 0 0 2em 0 rgb(0, 0, 0, 0.3);
+    box-shadow: 0 0 2em 0 rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    background: white;
+}
 
-    button {
-        position: absolute;
-        top: 1em;
-        right: 1em;
-        background: #000;
-        color: #fff;
-        border-radius: 0.3em;
-        border: none;
-        font-size: 0.9em;
-        padding: 0.5em 1em;
-        cursor: pointer;
-    }
+dialog button {
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    background: #000;
+    color: #fff;
+    border-radius: 0.3em;
+    border: none;
+    font-size: 0.9em;
+    padding: 0.5em 1em;
+    cursor: pointer;
+}
 
-    &::backdrop {
-        background: rgb(0, 0, 0, 0.9);
-        opacity: 1;
-        transition: opacity 0.3s ease-in;
-    }
+dialog::backdrop {
+    background: rgba(0, 0, 0, 0.9);
+    opacity: 1;
+    transition: opacity 0.3s ease-in;
 }

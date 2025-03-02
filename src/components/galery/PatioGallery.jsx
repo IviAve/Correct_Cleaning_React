@@ -26,15 +26,15 @@ function PatioGallery() {
   }, []);
 
   return (
-    <div className="gallery">
+    <div className="App">
       <h1>Patio Gallery</h1>
       <div className="carousel">
         {photos.length > 0 ? (
           photos.map((photo, index) => (
-            <div key={index} className="photo-item">
+            <ul key={index} className="gallery">
               <h3>{photo.name}</h3>
-              <img className='img' src={photo.image} alt={photo.name} width="300" />
-            </div>
+             <li><img  src={photo.image} alt={photo.name}  /></li> 
+            </ul>
           ))
         ) : (
           <p>Loading photos...</p>

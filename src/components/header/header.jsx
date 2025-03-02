@@ -26,9 +26,11 @@ return (
             <div className="container-fluid">
               <nav className="navbar navbar-expand-lg custom_nav-container ">
                 <a className="navbar-brand" href="#">
-                  <span>
-                    Correct Cleaning
-                  </span>
+                <span>
+  <img src="images/logo.jpg" alt="Logo" style={{ width: '60px', height: '40px', marginRight: '8px' }} />
+  Correct Cleaning
+</span>
+
                 </a>
 
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

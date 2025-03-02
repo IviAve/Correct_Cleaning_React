@@ -18,7 +18,8 @@ export default function Login() {
     <span className="help-info">minimum 6 characters, letters and numbers, at least 1 special character</span>
 </div>
 
-<button className="btn">Login</button>
+<button className="btn-reg-log">Login</button>
+<p className="login">No have an account yet? <a href="/register">Register here</a></p>
 </form>
 </div>
 </>

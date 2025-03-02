@@ -29,7 +29,7 @@ export default function Homepage () {
         </div>
       </section>
     
-    <section className="feature_section">
+    {/* <section className="feature_section">
       <div className="container">
         <div className="feature_container">
           <div className="box">
@@ -58,7 +58,7 @@ export default function Homepage () {
           </div>
         </div>
       </div>
-    </section>
+    </section> */}
     </div>
     </>
 

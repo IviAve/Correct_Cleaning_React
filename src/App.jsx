@@ -19,6 +19,8 @@ import ClientSection from "./components/clientComments/ClientSection"
 import WindowGallery from "./components/galery/WindowGallery"
 import PatioGallery from "./components/galery/PatioGallery"
 
+import CreateImg from "./components/galery/CreateImg"
+
 function App() {
   // const [count, setCount] = useState(0)
 
@@ -35,6 +37,8 @@ function App() {
       <WindowGallery/>
       <Login />
       <Register />
+      <CreateImg />
+      
       <ServiceSection />
       <ContactWithUs/>
       <GetService/>

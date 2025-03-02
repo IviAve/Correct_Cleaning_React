@@ -4,13 +4,22 @@ form {
     border-radius: 0.3em;
     padding: 2em 2.5em;
     box-shadow: 0 0 0.5em 0 rgb(0,0,0,0.1);
+    
+    
+    text-align: center;
+    
 }
 
+.login-center {
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+}
 textarea,
 input[type="text"],
 input[type="email"],
 input[type="password"],
-.btn {
+.btn-reg-log {
     display: block;
     width: 100%;
     border: none;
@@ -52,6 +61,7 @@ input[type="submit"]:hover {
 .field {
     display: flex;
     flex-direction: column;
+    
     padding: 1em 0;
     position: relative;
 }
@@ -84,10 +94,4 @@ input[type="submit"]:hover {
     opacity: 0.5;
     line-height: 1;
     padding: 0.3em 0;
-}
-
-.login-center {
-    margin: 20px;
-    display: flex;
-    justify-content: center;
 }
