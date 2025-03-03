@@ -13,11 +13,11 @@ import ServiceSection from "./components/ServiceSection"
 
 import ContactWithUs from "./components/contactPages/ContactWithUs"
 
-import GetService from "./components/contactPages/GetService"
+
 import AboutUs from "./components/aboutUs/AboutUs"
 import ClientSection from "./components/clientComments/ClientSection"
 import WindowGallery from "./components/galery/WindowGallery"
-import PatioGallery from "./components/galery/PatioGallery"
+// import PatioGallery from "./components/galery/PatioGallery"
 
 import CreateImg from "./components/galery/CreateImg"
 
@@ -32,7 +32,7 @@ function App() {
       
       <ClientSection/>
 
-      <PatioGallery/>
+      {/* <PatioGallery/> */}
       <AboutUs/>
       <WindowGallery/>
       <Login />
@@ -41,7 +41,7 @@ function App() {
       
       <ServiceSection />
       <ContactWithUs/>
-      <GetService/>
+      
       <Infosection />
       <Footerpage />
 

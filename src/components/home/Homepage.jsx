@@ -7,16 +7,20 @@ export default function Homepage () {
           <div className="row">
             <div className="col-md-6 ">
               <div className="detail-box">
+                <div id="home-h1">
                 <h1>
                   Cleaning Windows <br />
-                  Patio &amp; Furniture Cleaning
+                  Patio &amp; Furniture 
                   <br />
-                  Services
+                
                 </h1>
+                </div>
+                <div id="home-text">
                 <p>
                   Windows cleaning and pressure washing is ONE OF THE BEST WAYS to
                   make your Home, Patio and Walkways LOOK NEW AGAIN.
                 </p>
+                </div>
                 <a href="./ContactWithUs">Contact Us</a>
               </div>
             </div>

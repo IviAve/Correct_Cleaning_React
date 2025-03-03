@@ -660,7 +660,8 @@ a:focus {
   margin-bottom: 30px;
 }
 
-.contact_section input {
+.contact_section input,
+.contact_section select  {
   width: 100%;
   border: none;
   height: 50px;
@@ -668,7 +669,7 @@ a:focus {
   padding-left: 25px;
   background-color: #ffffff;
   outline: none;
-  color: #ffffff;
+  color: #0e0c0c;
   -webkit-box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.2);
           box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.2);
 }
@@ -784,6 +785,7 @@ a:focus {
           align-items: center;
   text-align: center;
 }
+
 
 .info_items .item .img-box {
   width: 80px;
@@ -987,4 +989,40 @@ main {
 
 .login a {
   color: #4CAF50;
+}
+
+ #home-text p {
+  color: #444;
+  font-size: 25px;
+}
+#home-h1 h1 {
+  font-size: 50px;
+}
+
+
+
+.dropdown-menu {
+  position: absolute;
+  background: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  list-style: none;
+  padding: 10px;
+  display: block;
+  z-index: 100;
+}
+
+.dropdown-item {
+  padding: 8px 12px;
+  text-decoration: none;
+  display: block;
+  color: black;
+}
+
+.dropdown-item:hover {
+  background: #f0f0f0;
+}
+
+.dropdown-toggle {
+  cursor: pointer;
 }

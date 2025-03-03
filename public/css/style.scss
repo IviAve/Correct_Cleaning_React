@@ -328,12 +328,13 @@ a:focus {
       font-weight: bold;
       margin-bottom: 25px;
       color: $primary1;
+      font-size: 2em;
 
     }
 
     p {
       color: #444;
-      font-size: 15px;
+      font-size: 25px;
     }
 
     a {
@@ -419,6 +420,8 @@ a:focus {
     }
   }
 }
+
+
 
 // end feature section
 
@@ -649,9 +652,9 @@ a:focus {
     height: 50px;
     margin-bottom: 25px;
     padding-left: 25px;
-    background-color: $white;
+    background-color: #d1e3ff;
     outline: none;
-    color: $white;
+    
     box-shadow: 0 0 7px 0 rgba($color: #000000, $alpha: .2);
 
     &::placeholder {
@@ -685,7 +688,7 @@ a:focus {
   padding: 75px 0;
   background-color: #0a0f43;
   text-align: center;
-  color: #fff;
+  
 
 
 
@@ -744,7 +747,7 @@ a:focus {
       text-align: center;
       line-height: 80px;
       background-color: $primary1;
-      color: $white;
+      color: #444;
 
       i {
         font-size: 24px;

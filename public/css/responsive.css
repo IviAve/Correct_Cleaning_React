@@ -79,6 +79,7 @@
     .contact_section form {
         margin-bottom: 45px;
     }
+    
 
     .info_section .info_items::before {
         width: 1px;
@@ -102,3 +103,21 @@
     }
 
 }
+
+
+@media (max-width: 600px) {
+    .row-service {
+      display: flex;
+      flex-direction: column;
+      
+      
+    }
+    .row-service form {
+        width: 100%;
+    }
+  
+    .col-md-6 {
+      width: 100%;
+    }
+  }
+  

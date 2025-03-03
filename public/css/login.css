@@ -20,6 +20,7 @@ textarea,
 input[type="text"],
 input[type="email"],
 input[type="password"],
+select,
 .btn {
     display: block;
     width: 100%;
@@ -35,7 +36,8 @@ input[type="password"],
 textarea,
 input[type="text"],
 input[type="email"],
-input[type="password"] {
+input[type="password"],
+select {
     border-bottom: 2px solid #DDD;
     font-size: 1.2em;
     line-height: 1;

@@ -7,7 +7,7 @@ export default function ContactWithUs () {
         <div className="container">
           <div className="heading_container">
             <h2>
-              Contact Us
+              Contact Us or Get Service
             </h2>
           </div>
           <div className="row">
@@ -22,6 +22,21 @@ export default function ContactWithUs () {
                 <div>
                   <input type="email" placeholder="Email" />
                 </div>
+
+                <div>
+                  <select>
+                    <option value="" disabled selected>Choice Service</option>
+                    <option value="without service">Without Service</option>
+                    <option value="window-cleaning">Window Cleaning</option>
+                    <option value="patio-cleaning">Patio Cleaning</option>
+                    <option value="furniture-cleaning">Furniture Cleaning</option>
+                  </select>
+                </div>
+
+                <div>
+                  <input type="date" placeholder="Choice date" />
+                </div>
+                
                 <div>
                   <input type="text" className="message-box" placeholder="Message" />
                 </div>

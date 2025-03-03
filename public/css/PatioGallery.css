@@ -3,10 +3,10 @@
     padding: 20px;
 }
 
-h1 {
-    font-size: 2em;
+/* h1 {
+    font-size: 3em;
     margin-bottom: 20px;
-}
+} */
 
 .carousel {
     display: flex;
