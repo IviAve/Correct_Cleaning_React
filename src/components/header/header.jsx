@@ -1,86 +1,86 @@
-export default function HeaderArea () {
-return (
+// export default function HeaderArea () {
+// return (
     
     
-    <div className="hero_area">
-        <header className="header_section">
-          <div className="header_top">
-            <div className="container-fluid">
-              <div className="contact_nav">
-                <a href="">
-                  <i className="fa fa-phone" aria-hidden="true"></i>
-                  <span>
-                    Call : +357 96 032003
-                  </span>
-                </a>
-                <a href="">
-                  <i className="fa fa-envelope" aria-hidden="true"></i>
-                  <span>
-                    Email : demo@gmail.com
-                  </span>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div className="header_bottom">
-            <div className="container-fluid">
-              <nav className="navbar navbar-expand-lg custom_nav-container ">
-                <a className="navbar-brand" href="#">
-                <span>
-  <img src="images/logo.jpg" alt="Logo" style={{ width: '60px', height: '40px', marginRight: '8px' }} />
-  Correct Cleaning
-</span>
+//     <div className="hero_area">
+//         <header className="header_section">
+//           <div className="header_top">
+//             <div className="container-fluid">
+//               <div className="contact_nav">
+//                 <a href="">
+//                   <i className="fa fa-phone" aria-hidden="true"></i>
+//                   <span>
+//                     Call : +357 96 032003
+//                   </span>
+//                 </a>
+//                 <a href="">
+//                   <i className="fa fa-envelope" aria-hidden="true"></i>
+//                   <span>
+//                     Email : demo@gmail.com
+//                   </span>
+//                 </a>
+//               </div>
+//             </div>
+//           </div>
+//           <div className="header_bottom">
+//             <div className="container-fluid">
+//               <nav className="navbar navbar-expand-lg custom_nav-container ">
+//                 <a className="navbar-brand" href="#">
+//                 <span>
+//   <img src="images/logo.jpg" alt="Logo" style={{ width: '60px', height: '40px', marginRight: '8px' }} />
+//   Correct Cleaning
+// </span>
 
-                </a>
+//                 </a>
 
-                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                  <span className=""> </span>
-                </button>
+//                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+//                   <span className=""> </span>
+//                 </button>
 
-                <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                  <ul className="navbar-nav ">
-                    <li className="nav-item active">
-                      <a className="nav-link" href="index.html">Home <span className="sr-only">(current)</span></a>
-                    </li>
-                    <li className="nav-item">
-                      <a className="nav-link" href="about.html"> About Us</a>
-                    </li>
-                    <li className="nav-item">
-                      <a className="nav-link" href="login.html"> Login</a>
-                    </li>
-                    <li className="nav-item">
-                      <a className="nav-link" href="register.html"> Register</a>
-                    </li>
-                    <li className="nav-item">
-                      <a className="nav-link" > Logout</a>
-                    </li>
+//                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
+//                   <ul className="navbar-nav ">
+//                     <li className="nav-item active">
+//                       <a className="nav-link" href="index.html">Home <span className="sr-only">(current)</span></a>
+//                     </li>
+//                     <li className="nav-item">
+//                       <a className="nav-link" href="about.html"> About Us</a>
+//                     </li>
+//                     <li className="nav-item">
+//                       <a className="nav-link" href="login.html"> Login</a>
+//                     </li>
+//                     <li className="nav-item">
+//                       <a className="nav-link" href="register.html"> Register</a>
+//                     </li>
+//                     <li className="nav-item">
+//                       <a className="nav-link" > Logout</a>
+//                     </li>
 
-                    <li className="nav-item">
-                      <a className="nav-link" href="WindowGallery.html"> Gallery </a>
-                    </li>
+//                     <li className="nav-item">
+//                       <a className="nav-link" href="WindowGallery.html"> Gallery </a>
+//                     </li>
 
-                    <li className="nav-item">
-                      <a className="nav-link" href="service.html">Services</a>
-                    </li>
-                    <li className="nav-item">
-                      <a className="nav-link" href="contact.html">Contact Us or Get Service</a>
-                    </li>
-                    <li className="nav-item">
-                      <a className="nav-link" href="booking.html">My Profile</a>
-                    </li>
-                  </ul>
-                </div>
-              </nav>
-            </div>
-          </div>
-        </header>
-        </div>
+//                     <li className="nav-item">
+//                       <a className="nav-link" href="service.html">Services</a>
+//                     </li>
+//                     <li className="nav-item">
+//                       <a className="nav-link" href="contact.html">Contact Us or Get Service</a>
+//                     </li>
+//                     <li className="nav-item">
+//                       <a className="nav-link" href="booking.html">My Profile</a>
+//                     </li>
+//                   </ul>
+//                 </div>
+//               </nav>
+//             </div>
+//           </div>
+//         </header>
+//         </div>
         
         
-)
-}
+// )
+// }
 
-
+// code with dropdown for gallery and nav//
 
 // import { useState } from "react";
 // import { Link } from "react-router-dom";
@@ -184,3 +184,122 @@ return (
 //     </div>
 //   );
 // }
+
+
+// code with router and link //
+
+
+
+import { useEffect, useState } from "react";
+import { Parse } from "../../parse";
+
+export default function HeaderArea() {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const currentUser = Parse.User.current();
+    if (currentUser) {
+      setUser(currentUser);
+    }
+  }, []);
+
+  const handleLogout = async () => {
+    await Parse.User.logOut();
+    setUser(null);
+    window.location.reload(); // Презареждане за опресняване на навигацията
+  };
+
+  return (
+    <div className="hero_area">
+      <header className="header_section">
+        <div className="header_top">
+          <div className="container-fluid">
+            <div className="contact_nav">
+              <a href="#">
+                <i className="fa fa-phone" aria-hidden="true"></i>
+                <span>Call : +357 96 032003</span>
+              </a>
+              <a href="#">
+                <i className="fa fa-envelope" aria-hidden="true"></i>
+                <span>Email : demo@gmail.com</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div className="header_bottom">
+          <div className="container-fluid">
+            <nav className="navbar navbar-expand-lg custom_nav-container">
+              <a className="navbar-brand" href="#">
+                <span>
+                  <img
+                    src="images/logo.jpg"
+                    alt="Logo"
+                    style={{ width: "60px", height: "40px", marginRight: "8px" }}
+                  />
+                  Correct Cleaning
+                </span>
+              </a>
+
+              <button
+                className="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span className=""> </span>
+              </button>
+
+              <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul className="navbar-nav">
+                  <li className="nav-item active">
+                    <a className="nav-link" href="/">Home</a>
+                  </li>
+                  <li className="nav-item">
+                    <a className="nav-link" href="/about">About Us</a>
+                  </li>
+                  <li className="nav-item">
+                    <a className="nav-link" href="/gallery">Gallery</a>
+                  </li>
+                  <li className="nav-item">
+                    <a className="nav-link" href="/services">Services</a>
+                  </li>
+                  <li className="nav-item">
+                    <a className="nav-link" href="/contact">Contact Us</a>
+                  </li>
+
+                  {user ? (
+                    <>
+                      <li className="nav-item">
+                        <span className="nav-link">Welcome, {user.get("username")}</span>
+                      </li>
+                      <li className="nav-item">
+                        <button className="nav-link btn btn-link" onClick={handleLogout}>
+                          Logout
+                        </button>
+                      </li>
+                      <li className="nav-item">
+                        <a className="nav-link" href="/profile">My Profile</a>
+                      </li>
+                    </>
+                  ) : (
+                    <>
+                      <li className="nav-item">
+                        <a className="nav-link" href="/login">Login</a>
+                      </li>
+                      <li className="nav-item">
+                        <a className="nav-link" href="/register">Register</a>
+                      </li>
+                    </>
+                  )}
+                </ul>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </header>
+    </div>
+  );
+}

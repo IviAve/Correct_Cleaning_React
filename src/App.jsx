@@ -7,8 +7,8 @@ import Homepage from "./components/home/Homepage"
 import Footerpage from "./components/footer/Footerpage"
 import Infosection from "./components/Infosection"
 
-import Register from "./components/register/Register"
-import Login from "./components/login/Login"
+import Register from "./components/auth/register/Register"
+import Login from "./components/auth/login/Login"
 import ServiceSection from "./components/ServiceSection"
 
 import ContactWithUs from "./components/contactPages/ContactWithUs"
