@@ -96,7 +96,7 @@ a:focus {
 
 .header_section .header_top {
   padding: 15px 0;
-  background-color: #000000;
+  background-color: rgba(0, 123, 255, 0.5);
 }
 
 .header_section .header_top .contact_nav {

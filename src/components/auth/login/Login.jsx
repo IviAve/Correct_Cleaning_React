@@ -38,16 +38,27 @@ export default function Login() {
 
   const [message, setMessage] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
-
+  
   useEffect(() => {
-    // Проверявам дали има запомнен потребител в localStorage
-    const savedEmail = localStorage.getItem("email");
-    const savedPassword = localStorage.getItem("password");
+    const checkSession = async () => {
+      try {
+        const currentUser = Parse.User.current();
+        if (currentUser) {
+          setMessage(`Welcome, ${currentUser.get("username")}!`);
+        } else {
+          
+          const sessionToken = localStorage.getItem("sessionToken");
+          if (sessionToken) {
+            const user = await Parse.User.become(sessionToken);
+            setMessage(`Welcome, ${user.get("username")}!`);
+          }
+        }
+      } catch (error) {
+        console.error("Session restore error:", error);
+      }
+    };
 
-    if (savedEmail && savedPassword) {
-      setFormData({ email: savedEmail, password: savedPassword });
-      setRememberMe(true); // Показвам, че потребителят е избрал "Запомни ме"
-    }
+    checkSession();
   }, []);
 
   const handleChange = (e) => {
@@ -59,18 +70,14 @@ export default function Login() {
 
     try {
       const user = await Parse.User.logIn(formData.email, formData.password);
-      setMessage(`Добре дошъл, ${user.get("username")}!`);
+      setMessage(`Welcome, ${user.get("username")}!`);
 
-      // Записваме данните в localStorage, ако потребителят е избрал "Запомни ме"
       if (rememberMe) {
-        localStorage.setItem("email", formData.email);
-        localStorage.setItem("password", formData.password);
-      } else {
-        localStorage.removeItem("email");
-        localStorage.removeItem("password");
+        // Safe for second log for current user
+        localStorage.setItem("sessionToken", user.getSessionToken());
       }
     } catch (error) {
-      setMessage("Грешка: " + error.message);
+      setMessage("Error: " + error.message);
     }
   };
 
@@ -106,7 +113,7 @@ export default function Login() {
             value={formData.password}
             onChange={handleChange}
           />
-          <span className="help-info">Минимум 6 символа, букви, цифри, специален знак</span>
+          <span className="help-info">minimum 6 characters, letters and numbers, at least 1 special character</span>
         </div>
 
         <div className="field-check">
@@ -116,7 +123,7 @@ export default function Login() {
               checked={rememberMe}
               onChange={handleRememberMeChange}
             />
-            Запомни ме
+            Remember Me
           </label>
         </div>
 

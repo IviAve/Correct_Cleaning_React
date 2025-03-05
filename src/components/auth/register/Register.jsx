@@ -67,9 +67,9 @@ export default function Register() {
 
     try {
       await user.signUp();
-      setMessage("Регистрацията е успешна! Влезте в профила си.");
+      setMessage("Registration successful.");
     } catch (error) {
-      setMessage("Грешка: " + error.message);
+      setMessage("Error: " + error.message);
     }
   };
 
@@ -114,7 +114,7 @@ export default function Register() {
             value={formData.password}
             onChange={handleChange}
           />
-          <span className="help-info">Минимум 6 символа, 1 специален символ</span>
+          <span className="help-info">minimum 6 characters, letters and numbers, at least 1 special character</span>
         </div>
 
         <div className="field">

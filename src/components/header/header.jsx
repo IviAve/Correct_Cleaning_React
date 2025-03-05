@@ -190,6 +190,122 @@
 
 
 
+// import { useEffect, useState } from "react";
+// import { Parse } from "../../parse";
+
+// export default function HeaderArea() {
+//   const [user, setUser] = useState(null);
+
+//   useEffect(() => {
+//     const currentUser = Parse.User.current();
+//     if (currentUser) {
+//       setUser(currentUser);
+//     }
+//   }, []);
+
+//   const handleLogout = async () => {
+//     await Parse.User.logOut();
+//     setUser(null);
+//     window.location.reload(); // Презареждане за опресняване на навигацията
+//   };
+
+//   return (
+//     <div className="hero_area">
+//       <header className="header_section">
+//         <div className="header_top">
+//           <div className="container-fluid">
+//             <div className="contact_nav">
+//               <a href="#">
+//                 <i className="fa fa-phone" aria-hidden="true"></i>
+//                 <span>Call : +357 96 032003</span>
+//               </a>
+//               <a href="#">
+//                 <i className="fa fa-envelope" aria-hidden="true"></i>
+//                 <span>Email : demo@gmail.com</span>
+//               </a>
+//             </div>
+//           </div>
+//         </div>
+//         <div className="header_bottom">
+//           <div className="container-fluid">
+//             <nav className="navbar navbar-expand-lg custom_nav-container">
+//               <a className="navbar-brand" href="#">
+//                 <span>
+//                   <img
+//                     src="images/logo.jpg"
+//                     alt="Logo"
+//                     style={{ width: "60px", height: "40px", marginRight: "8px" }}
+//                   />
+//                   Correct Cleaning
+//                 </span>
+//               </a>
+
+//               <button
+//                 className="navbar-toggler"
+//                 type="button"
+//                 data-toggle="collapse"
+//                 data-target="#navbarSupportedContent"
+//                 aria-controls="navbarSupportedContent"
+//                 aria-expanded="false"
+//                 aria-label="Toggle navigation"
+//               >
+//                 <span className=""> </span>
+//               </button>
+
+//               <div className="collapse navbar-collapse" id="navbarSupportedContent">
+//                 <ul className="navbar-nav">
+//                   <li className="nav-item active">
+//                     <a className="nav-link" href="/">Home</a>
+//                   </li>
+//                   <li className="nav-item">
+//                     <a className="nav-link" href="/about">About Us</a>
+//                   </li>
+//                   <li className="nav-item">
+//                     <a className="nav-link" href="/gallery">Gallery</a>
+//                   </li>
+//                   <li className="nav-item">
+//                     <a className="nav-link" href="/services">Services</a>
+//                   </li>
+//                   <li className="nav-item">
+//                     <a className="nav-link" href="/contact">Contact Us</a>
+//                   </li>
+
+//                   {user ? (
+//                     <>
+//                       <li className="nav-item">
+//                         <span className="nav-link">Welcome, {user.get("username")}</span>
+//                       </li>
+//                       <li className="nav-item">
+//                         <button className="nav-link btn btn-link" onClick={handleLogout}>
+//                           Logout
+//                         </button>
+//                       </li>
+//                       <li className="nav-item">
+//                         <a className="nav-link" href="/profile">My Profile</a>
+//                       </li>
+//                     </>
+//                   ) : (
+//                     <>
+//                       <li className="nav-item">
+//                         <a className="nav-link" href="/login">Login</a>
+//                       </li>
+//                       <li className="nav-item">
+//                         <a className="nav-link" href="/register">Register</a>
+//                       </li>
+//                     </>
+//                   )}
+//                 </ul>
+//               </div>
+//             </nav>
+//           </div>
+//         </div>
+//       </header>
+//     </div>
+//   );
+// }
+
+
+
 import { useEffect, useState } from "react";
 import { Parse } from "../../parse";
 
@@ -216,12 +332,14 @@ export default function HeaderArea() {
           <div className="container-fluid">
             <div className="contact_nav">
               <a href="#">
-                <i className="fa fa-phone" aria-hidden="true"></i>
-                <span>Call : +357 96 032003</span>
+                <i className="fa fa-building" aria-hidden="true"></i>
+                <span>Correct Cleaning</span>
               </a>
               <a href="#">
-                <i className="fa fa-envelope" aria-hidden="true"></i>
-                <span>Email : demo@gmail.com</span>
+                <i className="fa fa-user" aria-hidden="true"></i>
+                <span>
+                  {user ? `Welcome, ${user.get("username")}` : "Guest"}
+                </span>
               </a>
             </div>
           </div>
@@ -273,15 +391,12 @@ export default function HeaderArea() {
                   {user ? (
                     <>
                       <li className="nav-item">
-                        <span className="nav-link">Welcome, {user.get("username")}</span>
+                        <a className="nav-link" href="/profile">My Profile</a>
                       </li>
                       <li className="nav-item">
                         <button className="nav-link btn btn-link" onClick={handleLogout}>
                           Logout
                         </button>
-                      </li>
-                      <li className="nav-item">
-                        <a className="nav-link" href="/profile">My Profile</a>
                       </li>
                     </>
                   ) : (
