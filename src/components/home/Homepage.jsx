@@ -1,3 +1,5 @@
+import ClientSection from "../clientComments/ClientSection";
+
 export default function Homepage () {
     return(
         <>
@@ -21,7 +23,7 @@ export default function Homepage () {
                   make your Home, Patio and Walkways LOOK NEW AGAIN.
                 </p>
                 </div>
-                <a href="./ContactWithUs">Contact Us</a>
+                <a href="/contact">Contact Us</a>
               </div>
             </div>
             <div className="col-md-6">
@@ -32,7 +34,7 @@ export default function Homepage () {
           </div>
         </div>
       </section>
-    
+      <ClientSection/>
     {/* <section className="feature_section">
       <div className="container">
         <div className="feature_container">

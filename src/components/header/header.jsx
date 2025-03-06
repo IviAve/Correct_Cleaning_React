@@ -1,92 +1,25 @@
-// export default function HeaderArea () {
-// return (
-    
-    
-//     <div className="hero_area">
-//         <header className="header_section">
-//           <div className="header_top">
-//             <div className="container-fluid">
-//               <div className="contact_nav">
-//                 <a href="">
-//                   <i className="fa fa-phone" aria-hidden="true"></i>
-//                   <span>
-//                     Call : +357 96 032003
-//                   </span>
-//                 </a>
-//                 <a href="">
-//                   <i className="fa fa-envelope" aria-hidden="true"></i>
-//                   <span>
-//                     Email : demo@gmail.com
-//                   </span>
-//                 </a>
-//               </div>
-//             </div>
-//           </div>
-//           <div className="header_bottom">
-//             <div className="container-fluid">
-//               <nav className="navbar navbar-expand-lg custom_nav-container ">
-//                 <a className="navbar-brand" href="#">
-//                 <span>
-//   <img src="images/logo.jpg" alt="Logo" style={{ width: '60px', height: '40px', marginRight: '8px' }} />
-//   Correct Cleaning
-// </span>
 
-//                 </a>
 
-//                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-//                   <span className=""> </span>
-//                 </button>
-
-//                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
-//                   <ul className="navbar-nav ">
-//                     <li className="nav-item active">
-//                       <a className="nav-link" href="index.html">Home <span className="sr-only">(current)</span></a>
-//                     </li>
-//                     <li className="nav-item">
-//                       <a className="nav-link" href="about.html"> About Us</a>
-//                     </li>
-//                     <li className="nav-item">
-//                       <a className="nav-link" href="login.html"> Login</a>
-//                     </li>
-//                     <li className="nav-item">
-//                       <a className="nav-link" href="register.html"> Register</a>
-//                     </li>
-//                     <li className="nav-item">
-//                       <a className="nav-link" > Logout</a>
-//                     </li>
-
-//                     <li className="nav-item">
-//                       <a className="nav-link" href="WindowGallery.html"> Gallery </a>
-//                     </li>
-
-//                     <li className="nav-item">
-//                       <a className="nav-link" href="service.html">Services</a>
-//                     </li>
-//                     <li className="nav-item">
-//                       <a className="nav-link" href="contact.html">Contact Us or Get Service</a>
-//                     </li>
-//                     <li className="nav-item">
-//                       <a className="nav-link" href="booking.html">My Profile</a>
-//                     </li>
-//                   </ul>
-//                 </div>
-//               </nav>
-//             </div>
-//           </div>
-//         </header>
-//         </div>
-        
-        
-// )
-// }
-
-// code with dropdown for gallery and nav//
-
-// import { useState } from "react";
-// import { Link } from "react-router-dom";
+// import { useEffect, useState } from "react";
+// import { Link, useNavigate } from "react-router"; // Импортираме Link и useNavigate
+// import { Parse } from "../../parse";
 
 // export default function HeaderArea() {
-//   const [isGalleryOpen, setIsGalleryOpen] = useState(false);
+//   const [user, setUser] = useState(null);
+//   const navigate = useNavigate(); // Hook за навигация
+
+//   useEffect(() => {
+//     const currentUser = Parse.User.current();
+//     if (currentUser) {
+//       setUser(currentUser);
+//     }
+//   }, []);
+
+//   const handleLogout = async () => {
+//     await Parse.User.logOut();
+//     setUser(null);
+//     navigate("/"); // Пренасочване към началната страница след logout
+//   };
 
 //   return (
 //     <div className="hero_area">
@@ -94,30 +27,32 @@
 //         <div className="header_top">
 //           <div className="container-fluid">
 //             <div className="contact_nav">
-//               <a href="">
-//                 <i className="fa fa-phone" aria-hidden="true"></i>
-//                 <span> Call : +357 96 032003 </span>
-//               </a>
-//               <a href="">
-//                 <i className="fa fa-envelope" aria-hidden="true"></i>
-//                 <span> Email : demo@gmail.com </span>
-//               </a>
+//               <Link to="/">
+//                 <i className="fa fa-building" aria-hidden="true"></i>
+//                 <span>Correct Cleaning</span>
+//               </Link>
+//               <Link to={user ? "/profile" : "/login"}>
+//                 <i className="fa fa-user" aria-hidden="true"></i>
+//                 <span>
+//                   {user ? `Welcome, ${user.get("username")}` : "Guest"}
+//                 </span>
+//               </Link>
 //             </div>
 //           </div>
 //         </div>
 //         <div className="header_bottom">
 //           <div className="container-fluid">
 //             <nav className="navbar navbar-expand-lg custom_nav-container">
-//               <a className="navbar-brand" href="#">
+//               <Link className="navbar-brand" to="/">
 //                 <span>
 //                   <img
 //                     src="images/logo.jpg"
 //                     alt="Logo"
-//                     style={{ width: "60px", height: "40px", marginRight: "8px" }}
+//                     style={{ width: "60px", height: "40px", marginRight: "8px", marginLeft: "0.2px" }}
 //                   />
 //                   Correct Cleaning
 //                 </span>
-//               </a>
+//               </Link>
 
 //               <button
 //                 className="navbar-toggler"
@@ -140,157 +75,37 @@
 //                     <Link className="nav-link" to="/about">About Us</Link>
 //                   </li>
 //                   <li className="nav-item">
-//                     <Link className="nav-link" to="/login">Login</Link>
+//                     <Link className="nav-link" to="/gallery">Gallery</Link>
 //                   </li>
-//                   <li className="nav-item">
-//                     <Link className="nav-link" to="/register">Register</Link>
-//                   </li>
-//                   <li className="nav-item">
-//                     <a className="nav-link">Logout</a>
-//                   </li>
-
-//                   {/* Падащо меню за Gallery */}
-//                   <li className="nav-item dropdown">
-//                     <a
-//                       className="nav-link dropdown-toggle"
-//                       onClick={() => setIsGalleryOpen(!isGalleryOpen)}
-//                     >
-//                       Gallery ▼
-//                     </a>
-//                     {isGalleryOpen && (
-//                       <ul className="dropdown-menu">
-//                         <li><Link className="dropdown-item" to="/gallery/window">Window Gallery</Link></li>
-//                         <li><Link className="dropdown-item" to="/gallery/patio">Patio Gallery</Link></li>
-//                         <li><Link className="dropdown-item" to="/gallery/furniture">Furniture Gallery</Link></li>
-//                       </ul>
-//                     )}
-//                   </li>
-
 //                   <li className="nav-item">
 //                     <Link className="nav-link" to="/services">Services</Link>
 //                   </li>
 //                   <li className="nav-item">
-//                     <Link className="nav-link" to="/contact">Contact Us or Get Service</Link>
-//                   </li>
-//                   <li className="nav-item">
-//                     <Link className="nav-link" to="/profile">My Profile</Link>
-//                   </li>
-//                 </ul>
-//               </div>
-//             </nav>
-//           </div>
-//         </div>
-//       </header>
-//     </div>
-//   );
-// }
-
-
-// code with router and link //
-
-
-
-// import { useEffect, useState } from "react";
-// import { Parse } from "../../parse";
-
-// export default function HeaderArea() {
-//   const [user, setUser] = useState(null);
-
-//   useEffect(() => {
-//     const currentUser = Parse.User.current();
-//     if (currentUser) {
-//       setUser(currentUser);
-//     }
-//   }, []);
-
-//   const handleLogout = async () => {
-//     await Parse.User.logOut();
-//     setUser(null);
-//     window.location.reload(); // Презареждане за опресняване на навигацията
-//   };
-
-//   return (
-//     <div className="hero_area">
-//       <header className="header_section">
-//         <div className="header_top">
-//           <div className="container-fluid">
-//             <div className="contact_nav">
-//               <a href="#">
-//                 <i className="fa fa-phone" aria-hidden="true"></i>
-//                 <span>Call : +357 96 032003</span>
-//               </a>
-//               <a href="#">
-//                 <i className="fa fa-envelope" aria-hidden="true"></i>
-//                 <span>Email : demo@gmail.com</span>
-//               </a>
-//             </div>
-//           </div>
-//         </div>
-//         <div className="header_bottom">
-//           <div className="container-fluid">
-//             <nav className="navbar navbar-expand-lg custom_nav-container">
-//               <a className="navbar-brand" href="#">
-//                 <span>
-//                   <img
-//                     src="images/logo.jpg"
-//                     alt="Logo"
-//                     style={{ width: "60px", height: "40px", marginRight: "8px" }}
-//                   />
-//                   Correct Cleaning
-//                 </span>
-//               </a>
-
-//               <button
-//                 className="navbar-toggler"
-//                 type="button"
-//                 data-toggle="collapse"
-//                 data-target="#navbarSupportedContent"
-//                 aria-controls="navbarSupportedContent"
-//                 aria-expanded="false"
-//                 aria-label="Toggle navigation"
-//               >
-//                 <span className=""> </span>
-//               </button>
-
-//               <div className="collapse navbar-collapse" id="navbarSupportedContent">
-//                 <ul className="navbar-nav">
-//                   <li className="nav-item active">
-//                     <a className="nav-link" href="/">Home</a>
-//                   </li>
-//                   <li className="nav-item">
-//                     <a className="nav-link" href="/about">About Us</a>
-//                   </li>
-//                   <li className="nav-item">
-//                     <a className="nav-link" href="/gallery">Gallery</a>
-//                   </li>
-//                   <li className="nav-item">
-//                     <a className="nav-link" href="/services">Services</a>
-//                   </li>
-//                   <li className="nav-item">
-//                     <a className="nav-link" href="/contact">Contact Us</a>
+//                     <Link className="nav-link" to="/contact">Contact Us</Link>
 //                   </li>
 
 //                   {user ? (
 //                     <>
 //                       <li className="nav-item">
-//                         <span className="nav-link">Welcome, {user.get("username")}</span>
+//                         <Link className="nav-link" to="/profile">My Profile</Link>
+//                       </li>
+
+//                       <li className="nav-item">
+//                         <Link className="nav-link" to="/CreateImg">Add Image</Link>
 //                       </li>
 //                       <li className="nav-item">
 //                         <button className="nav-link btn btn-link" onClick={handleLogout}>
 //                           Logout
 //                         </button>
 //                       </li>
-//                       <li className="nav-item">
-//                         <a className="nav-link" href="/profile">My Profile</a>
-//                       </li>
 //                     </>
 //                   ) : (
 //                     <>
 //                       <li className="nav-item">
-//                         <a className="nav-link" href="/login">Login</a>
+//                         <Link className="nav-link" to="/login">Login</Link>
 //                       </li>
 //                       <li className="nav-item">
-//                         <a className="nav-link" href="/register">Register</a>
+//                         <Link className="nav-link" to="/register">Register</Link>
 //                       </li>
 //                     </>
 //                   )}
@@ -305,24 +120,23 @@
 // }
 
 
-
 import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom"; 
 import { Parse } from "../../parse";
 
 export default function HeaderArea() {
   const [user, setUser] = useState(null);
+  const navigate = useNavigate(); 
 
   useEffect(() => {
     const currentUser = Parse.User.current();
-    if (currentUser) {
-      setUser(currentUser);
-    }
+    setUser(currentUser);  
   }, []);
 
   const handleLogout = async () => {
     await Parse.User.logOut();
     setUser(null);
-    window.location.reload(); // Презареждане за опресняване на навигацията
+    navigate("/"); 
   };
 
   return (
@@ -331,32 +145,32 @@ export default function HeaderArea() {
         <div className="header_top">
           <div className="container-fluid">
             <div className="contact_nav">
-              <a href="#">
+              <Link to="/">
                 <i className="fa fa-building" aria-hidden="true"></i>
                 <span>Correct Cleaning</span>
-              </a>
-              <a href="#">
+              </Link>
+              <Link to={user ? "/profile" : "/login"}>
                 <i className="fa fa-user" aria-hidden="true"></i>
                 <span>
                   {user ? `Welcome, ${user.get("username")}` : "Guest"}
                 </span>
-              </a>
+              </Link>
             </div>
           </div>
         </div>
         <div className="header_bottom">
           <div className="container-fluid">
             <nav className="navbar navbar-expand-lg custom_nav-container">
-              <a className="navbar-brand" href="#">
+              <Link className="navbar-brand" to="/">
                 <span>
                   <img
                     src="images/logo.jpg"
                     alt="Logo"
-                    style={{ width: "60px", height: "40px", marginRight: "8px" }}
+                    style={{ width: "60px", height: "40px", marginRight: "8px", marginLeft: "0.2px" }}
                   />
                   Correct Cleaning
                 </span>
-              </a>
+              </Link>
 
               <button
                 className="navbar-toggler"
@@ -373,25 +187,29 @@ export default function HeaderArea() {
               <div className="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul className="navbar-nav">
                   <li className="nav-item active">
-                    <a className="nav-link" href="/">Home</a>
+                    <Link className="nav-link" to="/">Home</Link>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link" href="/about">About Us</a>
+                    <Link className="nav-link" to="/about">About Us</Link>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link" href="/gallery">Gallery</a>
+                    <Link className="nav-link" to="/gallery">Gallery</Link>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link" href="/services">Services</a>
+                    <Link className="nav-link" to="/services">Services</Link>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link" href="/contact">Contact Us</a>
+                    <Link className="nav-link" to="/contact">Contact Us</Link>
                   </li>
 
                   {user ? (
                     <>
                       <li className="nav-item">
-                        <a className="nav-link" href="/profile">My Profile</a>
+                        <Link className="nav-link" to="/profile">My Profile</Link>
+                      </li>
+
+                      <li className="nav-item">
+                        <Link className="nav-link" to="/CreateImg">Add Image</Link>
                       </li>
                       <li className="nav-item">
                         <button className="nav-link btn btn-link" onClick={handleLogout}>
@@ -402,10 +220,10 @@ export default function HeaderArea() {
                   ) : (
                     <>
                       <li className="nav-item">
-                        <a className="nav-link" href="/login">Login</a>
+                        <Link className="nav-link" to="/login">Login</Link>
                       </li>
                       <li className="nav-item">
-                        <a className="nav-link" href="/register">Register</a>
+                        <Link className="nav-link" to="/register">Register</Link>
                       </li>
                     </>
                   )}

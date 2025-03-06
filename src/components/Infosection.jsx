@@ -53,7 +53,7 @@ export default function Infosection () {
                         </div>
                       </div>
                     </div>
-                    <div className="social-box">
+                    {/* <div className="social-box">
                       <h4>
                         Follow Us
                       </h4>
@@ -71,7 +71,7 @@ export default function Infosection () {
                           <i className="fa fa-instagram" aria-hidden="true"></i>
                         </a>
                       </div>
-                    </div>
+                    </div> */}
                   </section>
             
         

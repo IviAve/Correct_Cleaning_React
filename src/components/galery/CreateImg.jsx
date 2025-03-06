@@ -87,12 +87,15 @@
 
 import { useState } from 'react';
 import { Parse } from '../../parse'; // Импортиране на Parse
+import { useNavigate } from "react-router-dom"; 
 
 function CreateImg() {
   const [imageUrl, setImageUrl] = useState('');
   const [addedBy, setAddedBy] = useState('');
   const [selectedService, setSelectedService] = useState('');
   const [loading, setLoading] = useState(false);
+
+  const navigate = useNavigate();
 
   const handleUpload = async (e) => {
     e.preventDefault();
@@ -119,6 +122,7 @@ function CreateImg() {
       console.error('Error saving photo:', error);
     }
     setLoading(false);
+    navigate("/gallery");
   };
 
   return (

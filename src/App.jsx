@@ -1,52 +1,40 @@
-// import { useState } from 'react'
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
-// import './App.css'
-import HeaderArea from "./components/header/header"
-import Homepage from "./components/home/Homepage"
-import Footerpage from "./components/footer/Footerpage"
-import Infosection from "./components/Infosection"
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // правилният импорт
+import HeaderArea from "./components/header/header";
+import Homepage from "./components/home/Homepage";
+import Footerpage from "./components/footer/Footerpage";
+import Infosection from "./components/Infosection";
 
-import Register from "./components/auth/register/Register"
-import Login from "./components/auth/login/Login"
-import ServiceSection from "./components/ServiceSection"
+import Register from "./components/auth/register/Register";
+import Login from "./components/auth/login/Login";
+import ServiceSection from "./components/ServiceSection";
 
-import ContactWithUs from "./components/contactPages/ContactWithUs"
+import ContactWithUs from "./components/contactPages/ContactWithUs";
+import AboutUs from "./components/aboutUs/AboutUs";
+import WindowGallery from "./components/galery/WindowGallery";
+import CreateImg from "./components/galery/CreateImg";
+import ImageDetails from "./components/galery/ImageDetails"
 
-
-import AboutUs from "./components/aboutUs/AboutUs"
-import ClientSection from "./components/clientComments/ClientSection"
-import WindowGallery from "./components/galery/WindowGallery"
-// import PatioGallery from "./components/galery/PatioGallery"
-
-import CreateImg from "./components/galery/CreateImg"
 
 function App() {
-  // const [count, setCount] = useState(0)
-
   return (
-    <>
-
-      <HeaderArea />
-      <Homepage />
-      
-      <ClientSection/>
-
-      {/* <PatioGallery/> */}
-      <AboutUs/>
-      <WindowGallery/>
-      <Login />
-      <Register />
-      <CreateImg />
-      
-      <ServiceSection />
-      <ContactWithUs/>
-      
+    <Router>
+      <HeaderArea />  {/* Поставете HeaderArea тук, извън Routes */}
+      <Routes>
+        <Route path="/" element={<Homepage />} />
+        <Route path="/about" element={<AboutUs />} />
+        <Route path="/gallery" element={<WindowGallery />} />
+        <Route path="/photo-details/:id" element={<ImageDetails />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/logout" />
+        <Route path="/createImg" element={<CreateImg />} />
+        <Route path="/services" element={<ServiceSection />} />
+        <Route path="/contact" element={<ContactWithUs />} />
+      </Routes>
       <Infosection />
       <Footerpage />
-
-    </>
-  )
+    </Router>
+  );
 }
 
-export default App
+export default App;

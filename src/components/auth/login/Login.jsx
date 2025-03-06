@@ -1,33 +1,8 @@
-// export default function Login() {
-//     return (
-//         <>
-//             <div className="login-center">
-//                 <form className="login" method="POST">
 
-//                     <h2>Login</h2>
 
-//                     <div className="field">
-//                         <label htmlFor="username">Email</label>
-//                         <input type="email" name="email" id="email-login" placeholder="Email" />
-//                         <span className="help-info">example: iviave@abv.bg</span>
-//                     </div>
-
-//                     <div className="field">
-//                         <label htmlFor="password">Password</label>
-//                         <input type="password" name="password" id="password-login" placeholder="Password" />
-//                         <span className="help-info">minimum 6 characters, letters and numbers, at least 1 special character</span>
-//                     </div>
-
-//                     <button className="btn-reg-log">Login</button>
-//                     <p className="login">No have an account yet? <a href="/register">Register here</a></p>
-//                 </form>
-//             </div>
-//         </>
-
-//     )
-// }
 
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom"; 
 import { Parse } from "../../../parse";
 
 export default function Login() {
@@ -38,19 +13,21 @@ export default function Login() {
 
   const [message, setMessage] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
-  
+  const navigate = useNavigate(); 
+
   useEffect(() => {
     const checkSession = async () => {
       try {
         const currentUser = Parse.User.current();
         if (currentUser) {
           setMessage(`Welcome, ${currentUser.get("username")}!`);
+          navigate("/gallery"); 
         } else {
-          
           const sessionToken = localStorage.getItem("sessionToken");
           if (sessionToken) {
             const user = await Parse.User.become(sessionToken);
             setMessage(`Welcome, ${user.get("username")}!`);
+            navigate("/gallery"); 
           }
         }
       } catch (error) {
@@ -59,7 +36,7 @@ export default function Login() {
     };
 
     checkSession();
-  }, []);
+  }, [navigate]); 
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -69,20 +46,19 @@ export default function Login() {
     e.preventDefault();
 
     try {
-      const user = await Parse.User.logIn(formData.email, formData.password);
-      setMessage(`Welcome, ${user.get("username")}!`);
-
+      
+      const loggedUser = await Parse.User.logIn(formData.email, formData.password);
+      setMessage(`Welcome, ${loggedUser.get("username")}!`);
+      
+      
       if (rememberMe) {
-        // Safe for second log for current user
-        localStorage.setItem("sessionToken", user.getSessionToken());
+        localStorage.setItem("sessionToken", loggedUser.getSessionToken());
       }
+
+      navigate("/gallery"); 
     } catch (error) {
       setMessage("Error: " + error.message);
     }
-  };
-
-  const handleRememberMeChange = (e) => {
-    setRememberMe(e.target.checked);
   };
 
   return (
@@ -113,7 +89,7 @@ export default function Login() {
             value={formData.password}
             onChange={handleChange}
           />
-          <span className="help-info">minimum 6 characters, letters and numbers, at least 1 special character</span>
+          <span className="help-info">Minimum 6 characters, letters and numbers, at least 1 special character</span>
         </div>
 
         <div className="field-check">
@@ -121,7 +97,7 @@ export default function Login() {
             <input
               type="checkbox"
               checked={rememberMe}
-              onChange={handleRememberMeChange}
+              onChange={(e) => setRememberMe(e.target.checked)}
             />
             Remember Me
           </label>
@@ -129,10 +105,12 @@ export default function Login() {
 
         <button className="btn-reg-log" type="submit">Login</button>
         <p className="login">
-          No have an account yet? <a href="/register">Register here</a>
+          No account yet? <a href="/register">Register here</a>
         </p>
         {message && <p className="message">{message}</p>}
       </form>
     </div>
   );
 }
+
+
