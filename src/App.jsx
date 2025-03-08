@@ -2,11 +2,11 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // п
 import HeaderArea from "./components/header/header";
 import Homepage from "./components/home/Homepage";
 import Footerpage from "./components/footer/Footerpage";
-import Infosection from "./components/Infosection";
+import Infosection from "./components/footer/Infosection";
 
 import Register from "./components/auth/register/Register";
 import Login from "./components/auth/login/Login";
-import ServiceSection from "./components/ServiceSection";
+import ServiceSection from "./components/services/ServiceSection";
 
 import ContactWithUs from "./components/contactPages/ContactWithUs";
 import AboutUs from "./components/aboutUs/AboutUs";

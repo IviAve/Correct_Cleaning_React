@@ -1,3 +1,6 @@
+
+
+
 export default function ServiceSection () {
     return (
         
@@ -12,15 +15,20 @@ export default function ServiceSection () {
         <div className="col-sm-6 col-md-4 mx-auto">
           <div className="box ">
             <div className="img-box">
-              <img src="images/s1.png" alt="" />
+              
+             <img src="./images/window-cleaning.png" alt="" />
+
+
             </div>
             <div className="detail-box">
               <h5>
-                Maintenance
+                Windows Claening
               </h5>
               <p>
-                when looking at its layout. The point of using Lorem Ipsum is
-                that it has a more-or-less normal
+                Windows,shutters and screen claning.
+              </p>
+              <p>
+              window frames.
               </p>
             </div>
           </div>
@@ -28,15 +36,16 @@ export default function ServiceSection () {
         <div className="col-sm-6 col-md-4 mx-auto">
           <div className="box ">
             <div className="img-box">
-              <img src="images/s2.png" alt="" />
+              
+              <img src="./images/upholstery.png" alt="" />
+    
             </div>
             <div className="detail-box">
               <h5>
-                Electrical
+                Upholstery Cleaning
               </h5>
               <p>
-                when looking at its layout. The point of using Lorem Ipsum is
-                that it has a more-or-less normal
+                Cleaning sofas,chair,mattresses,leather,carpet/rug cleaning etc.
               </p>
             </div>
           </div>
@@ -44,15 +53,14 @@ export default function ServiceSection () {
         <div className="col-sm-6 col-md-4 mx-auto">
           <div className="box ">
             <div className="img-box">
-              <img src="images/s3.png" alt="" />
+              <img src="./images/cleaner.png" alt="" />
             </div>
             <div className="detail-box">
               <h5>
-                Plumbing
+                Patio Cleaning
               </h5>
               <p>
-                when looking at its layout. The point of using Lorem Ipsum is
-                that it has a more-or-less normal
+              Jet & Patio Cleaning.Professional Cleaning of Outdoor Spaces.
               </p>
             </div>
           </div>

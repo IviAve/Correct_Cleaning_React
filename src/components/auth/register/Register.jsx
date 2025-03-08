@@ -193,6 +193,7 @@ export default function Register() {
   };
 
   return (
+    
     <div className="login-center">
       <form className="login" onSubmit={handleSubmit}>
         <h2>Register</h2>
@@ -255,5 +256,6 @@ export default function Register() {
         {message && <p className="message">{message}</p>}
       </form>
     </div>
+    
   );
 }

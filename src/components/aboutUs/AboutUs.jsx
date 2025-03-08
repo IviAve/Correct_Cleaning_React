@@ -12,7 +12,7 @@ export default function AboutUs () {
               About us
             </h2>
             <p>
-              There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomisedThere are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised
+            We are a professional cleaning company specializing in window cleaning, carpet washing, and patio cleaning. Our expert team ensures spotless windows, fresh and sanitized carpets, and a perfectly clean outdoor space. We use high-quality products and eco-friendly methods for the best results. Book your cleaning today and enjoy a spotless home or office!
             </p>
             <a href="">
               Read More

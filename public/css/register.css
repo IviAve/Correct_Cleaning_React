@@ -1,3 +1,5 @@
+
+
 form {
     width: 50ch;
     background: #fff;
@@ -9,6 +11,20 @@ form {
     text-align: center;
     
 }
+
+/* .login-center {
+    background-image: url('/images/fon1.jpg');
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    height: 100vh; 
+    margin: 0; 
+
+    
+
+    background-color: rgba(255, 255, 255, 0.3); 
+  background-blend-mode: lighten;
+  } */
 
 .login-center {
     margin: 20px;
