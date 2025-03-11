@@ -1,9 +1,11 @@
 
-
+import { Link } from "react-router";
 
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom"; 
 import { Parse } from "../../../parse";
+
+import styles from "./Login.module.css"
 
 export default function Login() {
   const [formData, setFormData] = useState({
@@ -63,11 +65,11 @@ export default function Login() {
 
   return (
     
-    <div className="login-center">
-      <form className="login" onSubmit={handleSubmit}>
+    <div className={styles.logincenter}>
+      <form className={styles.login} onSubmit={handleSubmit}>
         <h2>Login</h2>
 
-        <div className="field">
+        <div className={styles.field}>
           <label htmlFor="email">Email</label>
           <input
             type="email"
@@ -77,10 +79,10 @@ export default function Login() {
             value={formData.email}
             onChange={handleChange}
           />
-          <span className="help-info">example: iviave@abv.bg</span>
+          <span className={styles.helpinfo}>example: iviave@abv.bg</span>
         </div>
 
-        <div className="field">
+        <div className={styles.field}>
           <label htmlFor="password">Password</label>
           <input
             type="password"
@@ -90,10 +92,10 @@ export default function Login() {
             value={formData.password}
             onChange={handleChange}
           />
-          <span className="help-info">Minimum 6 characters, letters and numbers, at least 1 special character</span>
+          <span className={styles.helpinfo}>Minimum 6 characters, letters and numbers, at least 1 special character</span>
         </div>
 
-        <div className="field-check">
+        <div className={styles.fieldcheck}>
           <label>
             <input
               type="checkbox"
@@ -104,11 +106,11 @@ export default function Login() {
           </label>
         </div>
 
-        <button className="btn-reg-log" type="submit">Login</button>
+        <button className={styles.btnreglog} type="submit">Login</button>
         <p className="login">
-          No account yet? <a href="/register">Register here</a>
+          No account yet? <Link to="/register">Register here</Link>
         </p>
-        {message && <p className="message">{message}</p>}
+        {message && <p className={styles.message}>{message}</p>}
       </form>
     </div>
   );

@@ -1,4 +1,5 @@
 
+
 form {
     width: 50ch;
     background: #fff;
@@ -11,7 +12,6 @@ form {
     
 }
 
-
 /* .login-center {
     background-image: url('/images/fon1.jpg');
     background-size: cover; 
@@ -20,13 +20,13 @@ form {
     height: 100vh; 
     margin: 0; 
 
-   
+    
 
     background-color: rgba(255, 255, 255, 0.3); 
   background-blend-mode: lighten;
   } */
-  
-.login-center {
+
+.logincenter {
     margin: 20px;
     display: flex;
     justify-content: center;
@@ -35,8 +35,7 @@ textarea,
 input[type="text"],
 input[type="email"],
 input[type="password"],
-select,
-.btn {
+.btnreglog {
     display: block;
     width: 100%;
     border: none;
@@ -51,8 +50,7 @@ select,
 textarea,
 input[type="text"],
 input[type="email"],
-input[type="password"],
-select {
+input[type="password"] {
     border-bottom: 2px solid #DDD;
     font-size: 1.2em;
     line-height: 1;
@@ -106,56 +104,10 @@ input[type="submit"]:hover {
 
 }
 
-.field .help-info {
+.field .helpinfo {
     display: block;
     font-style: italic;
     opacity: 0.5;
     line-height: 1;
     padding: 0.3em 0;
 }
-
-
-/* style for checkbox */
-
-/* Стайлинг за чекбокса */
-.field-check {
-    display: flex;
-    align-items: center;
-    margin-bottom: 1rem;
-  }
-  
-  .field-check label {
-    display: flex;
-    align-items: center;
-    font-size: 14px;
-  }
-  
-  .field-check input[type="checkbox"] {
-    width: 18px;
-    height: 18px;
-    margin-right: 8px;
-    accent-color: #0e6411; /* Зелена отметка при избран чекбокс */
-    cursor: pointer;
-  }
-  
-  .field-check input[type="checkbox"]:focus {
-    outline: none;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  .field-check input[type="checkbox"]:checked {
-    background-color: #4CAF50; /* Зелен фон за маркиран чекбокс */
-    border: 2px solid #4CAF50;
-  }
-  
-  /* Стайлинг за текста на чекбокса */
-  .field-check label span {
-    color: #333;
-    font-size: 14px;
-    cursor: pointer;
-  }
-  
-  .field-check label span:hover {
-    text-decoration: underline;
-  }
-  

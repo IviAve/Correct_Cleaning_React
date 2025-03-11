@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom'; // За достъп до параметрите на URL
-import { Parse } from '../../parse'; // Импортиране на Parse
+import { useParams } from 'react-router';
+import { Parse } from '../../parse'; 
 
 function PhotoDetails() {
-  const { id } = useParams(); // Вземаме ID-то от URL параметрите
+  const { id } = useParams(); 
   const [photo, setPhoto] = useState(null);
 
   useEffect(() => {
@@ -12,11 +12,11 @@ function PhotoDetails() {
       const query = new Parse.Query(Photo);
 
       try {
-        const photoObj = await query.get(id); // Вземаме снимката по ID
+        const photoObj = await query.get(id); 
         const photoData = {
           name: photoObj.get('added_by'),
           image: photoObj.get('imageUrl'),
-          service: photoObj.get('service'), // Допълнителна информация
+          service: photoObj.get('service'), 
         };
         setPhoto(photoData);
       } catch (error) {
@@ -25,7 +25,7 @@ function PhotoDetails() {
     };
 
     fetchPhotoDetails();
-  }, [id]); // Презарежда при промяна на ID-то в URL
+  }, [id]); 
 
   return (
     <div className="App">

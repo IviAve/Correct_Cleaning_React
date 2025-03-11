@@ -1,0 +1,27 @@
+.notFoundPageContainer {
+    text-align: center;
+  }
+  
+  .notFoundPageContainer p a {
+    color: #251a08;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .notFoundPageContainer p a:hover {
+    text-decoration: underline;
+  }
+  
+  .notFoundPageContainer h1 {
+    font-size: 200px;
+    color: rgba(51, 25, 167, 0.984);
+  }
+  
+  .notFoundPageContainer h2 {
+    font-size: 100px;
+  }
+  
+  .notFoundPageContainer > p {
+    margin-top: 2%;
+  }
+  

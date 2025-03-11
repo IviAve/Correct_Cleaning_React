@@ -1,6 +1,6 @@
 import ClientSection from "../clientComments/ClientSection";
 
-export default function Homepage () {
+export default function HomePage () {
     return(
         <>
     <div className="hero_area">
