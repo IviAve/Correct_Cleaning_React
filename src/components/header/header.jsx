@@ -196,7 +196,7 @@ export default function HeaderArea() {
                     <Link className="nav-link" to="/gallery">Gallery</Link>
                   </li>
                   <li className="nav-item">
-                    <Link className="nav-link" to="/services">Services</Link>
+                    <Link className="nav-link" to="/serviceSection">Services</Link>
                   </li>
                   <li className="nav-item">
                     <Link className="nav-link" to="/contact">Contact Us</Link>

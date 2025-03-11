@@ -1,6 +1,6 @@
 
 
-form {
+.login {
     width: 50ch;
     background: #fff;
     border-radius: 0.3em;
@@ -12,8 +12,8 @@ form {
     
 }
 
-/* .login-center {
-    background-image: url('/images/fon1.jpg');
+.logincenter {
+    background-image: url('https://res.cloudinary.com/duis9nbgc/image/upload/v1741701627/correct_cleaning/kd8o1ldx7abccaknvujg.jpg');
     background-size: cover; 
     background-position: center; 
     background-repeat: no-repeat; 
@@ -24,7 +24,7 @@ form {
 
     background-color: rgba(255, 255, 255, 0.3); 
   background-blend-mode: lighten;
-  } */
+  }
 
 .logincenter {
     margin: 20px;

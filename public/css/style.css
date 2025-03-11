@@ -656,72 +656,7 @@ a:focus {
   color: #ffffff;
 }
 
-.heading_container {
-  margin-bottom: 30px;
-}
 
-.contact_section input,
-.contact_section select  {
-  width: 100%;
-  border: none;
-  height: 50px;
-  margin-bottom: 25px;
-  padding-left: 25px;
-  background-color: #ffffff;
-  outline: none;
-  color: #0e0c0c;
-  -webkit-box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.2);
-          box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.2);
-}
-
-
-
-
-.contact_section input::-webkit-input-placeholder {
-  color: #737272;
-}
-
-.contact_section input:-ms-input-placeholder {
-  color: #737272;
-}
-
-.contact_section input::-ms-input-placeholder {
-  color: #737272;
-}
-
-.contact_section input::placeholder {
-  color: #737272;
-}
-
-.contact_section input.message-box {
-  height: 135px;
-}
-
-.contact_section button {
-  border: none;
-  display: inline-block;
-  font-family: 'Merriweather Sans', sans-serif;
-  text-transform: uppercase;
-  padding: 10px 55px;
-  background-color: #0355cc;
-  border: 1px solid #0355cc;
-  border-radius: 0;
-  color: #ffffff;
-  margin-top: 15px;
-}
-
-.contact_section button:hover {
-  background-color: transparent;
-  color: #0355cc;
-}
-
-.contact_section .map_container {
-  height: 360px;
-}
-
-.contact_section .map_container .map {
-  height: 100%;
-}
 
 .info_section {
   padding: 75px 0;

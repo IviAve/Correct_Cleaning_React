@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { Parse } from '../../parse'; 
+import { Link } from 'react-router';
 
 function PhotoDetails() {
   const { id } = useParams(); 
@@ -33,9 +34,19 @@ function PhotoDetails() {
       {photo ? (
         <div>
           <h2>Added by: {photo.name}</h2>
-          <img src={photo.image} alt={photo.name} style={{ width: '100%', maxHeight: '500px', objectFit: 'cover' }} />
+          <img src={photo.image} alt={photo.name} style={{ maxWidth: '300px', maxHeight: '400px', objectFit: 'cover' }} />
           <p>Service: {photo.service}</p>
+          <span className="buttonsAddDel">
+          <Link to='/' className="button">Edit</Link>
+                    <button
+                        
+                        className="buttonsAddDel"
+                    >
+                        Delete
+                    </button>
+          </span>
         </div>
+        
       ) : (
         <p>Loading photo details...</p>
       )}

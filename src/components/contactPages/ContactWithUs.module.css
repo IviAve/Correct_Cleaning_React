@@ -1,0 +1,249 @@
+
+  .heading_container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+            text-align: center;
+  }
+  
+  .heading_container h2 {
+    font-weight: bold;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    text-transform: uppercase;
+    font-family: 'Merriweather Sans', sans-serif;
+  }
+  
+  .heading_container p {
+    margin-bottom: 0;
+  }
+  
+  .heading_container.heading_center {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    text-align: center;
+  }
+  .contact_section input,
+  .contact_section select  {
+    width: 100%;
+    border: none;
+    height: 50px;
+    margin-bottom: 25px;
+    padding-left: 25px;
+    background-color: #ffffff;
+    outline: none;
+    color: #0e0c0c;
+    -webkit-box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.2);
+            box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.2);
+  }
+  
+  
+  
+  
+  .contact_section input::-webkit-input-placeholder {
+    color: #737272;
+  }
+  
+  .contact_section input:-ms-input-placeholder {
+    color: #737272;
+  }
+  
+  .contact_section input::-ms-input-placeholder {
+    color: #737272;
+  }
+  
+  .contact_section textarea::placeholder {
+    color: #737272;
+    padding-left: 20px;
+  }
+  
+  
+  
+  .contact_section button {
+    border: none;
+    display: inline-block;
+    font-family: 'Merriweather Sans', sans-serif;
+    text-transform: uppercase;
+    padding: 10px 55px;
+    background-color: #0355cc;
+    border: 1px solid #0355cc;
+    border-radius: 0;
+    color: #ffffff;
+    margin-top: 15px;
+  }
+  
+  .contact_section button:hover {
+    background-color: transparent;
+    color: #0355cc;
+  }
+  
+  /* .contact_section .map_container {
+    height: 360px;
+  } */
+  
+  
+  .contact_section .map_container .map {
+    height: 100%;
+  }
+
+
+  
+  @media (min-width: 576px) {
+    .container {
+      max-width: 540px;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .container {
+      max-width: 720px;
+    }
+  }
+  
+  @media (min-width: 992px) {
+    .container {
+      max-width: 960px;
+    }
+  }
+  
+  @media (min-width: 1200px) {
+    .container {
+      max-width: 1140px;
+    }
+  }
+
+  .row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+  }
+
+  .col_md_6 {
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+
+  @media (max-width: 600px) {
+    
+  
+    .col_md_6 {
+      width: 100%;
+    }
+  }
+
+
+
+.dflex {
+    display: -ms-flexbox !important;
+    display: flex !important;
+    justify-content: space-around;
+  }
+  
+  .map_container {
+    height: 430px;
+    padding: 10px;
+
+    .map {
+      height: 100%;
+    }
+  }
+
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px; /* Разстояние между колоните */
+  }
+  
+  .col_md_6 {
+    flex: 1; /* Автоматична ширина */
+    max-width: 48%; /* Ограничаваме да са почти 50% */
+  }
+  
+  @media (max-width: 600px) {
+    .row {
+      flex-direction: column;
+    }
+  
+    .col_md_6 {
+      max-width: 100%;
+    }
+  }
+  
+
+  .container {
+    width: 90%; /* За да не е плътно до ръбовете */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* .container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+  } */
+  
+  
+  .contact_section textarea.messagebox {
+    height: 150px;
+    resize: vertical;
+    text-align: start;
+    padding-top: 10px;
+    border: none;
+    width: 100%;
+    outline: none;
+    background-color: #ffffff;
+    box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.2);
+  }
+  
+  
+
+  .contact_section {
+    padding: 40px 0;
+  }
+  
+  .contact_section ,
+  .contact_section form {
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Лек ефект за разчупеност */
+    border-radius: 10px;
+    background: #fff;
+  }
+
+  .map {
+    
+    height: 500px;
+  }
+  
+
+  
+  .map iframe {
+    width: 100%; 
+    height: 100%; 
+    border-radius: 10px; 
+  }
+  
+  .name h2 {
+    margin-bottom: 30px;
+    margin-top: -50px;
+    text-align:center;
+  }
