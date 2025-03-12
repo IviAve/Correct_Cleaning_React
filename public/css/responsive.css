@@ -106,6 +106,9 @@
 
 
 @media (max-width: 600px) {
+    .navbar-brand img {
+        display: none;
+      }
     .row-service {
       display: flex;
       flex-direction: column;
@@ -116,7 +119,7 @@
         width: 100%;
     }
   
-    .col-md-6 {
+    .col_md_6 {
       width: 100%;
     }
   }

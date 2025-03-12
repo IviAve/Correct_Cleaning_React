@@ -1034,7 +1034,7 @@ pre code {
     flex: 0 0 41.666667%;
     max-width: 41.666667%;
   }
-  .col-md-6 {
+  .col_md_6 {
     -ms-flex: 0 0 50%;
     flex: 0 0 50%;
     max-width: 50%;
@@ -6749,10 +6749,7 @@ button.bg-dark:focus {
   display: table-cell !important;
 }
 
-.d-flex {
-  display: -ms-flexbox !important;
-  display: flex !important;
-}
+
 
 .d-inline-flex {
   display: -ms-inline-flexbox !important;

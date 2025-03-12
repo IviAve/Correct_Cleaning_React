@@ -17,8 +17,8 @@
     background-size: cover; 
     background-position: center; 
     background-repeat: no-repeat; 
-    height: 100vh; 
-    margin: 0; 
+    /* height: 100vh; 
+    margin: 0;  */
 
    
 
@@ -117,7 +117,7 @@ input[type="submit"]:hover {
 
 /* style for checkbox */
 
-/* Стайлинг за чекбокса */
+
 .fieldcheck {
     display: flex;
     align-items: center;
@@ -134,7 +134,7 @@ input[type="submit"]:hover {
     width: 18px;
     height: 18px;
     margin-right: 8px;
-    accent-color: #0e6411; /* Зелена отметка при избран чекбокс */
+    accent-color: #0e6411; 
     cursor: pointer;
   }
   
@@ -144,11 +144,11 @@ input[type="submit"]:hover {
   }
   
   .fieldcheck input[type="checkbox"]:checked {
-    background-color: #4CAF50; /* Зелен фон за маркиран чекбокс */
+    background-color: #4CAF50; 
     border: 2px solid #4CAF50;
   }
   
-  /* Стайлинг за текста на чекбокса */
+  
   .fieldcheck label span {
     color: #333;
     font-size: 14px;

@@ -86,7 +86,7 @@ a:focus {
 /*header section*/
 .hero_area {
   position: relative;
-  background-color: #d1e3ff;
+  background-color: #d1e7ff;
 }
 
 .header_section .container-fluid {
@@ -330,9 +330,46 @@ a:focus {
   color: #320bc0;
 }
 
-.slider_section .img-box img {
-  width: 100%;
+/* .slider_section .img-home img {
+  width: 400px;
+  height: 600px;
+  padding-top: 50px;
+} */
+.container-home {
+  display: flex;
+  justify-content: center; /* Центрира изображението хоризонтално */
+  align-items: center; /* Центрира изображението вертикално */
+  width: 500px; /* Регулирай ширината според нуждите */
+  height: 400px; /* Регулирай височината според нуждите */
+  
+  border-radius: 20px; /* Леко заоблени ъгли */
+  overflow: hidden; /* Предотвратява преливане на изображението */
+  padding: 10px; /* Малък вътрешен отстъп */
 }
+
+.img-home {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  margin-left: 40px;
+}
+.img-home img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Запазва пропорциите без изрязване */
+  border-radius: 15px; /* Леко заобляне на снимката, за да съвпада с контейнера */
+}
+
+
+
+
+
+
+
+
 
 .feature_section {
   -webkit-transform: translateY(-50%);
@@ -818,15 +855,15 @@ a:focus {
 .bootstrap-datetimepicker-widget table td.today::before {
   border-bottom-color: var(--primary);
 }
-
+main {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
 
 /* login css */
 
-main {
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-}
+/* 
 
 .login-form {
     background: #333;
@@ -874,11 +911,11 @@ main {
 
 .signup a {
     color: #4CAF50;
-}
+} */
 
 /* register css */
 
-.register-form {
+/* .register-form {
   background: #333;
   padding: 20px;
   border-radius: 8px;
@@ -926,6 +963,8 @@ main {
   color: #4CAF50;
 }
 
+ */
+
  #home-text p {
   color: #444;
   font-size: 25px;
@@ -933,8 +972,6 @@ main {
 #home-h1 h1 {
   font-size: 50px;
 }
-
-
 
 .dropdown-menu {
   position: absolute;

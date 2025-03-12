@@ -1,0 +1,159 @@
+
+.login {
+  width: 50ch;
+  background: #fff;
+  border-radius: 0.3em;
+  padding: 2em 2.5em;
+  box-shadow: 0 0 0.5em 0 rgb(0,0,0,0.1);
+  
+  
+  text-align: center;
+  
+}
+
+
+.logincenter {
+  background-image: url('https://res.cloudinary.com/duis9nbgc/image/upload/v1741701628/correct_cleaning/c4pczdbak3kcxu5aselj.jpg');
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat; 
+  /* height: 100vh; 
+  margin: 0;  */
+
+ 
+
+  background-color: rgba(255, 255, 255, 0.3); 
+background-blend-mode: lighten;
+}
+
+.logincenter {
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+}
+textarea,
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select,
+.btnreglog {
+  display: block;
+  width: 100%;
+  border: none;
+  padding: 0.8em 0;
+  outline: none;
+
+  &::placeholder {
+      color: transparent;
+  }
+}
+
+textarea,
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select {
+  border-bottom: 2px solid #DDD;
+  font-size: 1.2em;
+  line-height: 1;
+  
+  &:focus {
+      border-color: orange;
+  }
+}
+
+input[type="submit"] {
+  cursor: pointer;
+  border-radius: 0.3em;
+  margin-top: 2em;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+input[type="submit"]:focus,
+input[type="submit"]:hover {
+  background: darkorange;
+  color: #fff;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  
+  padding: 1em 0;
+  position: relative;
+}
+
+.field label {
+  display: block;
+  font-weight: bold;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition:
+      translate 0.3s ease-in-out,
+      opacity 0.3s ease-in-out
+  ;
+  opacity: 0.7;
+}
+.field:has(input:focus) label {
+  color: darkorange;
+  opacity: 1;
+}
+
+.field:has(input:placeholder-shown) label {
+  translate: 0 1.8em;
+
+}
+
+.field .helpinfo {
+  display: block;
+  font-style: italic;
+  opacity: 0.5;
+  line-height: 1;
+  padding: 0.3em 0;
+}
+
+
+/* style for checkbox */
+
+.fieldcheck {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.fieldcheck label {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+
+.fieldcheck input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin-right: 8px;
+  accent-color: #0e6411; 
+  cursor: pointer;
+}
+
+.fieldcheck input[type="checkbox"]:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.fieldcheck input[type="checkbox"]:checked {
+  background-color: #4CAF50; 
+  border: 2px solid #4CAF50;
+}
+
+
+.fieldcheck label span {
+  color: #333;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.fieldcheck label span:hover {
+  text-decoration: underline;
+}

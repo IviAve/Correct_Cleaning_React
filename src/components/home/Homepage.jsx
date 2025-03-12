@@ -7,7 +7,7 @@ export default function HomePage () {
       <section className="slider_section ">
         <div className="container ">
           <div className="row">
-            <div className="col-md-6 ">
+            <div className="col_md_6 ">
               <div className="detail-box">
                 <div id="home-h1">
                 <h1>
@@ -26,9 +26,9 @@ export default function HomePage () {
                 <a href="/contact">Contact Us</a>
               </div>
             </div>
-            <div className="col-md-6">
-              <div className="img-box">
-                <img src="images/cc_tapp2.jpg" alt="" />
+            <div className="container-home">
+              <div className="img-home">
+                <img src="/images/fon1.jpg" alt="no_image" />
               </div>
             </div>
           </div>

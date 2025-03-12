@@ -11,7 +11,7 @@ import ServiceSection from "./components/serviceSection/ServiceSection";
 import ContactWithUs from "./components/contactPages/ContactWithUs";
 import AboutUs from "./components/aboutUs/AboutUs";
 import WindowGallery from "./components/galery/WindowGallery";
-import CreateImg from "./components/galery/CreateImg";
+import CreateImg from "./components/galery/CreateImg/CreateImg";
 import ImageDetails from "./components/galery/ImageDetails"
 import Page404 from './components/Page-404/Page-404';
 
