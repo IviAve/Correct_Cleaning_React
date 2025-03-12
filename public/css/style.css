@@ -4,12 +4,23 @@ body {
   color: #040000;
 }
 
+.test {
+  margin-top: -60px;
+  padding-top: -50px;
+}
 
+.body {
+  background: #d1e7ff;
+}
 .hero_area {
   position: relative;
   background-color: #d1e3ff;
 }
-
+.header_bottom {
+  padding: 10px 0;
+  background: #90d7ff;
+  
+}
 
 .layout_padding {
   padding-top: 120px;

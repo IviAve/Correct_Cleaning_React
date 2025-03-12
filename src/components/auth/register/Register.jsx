@@ -66,7 +66,7 @@ export default function Register() {
             type="text"
             id="username"
             name="username"
-            placeholder="Username"
+            placeholder=""
             value={formData.username}
             onChange={handleChange}
           />
@@ -79,7 +79,7 @@ export default function Register() {
             type="email"
             id="email"
             name="email"
-            placeholder="Email"
+            placeholder=""
             value={formData.email}
             onChange={handleChange}
           />
@@ -92,7 +92,7 @@ export default function Register() {
             type="password"
             id="password"
             name="password"
-            placeholder="Password"
+            placeholder=""
             value={formData.password}
             onChange={handleChange}
           />
@@ -105,7 +105,7 @@ export default function Register() {
             type="password"
             id="confirm-password"
             name="rePassword"
-            placeholder="Re-Password"
+            placeholder=""
             value={formData.rePassword}
             onChange={handleChange}
           />

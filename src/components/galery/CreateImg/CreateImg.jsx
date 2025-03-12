@@ -53,7 +53,7 @@ function CreateImg() {
             <label htmlFor="username">Added By</label>
             <input
               type="text"
-              placeholder="username"
+              placeholder=""
               value={addedBy}
               onChange={(e) => setAddedBy(e.target.value)}
               required
@@ -79,7 +79,7 @@ function CreateImg() {
             <label htmlFor="imageUrl">Your Image URL</label>
             <input
               type="text"
-              placeholder="Image URL"
+              placeholder=""
               value={imageUrl}
               onChange={(e) => setImageUrl(e.target.value)}
               required

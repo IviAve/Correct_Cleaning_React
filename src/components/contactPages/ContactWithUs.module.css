@@ -11,6 +11,7 @@
         -ms-flex-align: start;
             align-items: flex-start;
             text-align: center;
+            
   }
   
   .heading_container h2 {
@@ -35,6 +36,11 @@
             align-items: center;
     text-align: center;
   }
+
+  .contact_section {
+    background: #d1e7ff;
+  }
+  
   .contact_section input,
   .contact_section select  {
     width: 100%;
@@ -53,19 +59,19 @@
   
   
   .contact_section input::-webkit-input-placeholder {
-    color: #737272;
+    color: #706d6d;
   }
   
   .contact_section input:-ms-input-placeholder {
-    color: #737272;
+    color: #706d6d;
   }
   
   .contact_section input::-ms-input-placeholder {
-    color: #737272;
+    color: #706d6d;
   }
   
-  .contact_section textarea::placeholder {
-    color: #737272;
+  .contact_section ::placeholder {
+    color: #706d6d;
     padding-left: 20px;
   }
   
@@ -257,4 +263,8 @@
     margin-bottom: 30px;
     margin-top: -50px;
     text-align:center;
+  }
+
+  input ::placeholder {
+color:rgba(0, 0, 0, 0.1)
   }

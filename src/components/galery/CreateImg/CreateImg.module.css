@@ -43,9 +43,9 @@ select,
   padding: 0.8em 0;
   outline: none;
 
-  &::placeholder {
+  /* &::placeholder {
       color: transparent;
-  }
+  } */
 }
 
 textarea,

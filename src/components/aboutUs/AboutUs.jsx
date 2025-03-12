@@ -3,10 +3,13 @@ export default function AboutUs () {
         
         
 
-       <section className="about_section layout_padding-bottom">
+       <section className="about_section ">
+        <div className="test">
     <div className="container">
       <div className="row">
+        
         <div className="col-lg-5 col-md-6">
+          
           <div className="detail-box">
             <h2>
               About us
@@ -23,6 +26,7 @@ export default function AboutUs () {
           <div className="img-box">
             <img src="images/logo.jpg" alt=""/>
           </div>
+        </div>
         </div>
       </div>
     </div>

@@ -75,7 +75,7 @@ export default function Login() {
             type="email"
             name="email"
             id="email-login"
-            placeholder="Email"
+            placeholder=""
             value={formData.email}
             onChange={handleChange}
           />
@@ -88,7 +88,7 @@ export default function Login() {
             type="password"
             name="password"
             id="password-login"
-            placeholder="Password"
+            placeholder=""
             value={formData.password}
             onChange={handleChange}
           />
