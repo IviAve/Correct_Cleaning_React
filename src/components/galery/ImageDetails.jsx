@@ -29,8 +29,9 @@ function PhotoDetails() {
   }, [id]); 
 
   return (
-    <div className="App">
+    <div className="App-gallery">
       <h1>Photo Details</h1>
+      <div className="photo-gallery">
       {photo ? (
         <div>
           <h2>Added by: {photo.name}</h2>
@@ -50,6 +51,7 @@ function PhotoDetails() {
       ) : (
         <p>Loading photo details...</p>
       )}
+      </div>
     </div>
   );
 }
