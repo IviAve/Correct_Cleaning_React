@@ -40,7 +40,7 @@ function PhotoDetails() {
           <Link to='/' className="button">Edit</Link>
                     <button
                         
-                        className="buttonsAddDel"
+                        className="button secondary"
                     >
                         Delete
                     </button>
