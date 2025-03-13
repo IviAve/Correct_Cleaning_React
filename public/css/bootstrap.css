@@ -60,7 +60,10 @@ body {
   line-height: 1.5;
   color: #212529;
   text-align: left;
-  background-color: #fff;
+  /* background-color: #d1e7ff; */
+  background: linear-gradient(to right, 
+  #90d7ff 0%, #d1e7ff  50%, 
+        lightblue 100%);
 }
 
 [tabindex="-1"]:focus {
@@ -546,6 +549,7 @@ pre code {
 }
 
 .container {
+  
   width: 100%;
   padding-right: 15px;
   padding-left: 15px;
@@ -596,6 +600,15 @@ pre code {
   margin-top: 60px;
 }
 
+.row-info-section {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+  
+}
 .no-gutters {
   margin-right: 0;
   margin-left: 0;

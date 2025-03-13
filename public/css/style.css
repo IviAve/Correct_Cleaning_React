@@ -9,13 +9,7 @@ body {
   padding-top: -50px;
 }
 
-.body {
-  background: #d1e7ff;
-}
-.hero_area {
-  position: relative;
-  background-color: #d1e3ff;
-}
+
 .header_bottom {
   padding: 10px 0;
   background: #90d7ff;
@@ -97,7 +91,7 @@ a:focus {
 /*header section*/
 .hero_area {
   position: relative;
-  background-color: #d1e7ff;
+  /* background-color: #d1e7ff; */
 }
 
 .header_section .container-fluid {
@@ -707,7 +701,7 @@ a:focus {
 
 
 .info_section {
-  padding: 75px 0;
+  padding: 15px 0;
   background-color: #0a0f43;
   text-align: center;
   color: #fff;
@@ -821,7 +815,7 @@ a:focus {
 
 .footer_section p {
   margin: 0;
-  padding: 25px 0;
+  padding: 15px 0;
   color: #ffffff;
   text-align: center;
   border-top: 0.8px solid #ffffff;
@@ -1008,4 +1002,13 @@ main {
 
 .dropdown-toggle {
   cursor: pointer;
+}
+
+.container-footer {
+  width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    
 }

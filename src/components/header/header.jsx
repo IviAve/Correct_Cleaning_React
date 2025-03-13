@@ -145,9 +145,12 @@ export default function HeaderArea() {
         <div className="header_top">
           <div className="container-fluid">
             <div className="contact_nav">
-              <Link to="/">
-                <i className="fa fa-building" aria-hidden="true"></i>
-                <span>Correct Cleaning</span>
+              <Link to="/serviceSection">
+                {/* <i className="fa fa-building" aria-hidden="true"></i> */}
+                {/* <i className="fas fa-border-all" aria-hidden="true"></i> */}
+                <i className="fas fa-hand-sparkles"></i> 
+                {/* <i className="fas fa-window-maximize"></i> */}
+                <span>Ours Services</span>
               </Link>
               <Link to={user ? "/profile" : "/login"}>
                 <i className="fa fa-user" aria-hidden="true"></i>
@@ -195,9 +198,9 @@ export default function HeaderArea() {
                   <li className="nav-item">
                     <Link className="nav-link" to="/gallery">Gallery</Link>
                   </li>
-                  <li className="nav-item">
+                  {/* <li className="nav-item">
                     <Link className="nav-link" to="/serviceSection">Services</Link>
-                  </li>
+                  </li> */}
                   <li className="nav-item">
                     <Link className="nav-link" to="/contact">Contact Us</Link>
                   </li>
