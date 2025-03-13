@@ -148,9 +148,10 @@ export default function HeaderArea() {
               <Link to="/serviceSection">
                 {/* <i className="fa fa-building" aria-hidden="true"></i> */}
                 {/* <i className="fas fa-border-all" aria-hidden="true"></i> */}
-                <i className="fas fa-hand-sparkles"></i> 
+                {/* <i className="fas fa-hand-sparkles"></i>  */}
                 {/* <i className="fas fa-window-maximize"></i> */}
-                <span>Ours Services</span>
+                <img src="/images/logo1.png" alt="no image" />
+                
               </Link>
               <Link to={user ? "/profile" : "/login"}>
                 <i className="fa fa-user" aria-hidden="true"></i>
@@ -166,11 +167,11 @@ export default function HeaderArea() {
             <nav className="navbar navbar-expand-lg custom_nav-container">
               <Link className="navbar-brand" to="/">
                 <span>
-                  <img
-                    src="images/logo.jpg"
+                  {/* <img
+                    src="images/logobezfon.png"
                     alt="Logo"
                     style={{ width: "60px", height: "40px", marginRight: "8px", marginLeft: "0.2px" }}
-                  />
+                  /> */}
                   Correct Cleaning
                 </span>
               </Link>
