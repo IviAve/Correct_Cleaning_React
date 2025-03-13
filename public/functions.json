@@ -1,0 +1,9 @@
+{
+    "routes": [
+      {
+        "pattern": "/*",
+        "destination": "/index.html"
+      }
+    ]
+  }
+  
