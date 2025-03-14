@@ -200,6 +200,9 @@ export default function HeaderArea() {
                     <Link className="nav-link" to="/gallery">Gallery</Link>
                   </li>
                   <li className="nav-item">
+                    <Link className="nav-link" to="/galery">Ours Gallery</Link>
+                  </li>
+                  <li className="nav-item">
                     <Link className="nav-link" to="/serviceSection">Services</Link>
                   </li>
                   <li className="nav-item">
@@ -214,6 +217,9 @@ export default function HeaderArea() {
 
                       <li className="nav-item">
                         <Link className="nav-link" to="/CreateImg">Add Image</Link>
+                      </li>
+                      <li className="nav-item">
+                        <Link className="nav-link" to="/AddComment">Add Comment</Link>
                       </li>
                       <li className="nav-item">
                         <button className="nav-link btn btn-link" onClick={handleLogout}>

@@ -1,17 +1,19 @@
 import styles from "./Page-404.module.css";
-import { Link } from "react-router-dom"; // Ако използваш React Router
+
+
+import { Link } from "react-router"; 
 
 export default function Page404() {
   return (
-    <section id="not-found-page" className={styles.notFoundPageContainer}>
-      <div>
-        <h1>404</h1>
-        <h2>Page Not Found</h2>
-        <p>Let&apos;s go <Link to="/">home</Link> and try from there.</p>
-      </div>
-    </section>
-  );
+    <>
+      <section >
+  <div className={styles.notFoundPageContainer}>
+      <h1>404</h1>
+      <h2>Page Not Found</h2>
+      <p>Let&#39;s go <Link to="/home">home</Link> and try from there.</p>
+  </div>
+</section>
+      
+    </>
+  )
 }
-
-
-

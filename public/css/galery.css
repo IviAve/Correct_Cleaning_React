@@ -27,4 +27,53 @@
     display: block;
   }
 
+  /* Navbar.css */
+.gal-navbar { 
+
+    background-color: lightblue;
+    padding: 10px 0;          
+    display: block;            
+    text-align: center;    
+    margin: 0 auto;           
+    width: fit-content;   
+  }
   
+
+/* CSS за центриране на h1 и p */
+.center-contents {
+  display: flex; /* Използваме Flexbox за центриране */
+  flex-direction: column; /* Центрираме елементите вертикално */
+  justify-content: center; /* Центриране по вертикала */
+  align-items: center; /* Центриране по хоризонтала */
+  
+  text-align: center; /* Центриране на текста в елементите */
+}
+
+.center-contents h1, .center-content p {
+  margin: 10px 0; /* Разстояние между заглавието и параграфа */
+}
+
+
+.gal-navbar-links {
+  list-style: none; /* премахване на стандартните булети */
+  padding: 0;
+  margin: 0;
+  display: flex; /* използваме Flexbox за центриране на линковете */
+  justify-content: center; /* центрираме по хоризонтала */
+}
+
+.gal-navbar-links li {
+  margin: 0 20px; /* разстояние между линковете */
+}
+
+.gal-navbar-links a {
+  text-decoration: none; /* премахваме подчертаването по подразбиране */
+  font-size: 18px; /* големина на текста */
+  font-weight: bold; /* удебелен текст */
+  color: #333; /* тъмен цвят на текста */
+  transition: color 0.3s ease; /* плавен преход на цвета при hover */
+}
+
+.gal-navbar-links a:hover {
+  color: #1e90ff; /* светлосин цвят при hover */
+}
