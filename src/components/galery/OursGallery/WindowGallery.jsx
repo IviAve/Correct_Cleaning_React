@@ -86,9 +86,9 @@ export default function WindowGallery() {
       </div>
       <nav className="gal-navbar">
   <ul className="gal-navbar-links">
-    <li><Link to="/WindowGallery">Window Gallery</Link></li>
+    <li><Link to="/gallery/WindowGallery">Window Gallery</Link></li>
     <li><Link to="/gallery/PatioGallery">Patio Gallery</Link></li>
-    <li><Link to="/FurnitureCleanGallery">Furniture Gallery</Link></li>
+    <li><Link to="/gallery/FurnitureCleanGallery">Furniture Gallery</Link></li>
   </ul>
 </nav>
       <div className="App-gallery">
