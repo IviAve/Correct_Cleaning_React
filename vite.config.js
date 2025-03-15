@@ -10,9 +10,13 @@ export default defineConfig({
     react(),
     viteStaticCopy({
       targets: [{ src: 'public/_redirects', dest: '' }]
-    })
+    }),
+    
 
   ],
+  "rules": {
+      "react/prop-types": 0
+    },
   server:{
     port:3001,
   },

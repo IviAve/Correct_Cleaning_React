@@ -16,6 +16,8 @@ import ImageDetails from "./components/galery/ImageDetails"
 import Page404 from './components/Page-404/Page-404';
 import OursGallery from './components/galery/Gallery';
 import AddComment from './components/clientComments/AddComment';
+import PatioGallery from './components/galery/OursGallery/PatioGallery';
+import FurnitureCleanGallery from './components/galery/OursGallery/FurnitureCleanGallery';
 
 
 // import '../public/css/styles.css'
@@ -26,8 +28,11 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutUs />} />
-        <Route path="/galery" element={<OursGallery/>}/>
-        <Route path="/gallery" element={<WindowGallery />} />
+        <Route path="/gallery" element={<OursGallery/>}/>
+        <Route path="/gallery/PatioGallery" element={<PatioGallery/>}/>
+
+        <Route path="/gallery/WindowGallery" element={<WindowGallery />} />
+        <Route path="/gallery/FurnitureCleanGallery" element={<FurnitureCleanGallery />} />
         <Route path="/photo-details/:id" element={<ImageDetails />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
