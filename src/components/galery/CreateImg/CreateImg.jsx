@@ -27,10 +27,10 @@ function CreateImg() {
       const newPhoto = new Photo();
       newPhoto.set('added_by', addedBy);
       newPhoto.set('imageUrl', imageUrl);
-      newPhoto.set('service', selectedService); // Запазваме избраната услуга
+      newPhoto.set('service', selectedService); 
       await newPhoto.save();
 
-      // Изчистваме полетата след успешен запис
+      
       setAddedBy('');
       setImageUrl('');
       setSelectedService('');

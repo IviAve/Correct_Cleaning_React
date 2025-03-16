@@ -1,7 +1,7 @@
 
 
 import { useState } from "react";
-import { useNavigate } from "react-router-dom"; // Import useNavigate
+import { useNavigate } from "react-router"; 
 import { Parse } from '../../../services/parse';
 import { Link } from "react-router";
 
@@ -16,7 +16,7 @@ export default function Register() {
   });
 
   const [message, setMessage] = useState("");
-  const navigate = useNavigate(); // Initialize navigate
+  const navigate = useNavigate(); 
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -36,18 +36,18 @@ export default function Register() {
     user.set("password", formData.password);
 
     try {
-      // Sign up the user
+      
       await user.signUp();
 
-      // Log the user in immediately after successful registration
+      
       const loggedUser = await Parse.User.logIn(formData.username, formData.password);
 
-      // Save session token to localStorage
+      
       localStorage.setItem("sessionToken", loggedUser.getSessionToken());
 
       setMessage("Registration successful.");
       
-      // Redirect to the gallery page
+      
       navigate("/gallery");
     } catch (error) {
       setMessage("Error: " + error.message);

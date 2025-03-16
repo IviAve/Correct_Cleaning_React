@@ -14,12 +14,12 @@ export default function ContactWithUs() {
       .sendForm("service_pggvp4y", "template_rcqxxlo", form.current, "F3XLGzUzBVnvo88iO")
       .then(
         (result) => {
-          console.log("Имейл изпратен успешно!", result.text);
-          alert("Имейлът е изпратен!");
+          console.log("Email sent!", result.text);
+          alert("Email sent successfully!");
         },
         (error) => {
-          console.log("Грешка при изпращане:", error.text);
-          alert("Грешка при изпращането.");
+          console.log("Error sending:", error.text);
+          alert("Error sending.");
         }
       );
 
@@ -72,7 +72,7 @@ export default function ContactWithUs() {
 
           <div className={styles.col_md_6}>
             <div className={styles.name}>
-              <h2>Нашето местоположение</h2>
+              <h2>Our location</h2>
             </div>
             <div className={styles.map_container}>
               <div className={styles.map}>

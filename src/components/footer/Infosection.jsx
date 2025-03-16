@@ -43,7 +43,7 @@ export default function Infosection () {
                         <i className="fa fa-envelope" aria-hidden="true"></i>
                       </div>
                       <p>
-                        demo@gmail.com
+                        correctcleaningbg@gmail.com
                       </p>
                     </div>
                   </a>

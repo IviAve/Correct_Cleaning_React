@@ -10,11 +10,11 @@ export function usePhotos(category = null, limit = 3) {
       setLoading(true);
       const Photo = Parse.Object.extend('WindowGallery');
       const query = new Parse.Query(Photo);
-      query.descending('createdAt'); // Подрежда по най-новите
-      query.limit(limit); // Ограничение за броя на снимките
+      query.descending('createdAt'); 
+      query.limit(limit); 
 
       if (category) {
-        query.equalTo('gallery', category); // Филтрира по категория, ако е зададена
+        query.equalTo('gallery', category); 
       }
 
       try {
