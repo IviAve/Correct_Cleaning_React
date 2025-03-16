@@ -122,7 +122,7 @@
 
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom"; 
-import { Parse } from "../../parse";
+import { Parse } from "../../services/parse";
 
 export default function HeaderArea() {
   const [user, setUser] = useState(null);

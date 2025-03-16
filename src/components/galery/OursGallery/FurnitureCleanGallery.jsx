@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Parse } from '../../../parse'; 
+import { Parse } from '../../../services/parse'; 
 import { Link,  } from "react-router"; 
 
 export default function FurnitureCleanGallery() {

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useNavigate } from "react-router-dom"; // Import useNavigate
-import { Parse } from '../../../parse';
+import { Parse } from '../../../services/parse';
 import { Link } from "react-router";
 
 import styles from "./Register.module.css"

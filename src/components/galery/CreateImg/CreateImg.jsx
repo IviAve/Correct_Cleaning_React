@@ -2,7 +2,7 @@
 import styles from "./CreateImg.module.css"
 
 import { useState } from 'react';
-import { Parse } from '../../../parse'; // Импортиране на Parse
+import { Parse } from '../../../services/parse'; 
 import { useNavigate } from "react-router-dom"; 
 
 function CreateImg() {

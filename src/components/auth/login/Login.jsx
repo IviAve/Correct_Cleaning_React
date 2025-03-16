@@ -3,7 +3,7 @@ import { Link } from "react-router";
 
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom"; 
-import { Parse } from "../../../parse";
+import { Parse } from "../../../services/parse";
 
 import styles from "./Login.module.css"
 

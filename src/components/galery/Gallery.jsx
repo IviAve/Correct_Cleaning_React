@@ -23,7 +23,7 @@
 
 
 import { useEffect, useState } from 'react';
-import { Parse } from '../../parse'; 
+import { Parse } from '../../services/parse'; 
 
 export default function OursGallery() {
   const [photos, setPhotos] = useState([]);
