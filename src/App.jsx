@@ -1,4 +1,6 @@
 import {  Routes, Route } from 'react-router-dom';
+
+import { AuthProvider } from './services/authContext';
 import HeaderArea from "./components/header/header";
 import HomePage from "./components/home/HomePage";
 import Footerpage from "./components/footer/Footerpage";
@@ -24,6 +26,7 @@ import FurnitureCleanGallery from './components/galery/OursGallery/FurnitureClea
 function App() {
   return (
     <>
+    <AuthProvider>
       <HeaderArea /> 
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -45,6 +48,7 @@ function App() {
       </Routes>
       <Infosection />
       <Footerpage />
+      </AuthProvider>
       </>
   );
 }

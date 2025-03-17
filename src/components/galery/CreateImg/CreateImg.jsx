@@ -1,5 +1,5 @@
 
-import styles from "./CreateImg.module.css"
+import styles from "../../auth/Forms.module.css";
 
 import { useState } from 'react';
 import { Parse } from '../../../services/parse'; 

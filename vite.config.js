@@ -15,7 +15,7 @@ export default defineConfig({
 
   ],
   "rules": {
-      "react/prop-types": 0
+      "react/prop-types": false
     },
   server:{
     port:3001,

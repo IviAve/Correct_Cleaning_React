@@ -1,23 +1,23 @@
 
-import { Link } from "react-router";
+
 
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom"; 
+import { useContext } from "react";
+import { AuthContext } from "../../../services/authContext";
+import { Link } from "react-router";
 import { Parse } from "../../../services/parse";
-
-import styles from "./Login.module.css"
+import styles from "../Forms.module.css";
 
 export default function Login() {
-  const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-  });
-
+  const { login } = useContext(AuthContext);
+  const [formData, setFormData] = useState({ email: "", password: "" });
   const [message, setMessage] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   useEffect(() => {
+    
     const checkSession = async () => {
       try {
         const currentUser = Parse.User.current();
@@ -48,15 +48,8 @@ export default function Login() {
     e.preventDefault();
 
     try {
-      
-      const loggedUser = await Parse.User.logIn(formData.email, formData.password);
-      setMessage(`Welcome, ${loggedUser.get("username")}!`);
-      
-      
-      if (rememberMe) {
-        localStorage.setItem("sessionToken", loggedUser.getSessionToken());
-      }
-
+      await login(formData.email, formData.password, rememberMe);
+      setMessage("Welcome!");
       navigate("/gallery"); 
     } catch (error) {
       setMessage("Error: " + error.message);
@@ -64,7 +57,6 @@ export default function Login() {
   };
 
   return (
-    
     <div className={styles.logincenter}>
       <form className={styles.login} onSubmit={handleSubmit}>
         <h2>Login</h2>
@@ -107,13 +99,15 @@ export default function Login() {
         </div>
 
         <button className={styles.btnreglog} type="submit">Login</button>
+        
+        
         <p className="login">
           No account yet? <Link to="/register">Register here</Link>
         </p>
+        
+        
         {message && <p className={styles.message}>{message}</p>}
       </form>
     </div>
   );
 }
-
-
