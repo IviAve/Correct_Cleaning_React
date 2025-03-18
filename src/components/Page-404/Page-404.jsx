@@ -10,7 +10,7 @@ export default function Page404() {
   <div className={styles.notFoundPageContainer}>
       <h1>404</h1>
       <h2>Page Not Found</h2>
-      <p>Let&#39;s go <Link to="/home">home</Link> and try from there.</p>
+      <p>Let&#39;s go <Link to="/">home</Link> and try from there.</p>
   </div>
 </section>
       

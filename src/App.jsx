@@ -1,6 +1,6 @@
 import {  Routes, Route } from 'react-router-dom';
 
-import { AuthProvider } from './services/authContext';
+import { AuthProvider } from './hooks/authContext';
 import HeaderArea from "./components/header/header";
 import HomePage from "./components/home/HomePage";
 import Footerpage from "./components/footer/Footerpage";
@@ -17,9 +17,10 @@ import CreateImg from "./components/galery/CreateImg/CreateImg";
 import ImageDetails from "./components/galery/ImageDetails"
 import Page404 from './components/Page-404/Page-404';
 import OursGallery from './components/galery/Gallery';
-import AddComment from './components/clientComments/AddComment';
+
 import PatioGallery from './components/galery/OursGallery/PatioGallery';
 import FurnitureCleanGallery from './components/galery/OursGallery/FurnitureCleanGallery';
+import CreateComment from './components/clientComments/CreateComment';
 
 
 // import '../public/css/styles.css'
@@ -41,7 +42,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/logout" />
         <Route path="/createImg" element={<CreateImg />} />
-        <Route path="/addComment" element={<AddComment />} />
+        <Route path="/createComment" element={<CreateComment />} />
         <Route path="/serviceSection" element={<ServiceSection />} />
         <Route path="/contact" element={<ContactWithUs />} />
         <Route path="*" element={<Page404 />} />

@@ -4,7 +4,8 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom"; 
 import { useContext } from "react";
-import { AuthContext } from "../../../services/authContext";
+import { AuthContext } from "../../../hooks/authCont";
+
 import { Link } from "react-router";
 import { Parse } from "../../../services/parse";
 import styles from "../Forms.module.css";

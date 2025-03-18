@@ -124,7 +124,7 @@
 
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../../../services/authContext";
+import { AuthContext } from "../../../hooks/authCont";
 import { Parse } from "../../../services/parse";
 import styles from "../Forms.module.css";
 

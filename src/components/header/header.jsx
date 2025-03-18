@@ -3,7 +3,8 @@
 // 
 import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom"; 
-import { AuthContext } from "../../services/authContext";
+import { AuthContext } from "../../hooks/authCont";
+
 
 export default function HeaderArea() {
   const { user, logout } = useContext(AuthContext);
@@ -58,7 +59,7 @@ export default function HeaderArea() {
                     <>
                       <li className="nav-item"><Link className="nav-link" to="/profile">My Profile</Link></li>
                       <li className="nav-item"><Link className="nav-link" to="/CreateImg">Add Image</Link></li>
-                      <li className="nav-item"><Link className="nav-link" to="/AddComment">Add Comment</Link></li>
+                      <li className="nav-item"><Link className="nav-link" to="/CreateComment">Add Comment</Link></li>
                       <li className="nav-item">
                         <button className="nav-link btn btn-link" onClick={handleLogout}>Logout</button>
                       </li>

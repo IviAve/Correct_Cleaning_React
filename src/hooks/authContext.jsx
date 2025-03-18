@@ -1,7 +1,7 @@
-import { createContext, useState, useEffect } from "react";
+import {  useState, useEffect } from "react";
 import Parse from "parse";
-
-export const AuthContext = createContext();
+import { AuthContext } from "./authCont";
+// export const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
