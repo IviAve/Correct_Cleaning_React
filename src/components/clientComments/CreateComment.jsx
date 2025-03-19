@@ -1,10 +1,13 @@
 import { useState } from "react";
 import { Parse } from "../../services/parse"; 
+import { useNavigate } from 'react-router';
+
 import styles from "../auth/Forms.module.css";
 
 function CreateComment() {
   const [commentText, setCommentText] = useState('');
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleCommentSubmit = async (e) => {
     e.preventDefault();
@@ -39,6 +42,8 @@ function CreateComment() {
 
       
       setCommentText('');
+      navigate('/');
+      
     } catch (error) {
       console.error("Error posting comment:", error);
     }

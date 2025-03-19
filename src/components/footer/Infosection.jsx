@@ -1,3 +1,5 @@
+// import { Link } from "react-router"
+
 export default function Infosection () {
     return(
 
@@ -26,7 +28,7 @@ export default function Infosection () {
                 </div>
                 <div className="col-md-4">
                   <a href="">
-                    <div className="item ">
+                    <div className="item">
                       <div className="img-box ">
                         <i className="fa fa-phone" aria-hidden="true"></i>
                       </div>
@@ -38,7 +40,7 @@ export default function Infosection () {
                 </div>
                 <div className="col-md-4">
                   <a href="">
-                    <div className="item ">
+                    <div className="item">
                       <div className="img-box">
                         <i className="fa fa-envelope" aria-hidden="true"></i>
                       </div>
