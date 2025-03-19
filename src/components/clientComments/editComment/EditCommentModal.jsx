@@ -1,21 +1,4 @@
-// export default function EditComment({ comment, isEditing, editedText, setEditedText, onSave, onCancel }) {
-//     return (
-//         <div>
-//             {isEditing ? (
-//                 <>
-//                     <textarea 
-//                         value={editedText} 
-//                         onChange={(e) => setEditedText(e.target.value)}
-//                     />
-//                     <button onClick={onSave}>Save</button>
-//                     <button onClick={onCancel}>Cancel</button>
-//                 </>
-//             ) : (
-//                 <p>{comment.get("text")}</p>
-//             )}
-//         </div>
-//     );
-// }
+
 
 
 import styles from "./EditCommentModal.module.css";
