@@ -74,7 +74,7 @@
 
 import { useEffect, useState } from "react";
 import { Parse } from "../../services/parse";
-import EditCommentModal from "../../components/clientComments/editComment/EditCommentModal";
+import EditCommentModal from "../../components/clientComments/EditCommentModal";
 import { useCommentActions } from "../../hooks/useCommentActions";
 
 export default function ClientSection() {
