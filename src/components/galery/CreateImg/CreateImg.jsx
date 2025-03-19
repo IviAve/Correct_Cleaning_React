@@ -159,7 +159,7 @@ function CreateImg() {
         <h2>Upload ImageUrl</h2>
 
         <div className={styles.field}>
-          <label htmlFor="service">Choice Service</label>
+          {/* <label htmlFor="service">Choice Service</label> */}
           <select
             value={selectedService}
             onChange={(e) => setSelectedService(e.target.value)}
