@@ -1,63 +1,37 @@
 
+import { useParams } from 'react-router';
+import { useEditPhotoActions} from '../../../hooks/useEditPhotoActions';
 import styles from "../../auth/Forms.module.css";
-import { useState } from 'react';
-import { Parse } from '../../../services/parse'; 
-import { useNavigate } from "react-router-dom"; 
 
 function EditImg() {
-  const [imageUrl, setImageUrl] = useState('');
-  const [selectedService, setSelectedService] = useState('');
-  const [description, setDescription] = useState(''); // Добавяме state за описание
-  const [loading, setLoading] = useState(false);
+  const { id } = useParams(); 
+  const {
+    imageUrl,
+    setImageUrl,
+    selectedService,
+    setSelectedService,
+    description,
+    setDescription,
+    loading,
+    isOwner,
+    handleSubmit,
+    error
+  } = useEditPhotoActions(id);
 
-  const navigate = useNavigate();
+  if (loading) {
+    return <p>Loading...</p>;
+  }
 
-  const handleUpload = async (e) => {
-    e.preventDefault();
-    if (!imageUrl || !selectedService) {
-      alert('Please provide an image URL and a service.');
-      return;
-    }
-
-    setLoading(true);
-
-    try {
-      const currentUser = Parse.User.current();
-      if (!currentUser) {
-        alert("You must be logged in to upload images.");
-        setLoading(false);
-        return;
-      }
-
-      const Photo = Parse.Object.extend('WindowGallery');
-      const newPhoto = new Photo();
-      newPhoto.set('imageUrl', imageUrl);
-      newPhoto.set('service', selectedService);
-      newPhoto.set('description', description); // Запазваме описанието
-      newPhoto.set('ownerId', currentUser.id); 
-      newPhoto.set('added_by', currentUser.get("username")); 
-
-      const acl = new Parse.ACL();
-      acl.setPublicReadAccess(true); 
-      acl.setWriteAccess(currentUser, true); 
-      newPhoto.setACL(acl);
-
-      await newPhoto.save();
-
-      setImageUrl('');
-      setSelectedService('');
-      setDescription('');
-    } catch (error) {
-      console.error('Error saving photo:', error);
-    }
-    setLoading(false);
-    navigate("/gallery");
-  };
+  if (!isOwner) {
+    return <p>You are not authorized to edit this image.</p>;
+  }
 
   return (
     <div className={styles.logincenter}>
-      <form className={styles.login} onSubmit={handleUpload}>
-        <h2>Upload Image</h2>
+      <form className={styles.login} onSubmit={handleSubmit}>
+        <h2>Edit Image</h2>
+
+        {error && <p style={{ color: 'red' }}>{error}</p>}
 
         <div className={styles.field}>
           <select
@@ -87,13 +61,13 @@ function EditImg() {
           <textarea
             value={description}
             onChange={(e) => setDescription(e.target.value)}
-            placeholder=""
+            placeholder="Description"
             rows="4"
           ></textarea>
         </div>
 
         <button className={styles.btnreglog} type="submit" disabled={loading}>
-          {loading ? 'Uploading...' : 'Upload'}
+          {loading ? 'Saving...' : 'Update'}
         </button>
       </form>
     </div>

@@ -107,7 +107,7 @@ import { useNavigate } from "react-router-dom";
 function CreateImg() {
   const [imageUrl, setImageUrl] = useState('');
   const [selectedService, setSelectedService] = useState('');
-  const [description, setDescription] = useState(''); // Добавяме state за описание
+  const [description, setDescription] = useState(''); 
   const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
@@ -133,7 +133,7 @@ function CreateImg() {
       const newPhoto = new Photo();
       newPhoto.set('imageUrl', imageUrl);
       newPhoto.set('service', selectedService);
-      newPhoto.set('description', description); // Запазваме описанието
+      newPhoto.set('description', description); 
       newPhoto.set('ownerId', currentUser.id); 
       newPhoto.set('added_by', currentUser.get("username")); 
 

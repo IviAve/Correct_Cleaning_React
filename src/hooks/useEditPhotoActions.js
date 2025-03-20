@@ -1,70 +1,104 @@
 
-import styles from "./EditImageModal.module.css"; // За стиловете
+import { useState, useEffect } from 'react';
+import { useNavigate } from "react-router";
+import Parse from 'parse';
 
-export default function EditImageForm({
-  editedDescription,
-  setEditedDescription,
-  editedImgUrl,
-  setEditedImgUrl,
-  selectedService,
-  setSelectedService,
-  onSave,
-  onCancel,
-  loading,
-}) {
-  return (
-    <div className={styles.logincenter}>
-      <form className={styles.login} onSubmit={onSave}>
-        <h2>Edit Image</h2>
+export const useEditPhotoActions = (id) => {
+  const [imageUrl, setImageUrl] = useState('');
+  const [selectedService, setSelectedService] = useState('');
+  const [description, setDescription] = useState('');
+  const [loading, setLoading] = useState(true);
+  const [isOwner, setIsOwner] = useState(false);
+  const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
-        <div className={styles.field}>
-          <select
-            value={selectedService}
-            onChange={(e) => setSelectedService(e.target.value)}
-            required
-          >
-            <option value="" disabled>
-              Choose Service
-            </option>
-            <option value="window-cleaning">Window Cleaning</option>
-            <option value="patio-cleaning">Patio Cleaning</option>
-            <option value="furniture-cleaning">Furniture Cleaning</option>
-          </select>
-        </div>
+  useEffect(() => {
+    if (!id) {
+      setError("No photo ID provided");
+      navigate("/gallery");
+      return;
+    }
 
-        <div className={styles.field}>
-          <label htmlFor="imageUrl">Your Image URL</label>
-          <input
-            type="text"
-            value={editedImgUrl}
-            onChange={(e) => setEditedImgUrl(e.target.value)}
-            required
-          />
-        </div>
+    const fetchPhotoDetails = async () => {
+      try {
+        const Photo = Parse.Object.extend('WindowGallery');
+        const query = new Parse.Query(Photo);
+        const photo = await query.get(id);
 
-        <div className={styles.field}>
-          <label htmlFor="description">Description</label>
-          <textarea
-            value={editedDescription}
-            onChange={(e) => setEditedDescription(e.target.value)}
-            placeholder="Enter description"
-            rows="4"
-          ></textarea>
-        </div>
+        const currentUser = Parse.User.current();
+        if (!currentUser) {
+          alert("You must be logged in to edit this image.");
+          navigate("/gallery");
+          return;
+        }
 
-        <div className={styles.buttonGroup}>
-          <button type="submit" disabled={loading} className={styles.saveBtn}>
-            {loading ? "Saving..." : "Save"}
-          </button>
-          <button
-            type="button"
-            onClick={onCancel}
-            className={styles.cancelBtn}
-          >
-            Cancel
-          </button>
-        </div>
-      </form>
-    </div>
-  );
-}
+        if (photo.get('ownerId') !== currentUser.id) {
+          alert("You are not authorized to edit this image.");
+          navigate("/gallery");
+          return;
+        }
+
+        setIsOwner(true);
+        setImageUrl(photo.get('imageUrl') || '');
+        setSelectedService(photo.get('service') || '');
+        setDescription(photo.get('description') || '');
+      } catch (error) {
+        console.error('Error fetching photo:', error);
+        setError(error.message);
+        navigate("/gallery");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchPhotoDetails();
+  }, [id, navigate]);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!imageUrl || !selectedService) {
+      alert('Please provide an image URL and a service.');
+      return;
+    }
+
+    setLoading(true);
+    try {
+      const Photo = Parse.Object.extend('WindowGallery');
+      const query = new Parse.Query(Photo);
+      const photo = await query.get(id);
+      const currentUser = Parse.User.current();
+
+      if (!currentUser || photo.get('ownerId') !== currentUser.id) {
+        alert("You are not authorized to edit this image.");
+        setLoading(false);
+        return;
+      }
+
+      photo.set('imageUrl', imageUrl);
+      photo.set('service', selectedService);
+      photo.set('description', description);
+
+      await photo.save();
+      navigate("/gallery");
+    } catch (error) {
+      console.error('Error updating photo:', error);
+      setError(error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return {
+    imageUrl,
+    setImageUrl,
+    selectedService,
+    setSelectedService,
+    description,
+    setDescription,
+    loading,
+    isOwner,
+    handleSubmit,
+    error
+  };
+};
