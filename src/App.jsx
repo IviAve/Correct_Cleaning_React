@@ -21,6 +21,9 @@ import OursGallery from './components/galery/Gallery';
 import PatioGallery from './components/galery/OursGallery/PatioGallery';
 import FurnitureCleanGallery from './components/galery/OursGallery/FurnitureCleanGallery';
 import CreateComment from './components/clientComments/CreateComment';
+import EditImg from "./components/galery/EditImg/EditImg";
+
+
 
 
 // import '../public/css/styles.css'
@@ -38,6 +41,7 @@ function App() {
         <Route path="/gallery/WindowGallery" element={<WindowGallery />} />
         <Route path="/gallery/FurnitureCleanGallery" element={<FurnitureCleanGallery />} />
         <Route path="/photo-details/:id" element={<ImageDetails />} />
+        <Route path="/edit/:id" element={<EditImg />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/logout" />
