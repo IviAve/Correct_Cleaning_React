@@ -57,7 +57,7 @@ export default function HeaderArea() {
 
                   {user ? (
                     <>
-                      <li className="nav-item"><Link className="nav-link" to="/profile">My Profile</Link></li>
+                      {/* <li className="nav-item"><Link className="nav-link" to="/profile">My Profile</Link></li> */}
                       <li className="nav-item"><Link className="nav-link" to="/CreateImg">Add Image</Link></li>
                       <li className="nav-item"><Link className="nav-link" to="/CreateComment">Add Comment</Link></li>
                       <li className="nav-item">

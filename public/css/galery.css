@@ -36,44 +36,45 @@
     text-align: center;    
     margin: 0 auto;           
     width: fit-content;   
+    border-radius: 8px;
   }
   
 
-/* CSS за центриране на h1 и p */
+
 .center-contents {
-  display: flex; /* Използваме Flexbox за центриране */
-  flex-direction: column; /* Центрираме елементите вертикално */
-  justify-content: center; /* Центриране по вертикала */
-  align-items: center; /* Центриране по хоризонтала */
+  display: flex; 
+  flex-direction: column; 
+  justify-content: center; 
+  align-items: center; 
   
-  text-align: center; /* Центриране на текста в елементите */
+  text-align: center; 
 }
 
 .center-contents h1, .center-content p {
-  margin: 10px 0; /* Разстояние между заглавието и параграфа */
+  margin: 10px 0; 
 }
 
 
 .gal-navbar-links {
-  list-style: none; /* премахване на стандартните булети */
+  list-style: none; 
   padding: 0;
   margin: 0;
-  display: flex; /* използваме Flexbox за центриране на линковете */
-  justify-content: center; /* центрираме по хоризонтала */
+  display: flex; 
+  justify-content: center;
 }
 
 .gal-navbar-links li {
-  margin: 0 20px; /* разстояние между линковете */
+  margin: 0 20px; 
 }
 
 .gal-navbar-links a {
-  text-decoration: none; /* премахваме подчертаването по подразбиране */
-  font-size: 18px; /* големина на текста */
-  font-weight: bold; /* удебелен текст */
-  color: #333; /* тъмен цвят на текста */
-  transition: color 0.3s ease; /* плавен преход на цвета при hover */
+  text-decoration: none; 
+  font-size: 18px; 
+  font-weight: bold; 
+  color: #333; 
+  transition: color 0.3s ease; 
 }
 
 .gal-navbar-links a:hover {
-  color: #1e90ff; /* светлосин цвят при hover */
+  color: #1e90ff; 
 }

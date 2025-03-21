@@ -1,6 +1,6 @@
-.profileContainer {
+/* .profileContainer {
     display: flex;
-    justify-content: flex-end; /* Позиционира контейнера вдясно */
+    justify-content: flex-end;
     padding: 20px;
 }
 
@@ -25,4 +25,114 @@
 
 .editButton:hover {
     background: #0056b3;
+} */
+
+
+.profileContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.profileCard {
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+    background: #f5f5f5;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    
+}
+
+.profileCard p {
+    margin: 5px 0;
+    font-size: 20px;
+}
+
+.editButton {
+    padding: 8px 16px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.editButton:hover {
+    background: #0056b3;
+}
+
+.section {
+    width: 100%;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+h3 {
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.photoGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+    justify-content: center;
+}
+
+.photoCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    background: white;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.photoCard:hover {
+    transform: scale(1.05);
+}
+
+.photoCard img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.commentList {
+    list-style: none;
+    padding: 0;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.commentList li {
+    padding: 10px;
+    background: white;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.commentList a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+}
+
+.commentList a:hover {
+    text-decoration: underline;
 }
