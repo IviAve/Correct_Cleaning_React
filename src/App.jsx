@@ -23,6 +23,9 @@ import FurnitureCleanGallery from './components/galery/OursGallery/FurnitureClea
 import CreateComment from './components/clientComments/CreateComment';
 import EditImg from "./components/galery/EditImg/EditImg";
 
+import AuthGuard from "./components/guards/AuthGuard";
+import GuestGuard from "./components/guards/GuestGuard";
+
 
 
 
@@ -37,18 +40,22 @@ function App() {
         <Route path="/about" element={<AboutUs />} />
         <Route path="/gallery" element={<OursGallery/>}/>
         <Route path="/gallery/PatioGallery" element={<PatioGallery/>}/>
-
         <Route path="/gallery/WindowGallery" element={<WindowGallery />} />
         <Route path="/gallery/FurnitureCleanGallery" element={<FurnitureCleanGallery />} />
         <Route path="/photo-details/:id" element={<ImageDetails />} />
-        <Route path="/edit/:id" element={<EditImg />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/logout" />
-        <Route path="/createImg" element={<CreateImg />} />
-        <Route path="/createComment" element={<CreateComment />} />
         <Route path="/serviceSection" element={<ServiceSection />} />
         <Route path="/contact" element={<ContactWithUs />} />
+        <Route element={<GuestGuard/>}>
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        </Route>
+        <Route path="/logout" />
+        <Route element={<AuthGuard/>}>
+        <Route path="/createImg" element={<CreateImg />} />
+        <Route path="/createComment" element={<CreateComment />} />
+        <Route path="/edit/:id" element={<EditImg />} />
+        </Route>
+        
         <Route path="*" element={<Page404 />} />
       </Routes>
       <Infosection />
