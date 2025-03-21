@@ -1,0 +1,28 @@
+.profileContainer {
+    display: flex;
+    justify-content: flex-end; /* Позиционира контейнера вдясно */
+    padding: 20px;
+}
+
+.profileCard {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+}
+
+.editButton {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.editButton:hover {
+    background: #0056b3;
+}

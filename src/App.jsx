@@ -26,6 +26,8 @@ import EditImg from "./components/galery/EditImg/EditImg";
 import AuthGuard from "./components/guards/AuthGuard";
 import GuestGuard from "./components/guards/GuestGuard";
 
+import MyProfile from "./components/auth/profile/MyProfile";
+
 
 
 
@@ -54,6 +56,7 @@ function App() {
         <Route path="/createImg" element={<CreateImg />} />
         <Route path="/createComment" element={<CreateComment />} />
         <Route path="/edit/:id" element={<EditImg />} />
+        <Route path="/MyProfile" element={<MyProfile />} />
         </Route>
         
         <Route path="*" element={<Page404 />} />

@@ -24,7 +24,7 @@ export default function HeaderArea() {
               <Link to="/serviceSection">
                 <img src="/images/logo1.png" alt="no image" />
               </Link>
-              <Link to={user ? "/profile" : "/login"}>
+              <Link to={user ? "/MyProfile" : "/login"}>
                 <i className="fa fa-user" aria-hidden="true"></i>
                 <span>
                   {user ? `Welcome, ${user.get("username")}` : "Guest"}
