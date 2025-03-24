@@ -1,0 +1,54 @@
+.editProfileContainer {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.editProfileContainer h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+.editProfileContainer form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.editProfileContainer label {
+    font-size: 16px;
+    color: #444;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.editProfileContainer input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.editProfileContainer button {
+    width: 100%;
+    padding: 10px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.editProfileContainer button:hover {
+    background: #0056b3;
+}

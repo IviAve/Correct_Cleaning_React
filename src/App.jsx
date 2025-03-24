@@ -27,7 +27,7 @@ import AuthGuard from "./components/guards/AuthGuard";
 import GuestGuard from "./components/guards/GuestGuard";
 
 import MyProfile from "./components/auth/profile/MyProfile";
-
+import EditProfile from "./components/auth/profile/EditProfile"
 import { ErrorProvider } from "../src/components/context/error/ErrorContext"; 
 import { ToastContainer } from "react-toastify"; 
 import "react-toastify/dist/ReactToastify.css"; 
@@ -62,6 +62,8 @@ function App() {
         <Route path="/createComment" element={<CreateComment />} />
         <Route path="/edit/:id" element={<EditImg />} />
         <Route path="/MyProfile" element={<MyProfile />} />
+        <Route path="/EditProfile" element={<EditProfile />} />
+
         </Route>
         
         <Route path="*" element={<Page404 />} />
