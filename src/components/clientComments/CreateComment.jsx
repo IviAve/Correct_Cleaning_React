@@ -1,18 +1,19 @@
 import { useState } from "react";
 import { Parse } from "../../services/parse"; 
 import { useNavigate } from 'react-router';
-
+import { useError } from "../context/error/useError"; 
 import styles from "../auth/Forms.module.css";
 
 function CreateComment() {
   const [commentText, setCommentText] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const { showError } = useError(); 
 
   const handleCommentSubmit = async (e) => {
     e.preventDefault();
     if (!commentText) {
-      alert('Please enter a comment.');
+      showError('Please enter a comment.');
       return;
     }
 
@@ -21,7 +22,7 @@ function CreateComment() {
     try {
       const currentUser = Parse.User.current();
       if (!currentUser) {
-        alert("You must be logged in to post comments.");
+        showError("You must be logged in to post comments.");
         setLoading(false);
         return;
       }
@@ -45,7 +46,7 @@ function CreateComment() {
       navigate('/');
       
     } catch (error) {
-      console.error("Error posting comment:", error);
+      showError("Error posting comment:", error);
     }
     setLoading(false);
   };

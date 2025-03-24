@@ -1,6 +1,6 @@
 import {  Routes, Route } from 'react-router-dom';
 
-import { AuthProvider } from './hooks/authContext';
+import { AuthProvider } from './components/context/authContext/authContext';
 import HeaderArea from "./components/header/header";
 import HomePage from "./components/home/HomePage";
 import Footerpage from "./components/footer/Footerpage";
@@ -28,6 +28,9 @@ import GuestGuard from "./components/guards/GuestGuard";
 
 import MyProfile from "./components/auth/profile/MyProfile";
 
+import { ErrorProvider } from "../src/components/context/error/ErrorContext"; 
+import { ToastContainer } from "react-toastify"; 
+import "react-toastify/dist/ReactToastify.css"; 
 
 
 
@@ -35,6 +38,8 @@ import MyProfile from "./components/auth/profile/MyProfile";
 function App() {
   return (
     <>
+     <ErrorProvider>
+     <ToastContainer />
     <AuthProvider>
       <HeaderArea /> 
       <Routes>
@@ -64,6 +69,7 @@ function App() {
       <Infosection />
       <Footerpage />
       </AuthProvider>
+      </ErrorProvider>
       </>
   );
 }

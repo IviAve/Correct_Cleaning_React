@@ -3,7 +3,7 @@
 // 
 import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom"; 
-import { AuthContext } from "../../hooks/authCont";
+import { AuthContext } from "../../components/context/authContext/authCont";
 
 
 export default function HeaderArea() {
