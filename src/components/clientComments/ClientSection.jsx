@@ -2,13 +2,13 @@
 
 import { useEffect, useState } from "react";
 import { Parse } from "../../services/parse";
-import EditCommentModal from "../../components/clientComments/EditCommentModal";
-import { useCommentActions } from "../../hooks/useCommentActions";
+// import EditCommentModal from "../../components/clientComments/EditCommentModal";
+// import { useCommentActions } from "../../hooks/useCommentActions";
 // import { useError } from "../../context/error/useError"; 
 
 export default function ClientSection() {
     const [comments, setComments] = useState([]);
-    const [isModalOpen, setIsModalOpen] = useState(false);
+    // const [isModalOpen, setIsModalOpen] = useState(false);
     // const { showError } = useError();
 
     useEffect(() => {
@@ -27,19 +27,20 @@ export default function ClientSection() {
         }
     };
 
-    const {
-        editingCommentId,
-        editedText,
-        setEditedText,
-        handleEdit,
-        handleCancelEdit,
-        handleSaveEdit,
-        handleDelete
-    } = useCommentActions(fetchComments);
+    // const {
+        // editingCommentId,
+        // editedText,
+        // setEditedText,
+        // handleEdit,
+        // handleCancelEdit,
+        // handleSaveEdit,
+        // handleDelete
+    // } = useCommentActions(fetchComments);
 
-    const currentUser = Parse.User.current();
+    // const currentUser = Parse.User.current();
 
     return (
+        <>
         <section className="client_section layout_padding">
             <div className="container">
                 <div className="row">
@@ -56,12 +57,12 @@ export default function ClientSection() {
                                                 <h4>{comment.get("added_by")}</h4>
                                                 <p>{comment.get("text")}</p>
                                                 <img src="images/quote.png" alt="" />
-                                                {currentUser && currentUser.id === comment.get("ownerId") && (
-                                                    <div className="comment-buttons">
-                                                        <button className="button primary"  onClick={() => { handleEdit(comment); setIsModalOpen(true); }}>Edit</button>
-                                                        <button className="button secondary" onClick={() => handleDelete(comment.id)}>Delete</button>
-                                                    </div>
-                                                )}
+                                                {/* {currentUser && currentUser.id === comment.get("ownerId") && (
+                                                    // <div className="comment-buttons">
+                                                    //     <button className="button primary"  onClick={() => { handleEdit(comment); setIsModalOpen(true); }}>Edit</button>
+                                                    //     <button className="button secondary" onClick={() => handleDelete(comment.id)}>Delete</button>
+                                                    // </div>
+                                                )} */}
                                             </div>
                                         </div>
                                     ))
@@ -86,8 +87,8 @@ export default function ClientSection() {
                 </div>
             </div>
 
-            {/* Модал за редактиране */}
-            <EditCommentModal
+            
+            {/* <EditCommentModal
                 isOpen={isModalOpen}
                 editedText={editedText}
                 setEditedText={setEditedText}
@@ -99,7 +100,9 @@ export default function ClientSection() {
                     handleCancelEdit();
                     setIsModalOpen(false);
                 }}
-            />
+            /> */}
         </section>
+        </>
     );
 }
+

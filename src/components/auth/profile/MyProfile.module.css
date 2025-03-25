@@ -120,3 +120,40 @@ h3 {
 .commentItem:hover {
     color: darkblue;
 }
+
+.profile-btns {
+    display: flex;
+    gap: 10px;
+    margin-top: 5px;
+}
+
+#btn-profile1,
+.btn-profile2 {
+    padding: 8px 12px;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+#btn-profile1 {
+    background-color: #3498db;
+    color: white;
+}
+
+#btn-profile1:hover {
+    background-color: #217dbb;
+    transform: scale(1.05);
+}
+
+.btn-profile2 {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.btn-profile2:hover {
+    background-color: #c0392b;
+    transform: scale(1.05);
+}

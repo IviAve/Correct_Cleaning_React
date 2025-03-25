@@ -1,41 +1,82 @@
-import { useState } from "react";
-import { Parse } from "../services/parse";
 
-export function useCommentActions(fetchComments) {
+
+
+import { useState } from "react";
+import Parse from "parse";
+
+export function useCommentActions(setComments) {
     const [editingCommentId, setEditingCommentId] = useState(null);
     const [editedText, setEditedText] = useState("");
 
+    const fetchComments = async () => {
+        try {
+            const currentUser = Parse.User.current();
+            if (!currentUser) return;
+
+            const Comment = Parse.Object.extend("Comments");
+            const query = new Parse.Query(Comment);
+            query.equalTo("ownerId", currentUser.id); 
+            query.descending("createdAt"); 
+
+            const results = await query.find();
+
+            
+            setComments(results.map(comment => ({
+                id: comment.id,
+                text: comment.get("text"),
+                photoId: comment.get("photoId"),
+            })));
+        } catch (error) {
+            console.error("Error fetching comments:", error);
+        }
+    };
+
+    // const handleEdit = (comment) => {
+    //     setEditingCommentId(comment.id);
+    //     setEditedText(comment.text);
+    // };
+
     const handleEdit = (comment) => {
         setEditingCommentId(comment.id);
-        setEditedText(comment.get("text"));
+        setEditedText(comment.text || comment.get("text")); 
     };
+    
 
     const handleCancelEdit = () => {
         setEditingCommentId(null);
         setEditedText("");
     };
 
-    const handleSaveEdit = async (commentId) => {
+    const handleSaveEdit = async () => {
         try {
-            const Comment = new Parse.Object("Comments");
-            Comment.set("objectId", commentId);
-            Comment.set("text", editedText);
-            await Comment.save();
+            const Comment = Parse.Object.extend("Comments");
+            const query = new Parse.Query(Comment);
+            const commentToUpdate = await query.get(editingCommentId);
+
+            commentToUpdate.set("text", editedText);
+            await commentToUpdate.save();
+
             setEditingCommentId(null);
-            fetchComments();
+            fetchComments(); 
         } catch (error) {
             console.error("Error updating comment:", error);
         }
     };
 
     const handleDelete = async (commentId) => {
-        try {
-            const Comment = new Parse.Object("Comments");
-            Comment.set("objectId", commentId);
-            await Comment.destroy();
-            fetchComments();
-        } catch (error) {
-            console.error("Error deleting comment:", error);
+        const isConfirmed = window.confirm("Are you sure you want to delete this comment?");
+        
+        if (isConfirmed) {
+            try {
+                const Comment = Parse.Object.extend("Comments");
+                const query = new Parse.Query(Comment);
+                const commentToDelete = await query.get(commentId);
+                await commentToDelete.destroy();
+
+                fetchComments(); 
+            } catch (error) {
+                console.error("Error deleting comment:", error);
+            }
         }
     };
 
@@ -46,6 +87,7 @@ export function useCommentActions(fetchComments) {
         handleEdit,
         handleCancelEdit,
         handleSaveEdit,
-        handleDelete
+        handleDelete,
+        fetchComments
     };
 }

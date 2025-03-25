@@ -59,5 +59,5 @@ export function useProfile() {
         }
     };
 
-    return { user, photos, comments };
+    return { user, photos, comments, setComments };
 }

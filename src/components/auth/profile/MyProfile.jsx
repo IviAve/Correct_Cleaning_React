@@ -1,13 +1,48 @@
-
-
+// import { useState } from "react";
 // import { Link } from "react-router-dom";
-// import { useProfile } from "../../../hooks/useProfile";
-// import styles from "./MyProfile.module.css";
 // import { useNavigate } from "react-router";
+// import { useProfile } from "../../../hooks/useProfile";
+// import EditCommentModal from "../../../components/clientComments/EditCommentModal";
+// import { Parse } from "../../../services/parse";
+// import styles from "./MyProfile.module.css";
 
 // function MyProfile() {
-//     const { user, photos, comments } = useProfile();
-//     const navigate = useNavigate ();
+//     const { user, photos, comments, setComments } = useProfile();
+//     const navigate = useNavigate();
+
+    
+//     const [isModalOpen, setIsModalOpen] = useState(false);
+//     const [editingCommentId, setEditingCommentId] = useState(null);
+//     const [editedText, setEditedText] = useState("");
+
+    
+//     const handleEditClick = (comment) => {
+//         setEditingCommentId(comment.id);
+//         setEditedText(comment.text);
+//         setIsModalOpen(true);
+//     };
+
+    
+//     const handleSaveEdit = async () => {
+//         try {
+//             const Comment = Parse.Object.extend("Comments");
+//             const query = new Parse.Query(Comment);
+//             const commentToUpdate = await query.get(editingCommentId);
+
+//             commentToUpdate.set("text", editedText);
+//             await commentToUpdate.save();
+
+//             setIsModalOpen(false);
+
+            
+//             const updatedComments = comments.map(comment =>
+//                 comment.id === editingCommentId ? { ...comment, text: editedText } : comment
+//             );
+//             setComments(updatedComments);
+//         } catch (error) {
+//             console.error("Error updating comment:", error);
+//         }
+//     };
 
 //     return (
 //         <div className={styles.profileContainer}>
@@ -45,15 +80,29 @@
 //                 <ul className={styles.commentList}>
 //                     {comments.length > 0 ? (
 //                         comments.map(comment => (
-//                             <li key={comment.id}>
-//                                 <Link to={`/photo/${comment.photoId}`}>{comment.text}</Link>
+//                             <li key={comment.id} onClick={() => handleEditClick(comment)} className={styles.commentItem}>
+//                                 {comment.text}
+//                                 {/* <div className="comment-buttons">
+//                                                         <button className="button primary" onClick={() => { handleEdit(comment); setIsModalOpen(true); }}>Edit</button>
+//                                                         <button className="button secondary" onClick={() => handleDelete(comment.id)}>Delete</button>
+//                                                     </div> */}
 //                             </li>
+                            
 //                         ))
 //                     ) : (
 //                         <p>No comments yet.</p>
 //                     )}
 //                 </ul>
 //             </div>
+
+        
+//             <EditCommentModal
+//                 isOpen={isModalOpen}
+//                 editedText={editedText}
+//                 setEditedText={setEditedText}
+//                 onSave={handleSaveEdit}
+//                 onCancel={() => setIsModalOpen(false)}
+//             />
 //         </div>
 //     );
 // }
@@ -61,51 +110,35 @@
 // export default MyProfile;
 
 
-import { useState } from "react";
+
+import {  useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router";
 import { useProfile } from "../../../hooks/useProfile";
+import { useCommentActions } from "../../../hooks/useCommentActions";
 import EditCommentModal from "../../../components/clientComments/EditCommentModal";
-import { Parse } from "../../../services/parse";
 import styles from "./MyProfile.module.css";
 
 function MyProfile() {
     const { user, photos, comments, setComments } = useProfile();
     const navigate = useNavigate();
-
-    // 🔹 Състояния за модала
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const [editingCommentId, setEditingCommentId] = useState(null);
-    const [editedText, setEditedText] = useState("");
+    
+    
+    const {
+        editingCommentId,
+        editedText,
+        setEditedText,
+        handleEdit,
+        handleCancelEdit,
+        handleSaveEdit,
+        handleDelete,
+        fetchComments
+    } = useCommentActions(setComments);
 
     
-    const handleEditClick = (comment) => {
-        setEditingCommentId(comment.id);
-        setEditedText(comment.text);
-        setIsModalOpen(true);
-    };
-
-    
-    const handleSaveEdit = async () => {
-        try {
-            const Comment = Parse.Object.extend("Comments");
-            const query = new Parse.Query(Comment);
-            const commentToUpdate = await query.get(editingCommentId);
-
-            commentToUpdate.set("text", editedText);
-            await commentToUpdate.save();
-
-            setIsModalOpen(false);
-
-            
-            const updatedComments = comments.map(comment =>
-                comment.id === editingCommentId ? { ...comment, text: editedText } : comment
-            );
-            setComments(updatedComments);
-        } catch (error) {
-            console.error("Error updating comment:", error);
-        }
-    };
+    useEffect(() => {
+        fetchComments();
+    }, [fetchComments]);
 
     return (
         <div className={styles.profileContainer}>
@@ -143,8 +176,12 @@ function MyProfile() {
                 <ul className={styles.commentList}>
                     {comments.length > 0 ? (
                         comments.map(comment => (
-                            <li key={comment.id} onClick={() => handleEditClick(comment)} className={styles.commentItem}>
+                            <li key={comment.id} className={styles.commentItem}>
                                 {comment.text}
+                                <div className="profile-btns">
+                                    <button id="btn-profile1" onClick={() => handleEdit(comment)}>Edit</button>
+                                    <button className="btn-profile2" onClick={() => handleDelete(comment.id)}>Delete</button>
+                                </div>
                             </li>
                         ))
                     ) : (
@@ -153,13 +190,12 @@ function MyProfile() {
                 </ul>
             </div>
 
-        
             <EditCommentModal
-                isOpen={isModalOpen}
+                isOpen={editingCommentId !== null}
                 editedText={editedText}
                 setEditedText={setEditedText}
                 onSave={handleSaveEdit}
-                onCancel={() => setIsModalOpen(false)}
+                onCancel={handleCancelEdit}
             />
         </div>
     );
