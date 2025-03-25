@@ -104,17 +104,20 @@ article hgroup h1 {
     opacity: 0.8;
     padding-bottom: 5px;
     color: #0355CC;
+    text-align: center;
 }
 
 article hgroup h2 {
     opacity: 0.5;
     padding-bottom: 5px;
     color: #0355CC;
+    text-align: center;
 }
 
 article p {
     opacity: 0.6;
     padding-bottom: 1em;
+    text-align: center;
 }
 
 .button {

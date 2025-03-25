@@ -97,6 +97,9 @@
     .detail-box h2 {
         text-align: center;
     }
+    .cta {
+        display: none;
+    }
     
     
 }
