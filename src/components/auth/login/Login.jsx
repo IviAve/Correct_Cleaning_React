@@ -44,6 +44,16 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+
+    if (!formData.email.includes("@") || formData.email.length < 9) {
+      showError("Email must included @ and must be  min 9 characters .");
+      return;
+    }
+
+    if (formData.password.length < 6) {
+      showError("Password must be min 6 characters.");
+      return;
+    }
     try {
       await login(formData.email, formData.password, rememberMe);
       navigate("/gallery"); 

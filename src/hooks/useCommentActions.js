@@ -3,10 +3,12 @@
 
 import { useState } from "react";
 import Parse from "parse";
+import { useError} from "../components/context/error/useError";
 
 export function useCommentActions(setComments) {
     const [editingCommentId, setEditingCommentId] = useState(null);
     const [editedText, setEditedText] = useState("");
+    const { showError } = useError();
 
     const fetchComments = async () => {
         try {
@@ -73,6 +75,8 @@ export function useCommentActions(setComments) {
                 const commentToDelete = await query.get(commentId);
                 await commentToDelete.destroy();
 
+
+                showError("Comment deleted successfully.");
                 fetchComments(); 
             } catch (error) {
                 console.error("Error deleting comment:", error);

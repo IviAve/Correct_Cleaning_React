@@ -16,10 +16,31 @@ function CreateImg() {
 
   const handleUpload = async (e) => {
     e.preventDefault();
-    if (!imageUrl || !selectedService) {
-      alert('Please provide an image URL and a service.');
+
+    // if (!imageUrl || !imageUrl.toLowerCase().endsWith(".jpg")) {
+    //   showError("URL на изображението трябва да завършва на '.jpg'.");
+    //   return;
+    // }
+
+    const imageRegex = /\.(jpg|jpeg|png|gif)$/i;
+    if (!imageUrl || !imageRegex.test(imageUrl)) {
+      showError("URL must to end on '.jpg', '.jpeg', '.png' или '.gif'.");
       return;
     }
+    if (imageUrl.length < 6) {
+      showError("ImageUrl must be at least 6 characters");
+      return;
+    }
+    // if (description.length < 6) {
+    //   showError("Description must be at least 6 characters")
+    // }
+
+
+    if (!imageUrl || !selectedService || !description) {
+      showError('Please provide an image URL and a service and description.');
+      return;
+    }
+    
 
     setLoading(true);
 
@@ -89,6 +110,7 @@ function CreateImg() {
           <textarea
             value={description}
             onChange={(e) => setDescription(e.target.value)}
+            required
             placeholder=""
             rows="4"
           ></textarea>

@@ -28,6 +28,20 @@ export default function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if (formData.username.length < 3) {
+      showError("Username must be min 3 characters.");
+      return;
+    }
+    if (!formData.email.includes("@") || formData.email.length < 9) {
+      showError("Email must included @ and must be  min 9 characters .");
+      return;
+    }
+
+    if (formData.password.length < 6) {
+      showError("Password must be min 6 characters.");
+      return;
+    }
+
     if (formData.password !== formData.rePassword) {
       showError("The passwords do not match!");
       setFormData((prevData) => ({ ...prevData, password: "", rePassword: "",

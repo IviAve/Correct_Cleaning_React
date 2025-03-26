@@ -3,8 +3,13 @@ import { useParams } from 'react-router';
 import { useEditPhotoActions} from '../../../hooks/useEditPhotoActions';
 import styles from "../../auth/Forms.module.css";
 
+
+
+
 function EditImg() {
   const { id } = useParams(); 
+  
+
   const {
     imageUrl,
     setImageUrl,
@@ -18,6 +23,8 @@ function EditImg() {
     error
   } = useEditPhotoActions(id);
 
+
+  
   if (loading) {
     return <p>Loading...</p>;
   }
@@ -26,6 +33,8 @@ function EditImg() {
     return <p>You are not authorized to edit this image.</p>;
   }
 
+  
+  
   return (
     <div className={styles.logincenter}>
       <form className={styles.login} onSubmit={handleSubmit}>
@@ -61,6 +70,7 @@ function EditImg() {
           <textarea
             value={description}
             onChange={(e) => setDescription(e.target.value)}
+            required
             placeholder="Description"
             rows="4"
           ></textarea>

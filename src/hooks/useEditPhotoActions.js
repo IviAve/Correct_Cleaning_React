@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from "react-router";
 import Parse from 'parse';
+import { useError } from '../components/context/error/useError';
 
 export const useEditPhotoActions = (id) => {
   const [imageUrl, setImageUrl] = useState('');
@@ -11,6 +12,7 @@ export const useEditPhotoActions = (id) => {
   const [isOwner, setIsOwner] = useState(false);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
+  const {showError} = useError ();
 
   useEffect(() => {
     if (!id) {
@@ -57,10 +59,26 @@ export const useEditPhotoActions = (id) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!imageUrl || !selectedService) {
-      alert('Please provide an image URL and a service.');
+
+
+    const imageRegex = /\.(jpg|jpeg|png|gif)$/i;
+    if (!imageUrl || !imageRegex.test(imageUrl)) {
+      showError("URL must to end on '.jpg', '.jpeg', '.png' или '.gif'.");
       return;
     }
+    if (imageUrl.length < 6) {
+      showError("ImageUrl must be at least 6 characters");
+      return;
+    }
+    // if (description.length < 6) {
+    //   showError("Description must be at least 6 characters")
+    // }
+
+    if (!imageUrl || !selectedService || !description) {
+      showError('Please provide an image URL and a service.');
+      return;
+    }
+
 
     setLoading(true);
     try {
@@ -70,7 +88,7 @@ export const useEditPhotoActions = (id) => {
       const currentUser = Parse.User.current();
 
       if (!currentUser || photo.get('ownerId') !== currentUser.id) {
-        alert("You are not authorized to edit this image.");
+        showError("You are not authorized to edit this image.");
         setLoading(false);
         return;
       }

@@ -4,12 +4,14 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import { Parse } from "../services/parse";
 import { deletePhoto } from "../utils/requests";
+import { useError } from "../components/context/error/useError";
 
 export function usePhotoDetails(photoId) {
     const navigate = useNavigate();
     const [photo, setPhoto] = useState(null);
     const [loading, setLoading] = useState(true);
-    const [isOwner, setIsOwner] = useState(false);  
+    const [isOwner, setIsOwner] = useState(false); 
+    const { showError} = useError(); 
 
     useEffect(() => {
         const fetchPhotoDetails = async () => {
@@ -49,10 +51,10 @@ export function usePhotoDetails(photoId) {
         const result = await deletePhoto(photoId);
 
         if (result.success) {
-            alert("The photo was deleted successfully!");
+            showError("The photo was deleted successfully!");
             navigate("/gallery");
         } else {
-            alert("Error while deleting!");
+            showError("Error while deleting!");
         }
     };
 

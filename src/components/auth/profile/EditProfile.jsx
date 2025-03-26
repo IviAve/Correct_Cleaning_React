@@ -1,12 +1,35 @@
+
+
 import { useEditProfile } from "../../../hooks/useEditProfile";
 import styles from "./EditProfile.module.css";
+import { useError } from "../../../components/context/error/useError";
 
 export default function EditProfile() {
-    const { formData, loading, handleChange, handleSubmit } = useEditProfile();
+    const { formData, loading, handleChange, handleSubmit: submitProfile } = useEditProfile();
+    const { showError } = useError(); 
 
     if (loading) {
         return <p>Loading...</p>;
     }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        
+        if (formData.username.trim().length < 3) {
+            showError("Username must be at least 3 characters long.");
+            return;
+        }
+
+        
+        if (!formData.email.includes("@") || formData.email.length < 9) {
+            showError("Email must include '@' and be at least 9 characters long.");
+            return;
+        }
+
+        
+        submitProfile(e);
+    };
 
     return (
         <div className={styles.editProfileContainer}>

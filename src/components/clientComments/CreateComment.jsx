@@ -12,8 +12,14 @@ function CreateComment() {
 
   const handleCommentSubmit = async (e) => {
     e.preventDefault();
+
+
     if (!commentText) {
       showError('Please enter a comment.');
+      return;
+    }
+    if (commentText.length < 10) {
+      showError("Comment must be min 10 characters.");
       return;
     }
 
