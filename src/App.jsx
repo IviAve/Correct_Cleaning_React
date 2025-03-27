@@ -4,7 +4,7 @@ import { AuthProvider } from './components/context/authContext/authContext';
 import HeaderArea from "./components/header/header";
 import HomePage from "./components/home/HomePage";
 import Footerpage from "./components/footer/Footerpage";
-import Infosection from "./components/footer/Infosection";
+// import Infosection from "./components/footer/Infosection";
 
 import Register from "./components/auth/register/Register";
 import Login from "./components/auth/login/Login";
@@ -31,6 +31,7 @@ import EditProfile from "./components/auth/profile/EditProfile"
 import { ErrorProvider } from "../src/components/context/error/ErrorContext"; 
 import { ToastContainer } from "react-toastify"; 
 import "react-toastify/dist/ReactToastify.css"; 
+import Footer from './components/footer/Footer';
 
 
 
@@ -68,7 +69,8 @@ function App() {
         
         <Route path="*" element={<Page404 />} />
       </Routes>
-      <Infosection />
+      {/* <Infosection /> */}
+      <Footer />
       <Footerpage />
       </AuthProvider>
       </ErrorProvider>

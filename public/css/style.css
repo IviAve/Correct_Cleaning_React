@@ -12,7 +12,8 @@ body {
 
 .header_bottom {
   padding: 10px 0;
-  background: #90d7ff;
+  /* background: #90d7ff; */
+  background: #90e0ef;
   
 }
 
@@ -54,6 +55,16 @@ body {
           align-items: flex-start;
 }
 
+.user-fa {
+  margin-right: 7px;
+
+}
+
+.cta {
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+}
 .heading_container h2 {
   font-weight: bold;
   display: -webkit-box;
@@ -101,7 +112,7 @@ a:focus {
 
 .header_section .header_top {
   padding: 15px 0;
-  background-color: rgba(0, 123, 255, 0.5);
+  background-color: #00b4d8;
 }
 
 .header_section .header_top .contact_nav {
@@ -836,7 +847,7 @@ border-radius: 10px;
 
 /* footer section*/
 .footer_section {
-  background-color: #0a0f43;
+  background-color: #0077b6;
 }
 
 .footer_section p {

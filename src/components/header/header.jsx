@@ -1,6 +1,4 @@
 
-
-// 
 import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom"; 
 import { AuthContext } from "../../components/context/authContext/authCont";
@@ -24,19 +22,25 @@ export default function HeaderArea() {
               <Link to="/serviceSection">
                 <img src="/images/logo1.png" alt="no image" />
               </Link>
-              <Link to={user ? "/MyProfile" : "/login"}>
+              {/* <Link to={user ? "/MyProfile" : "/login"}>
                 <i className="fa fa-user" aria-hidden="true"></i>
                 <span>
                   {user ? `Welcome, ${user.get("username")}` : "Guest"}
                 </span>
-              </Link>
+              </Link> */}
             </div>
           </div>
         </div>
         <div className="header_bottom">
           <div className="container-fluid">
             <nav className="navbar navbar-expand-lg custom_nav-container">
-              <Link className="navbar-brand" to="/">Correct Cleaning</Link>
+              {/* <Link className="navbar-brand" to="/">Correct Cleaning</Link> */}
+              <Link to={user ? "/MyProfile" : "/login"}>
+                <i className="fa fa-user user-fa" aria-hidden="true"></i>
+                <span>
+                  {user ? `Welcome, ${user.get("username")}` : "Guest"}
+                </span>
+              </Link>
 
               <button
                 className="navbar-toggler"
