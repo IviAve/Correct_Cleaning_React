@@ -60,7 +60,7 @@ select {
     line-height: 1;
     
     &:focus {
-        border-color: rgb(66, 10, 180);
+        border-color: rgb(12, 122, 156);
     }
 }
 
@@ -75,7 +75,7 @@ input[type="submit"] {
 
 input[type="submit"]:focus,
 input[type="submit"]:hover {
-    background: rgb(31, 17, 231);
+    background: rgb(12, 122, 156);
     color: #fff;
     
 }
@@ -101,7 +101,7 @@ input[type="submit"]:hover {
     opacity: 0.7;
 }
 .field:has(input:focus) label {
-    color: rgb(30, 10, 211);
+    color: rgb(12, 122, 156);
     opacity: 1;
 }
 
@@ -154,4 +154,13 @@ input[type="submit"]:hover {
   } 
   
   
+  
+.loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-size: 20px;
+    color: #333;
+  }
   

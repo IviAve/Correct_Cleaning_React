@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer className={styles.footer}>
       <div className={styles.footerContainer}>
-        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className={styles.footerLink}>
+        <a href="https://www.facebook.com/VDACleaning" target="_blank" rel="noopener noreferrer" className={styles.footerLink}>
           <FaFacebook />
           <span>Facebook</span>
         </a>
@@ -13,7 +13,7 @@ const Footer = () => {
           <FaPhoneAlt />
           <span>+359 123 456 789</span>
         </a>
-        <a href="mailto:example@email.com" className={styles.footerLink}>
+        <a href="/contact" className={styles.footerLink}>
           <FaEnvelope />
           <span>example@email.com</span>
         </a>
