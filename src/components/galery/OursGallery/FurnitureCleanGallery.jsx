@@ -4,21 +4,21 @@ import { Link,  } from "react-router";
 
 export default function FurnitureCleanGallery() {
   const [photos, setPhotos] = useState([]);
-  const service = 'furniture-cleaning'; // Категорията, която искаме да извлечем
+  const service = 'furniture-cleaning'; 
 
   useEffect(() => {
     const fetchPhotos = async () => {
-      const Photo = Parse.Object.extend('WindowGallery'); // Увери се, че това е правилното име на колекцията
+      const Photo = Parse.Object.extend('WindowGallery'); 
       const query = new Parse.Query(Photo);
-      query.equalTo('service', service); // Филтрираме по категорията "patio-cleaning"
-      query.descending('createdAt'); // Подреждаме снимките по дата (най-новите първи)
+      query.equalTo('service', service); 
+      query.descending('createdAt');
 
       try {
-        const results = await query.find(); // Взимаме всички снимки от категорията "patio-cleaning"
+        const results = await query.find(); 
         const photoData = results.map(photo => ({
           id: photo.id,
-          name: photo.get('added_by'), // Или друго поле, което съдържа името на потребителя
-          image: photo.get('imageUrl'), // Полето, което съдържа URL на снимката
+          name: photo.get('added_by'), 
+          image: photo.get('imageUrl'), 
         }));
         setPhotos(photoData);
       } catch (error) {
@@ -27,7 +27,7 @@ export default function FurnitureCleanGallery() {
     };
 
     fetchPhotos();
-  }, [service]); // Изпълнява се само когато се промени категорията
+  }, [service]); 
 
   return (
     <>
