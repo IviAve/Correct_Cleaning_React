@@ -22,9 +22,9 @@ function CreateImg() {
     //   return;
     // }
 
-    const imageRegex = /\.(jpg|jpeg|png|gif)$/i;
+    const imageRegex = /^https?:\/\//;
     if (!imageUrl || !imageRegex.test(imageUrl)) {
-      showError("URL must to end on '.jpg', '.jpeg', '.png' или '.gif'.");
+      showError("URL must start with https.");
       return;
     }
     if (imageUrl.length < 6) {
@@ -77,6 +77,8 @@ function CreateImg() {
     navigate("/gallery");
   };
 
+
+  const isFormValid = imageUrl.length >= 6;
   return (
     <div className={styles.logincenter}>
       <form className={styles.login} onSubmit={handleUpload}>
@@ -116,7 +118,8 @@ function CreateImg() {
           ></textarea>
         </div>
 
-        <button className={styles.btnreglog} type="submit" disabled={loading}>
+        <button className={`${styles.btnreglog} ${isFormValid ? styles.btnValid : styles.btnDisabled}`}
+                    disabled={loading || !isFormValid}>
           {loading ? 'Uploading...' : 'Upload'}
         </button>
       </form>

@@ -1,79 +1,21 @@
 
 
-// import { useState, useContext } from "react";
-// import { useNavigate } from "react-router-dom";
-// import { AuthContext } from "../../context/authContext/authCont";
-// import { useError } from "../../context/error/useError"; 
-// import { Parse } from "../../../services/parse";
+// import { Link } from "react-router-dom";
+// import { useRegister } from "../../../hooks/useRegister"; 
 // import styles from "../Forms.module.css";
 
-// import { Link } from "react-router";
-
 // export default function Register() {
-//   const { login } = useContext(AuthContext);
-//   const { showError } = useError();   
-//   const [formData, setFormData] = useState({
-//     username: "",
-//     email: "",
-//     password: "",
-//     rePassword: "",
-//   });
-//   const [message,] = useState("");
-//   const navigate = useNavigate();
+//   const { formData, handleChange, handleSubmit, isLoading } = useRegister();
 
-//   const handleChange = (e) => {
-//     setFormData({ ...formData, [e.target.name]: e.target.value });
-//   };
+//   if (isLoading) {
+//     return (
+//       <div className={styles.loader}>
+//       <div className={styles.circle}></div> 
+//     </div>
+//     );
+//   }
 
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-
-//     if (formData.username.length < 3) {
-//       showError("Username must be min 3 characters.");
-//       return;
-//     }
-//     if (!formData.email.includes("@") || formData.email.length < 9) {
-//       showError("Email must included @ and must be  min 9 characters .");
-//       return;
-//     }
-
-//     if (formData.password.length < 6) {
-//       showError("Password must be min 6 characters.");
-//       return;
-//     }
-
-//     if (formData.password !== formData.rePassword) {
-//       showError("The passwords do not match!");
-//       setFormData((prevData) => ({ ...prevData, password: "", rePassword: "",
-        
-//       }))
-//       return;
-      
-//     }
-
-//     const user = new Parse.User();
-//     user.set("username", formData.username);
-//     user.set("email", formData.email);
-//     user.set("password", formData.password);
-
-//     try {
-      
-//       await user.signUp();
-
-      
-//       await login(formData.email, formData.password, false);
-
-//       showError("Registration successful.");
-
-      
-//       navigate("/gallery");
-//     } catch (error) {
-//       showError("Error: " + error.message);
-//       setFormData((prevData) => ({ ...prevData, password: "", rePassword: "",
-        
-//       }))
-//     }
-//   };
+  
 
 //   return (
 //     <div className={styles.logincenter}>
@@ -135,7 +77,6 @@
 //         <p className="login">
 //           Already have an account? <Link to="/login">Login here</Link>
 //         </p>
-//         {message && <p className={styles.message}>{message}</p>}
 //       </form>
 //     </div>
 //   );
@@ -152,10 +93,17 @@ export default function Register() {
   if (isLoading) {
     return (
       <div className={styles.loader}>
-      <div className={styles.circle}></div> 
-    </div>
+        <div className={styles.circle}></div>
+      </div>
     );
   }
+
+  
+  const isEmailValid = formData.email.length >= 9;
+  const isPasswordValid = formData.password.length >= 6;
+  const isPasswordsMatch = formData.password === formData.rePassword && formData.password.length > 0;
+
+  const isFormValid = isEmailValid && isPasswordValid && isPasswordsMatch;
 
   return (
     <div className={styles.logincenter}>
@@ -185,7 +133,7 @@ export default function Register() {
             value={formData.email}
             onChange={handleChange}
           />
-          <span className={styles.helpinfo}>example: iviave@abv.bg</span>
+          <span className={styles.helpinfo}>Email must be at least 9 characters</span>
         </div>
 
         <div className={styles.field}>
@@ -198,7 +146,7 @@ export default function Register() {
             value={formData.password}
             onChange={handleChange}
           />
-          <span className={styles.helpinfo}>minimum 6 characters, letters and numbers, at least 1 special character</span>
+          <span className={styles.helpinfo}>Minimum 6 characters, letters and numbers, at least 1 special character</span>
         </div>
 
         <div className={styles.field}>
@@ -211,9 +159,19 @@ export default function Register() {
             value={formData.rePassword}
             onChange={handleChange}
           />
+          <span className={styles.helpinfo}>
+            {isPasswordsMatch ? "✔ Passwords match" : "❌ Passwords do not match"}
+          </span>
         </div>
 
-        <button className={styles.btnreglog} type="submit">Register</button>
+        <button
+          className={`${styles.btnreglog} ${isFormValid ? styles.btnValid : styles.btnDisabled}`}
+          type="submit"
+          disabled={!isFormValid || isLoading}
+        >
+          {isLoading ? "Registering..." : "Register"}
+        </button>
+
         <p className="login">
           Already have an account? <Link to="/login">Login here</Link>
         </p>

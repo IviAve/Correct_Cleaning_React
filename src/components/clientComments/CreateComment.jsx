@@ -156,7 +156,7 @@ function CreateComment() {
           <span className={styles.helpinfo}>Comment must be at least 10 characters</span>
         </div>
         
-        {/* Loader display when loading is true */}
+        
         {loading ? (
           <div className={styles.loader}>
             <div className={styles.circle}></div>

@@ -8,6 +8,8 @@ import styles from "../Forms.module.css";
 export default function Login() {
   const { formData, rememberMe, handleChange, handleSubmit, setRememberMe, isLoading } = useLogin();
 
+  const isFormValid = formData.email.length >= 9 && formData.password.length >= 6;
+
   if (isLoading) {
     return (
       <div className={styles.loader}>
@@ -15,6 +17,8 @@ export default function Login() {
     </div>
     );
   }
+
+  
 
   return (
     <div className={styles.logincenter}>
@@ -58,7 +62,12 @@ export default function Login() {
           </label>
         </div>
 
-        <button className={styles.btnreglog} type="submit">Login</button>
+        <button
+          className={`${styles.btnreglog} ${isFormValid ? styles.btnValid : styles.btnDisabled}`}
+          type="submit"
+          disabled={!isFormValid || isLoading}>
+          {isLoading ? "Logging in..." : "Login"}
+        </button>
 
         <p className="login">
           No account yet? <Link to="/register">Register here</Link>
