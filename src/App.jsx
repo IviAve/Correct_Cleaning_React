@@ -32,6 +32,7 @@ import { ErrorProvider } from "../src/components/context/error/ErrorContext";
 import { ToastContainer } from "react-toastify"; 
 import "react-toastify/dist/ReactToastify.css"; 
 import Footer from './components/footer/Footer';
+import AllComments  from "./components/clientComments/allComments/AllComments";
 
 
 
@@ -51,6 +52,7 @@ function App() {
         <Route path="/gallery/WindowGallery" element={<WindowGallery />} />
         <Route path="/gallery/FurnitureCleanGallery" element={<FurnitureCleanGallery />} />
         <Route path="/photo-details/:id" element={<ImageDetails />} />
+        <Route path="/allComments" element={<AllComments />} />
         <Route path="/serviceSection" element={<ServiceSection />} />
         <Route path="/contact" element={<ContactWithUs />} />
         <Route element={<GuestGuard/>}>

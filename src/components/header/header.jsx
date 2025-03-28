@@ -19,7 +19,7 @@ export default function HeaderArea() {
         <div className="header_top">
           <div className="container-fluid">
             <div className="contact_nav">
-              <Link to="/serviceSection">
+              <Link to="/gallery">
                 <img src="/images/logo1.png" alt="no image" />
               </Link>
               {/* <Link to={user ? "/MyProfile" : "/login"}>
@@ -58,6 +58,7 @@ export default function HeaderArea() {
                   <li className="nav-item"><Link className="nav-link" to="/gallery">Gallery</Link></li>
                   <li className="nav-item"><Link className="nav-link" to="/serviceSection">Services</Link></li>
                   <li className="nav-item"><Link className="nav-link" to="/contact">Contact Us</Link></li>
+                  <li className="nav-item"><Link className="nav-link" to="/allComments">All Comments</Link></li>
 
                   {user ? (
                     <>

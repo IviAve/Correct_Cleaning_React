@@ -80,7 +80,7 @@ export default function PatioGallery() {
     <>
       <div className="center-contents">
         <h1>Welcome to our gallery!</h1>
-        <p>Browse our galleries.</p>
+        <Link to="/gallery" className="back-link">⬅ Back to gallery</Link>
       </div>
       <nav className="gal-navbar">
         <ul className="gal-navbar-links">
@@ -90,7 +90,7 @@ export default function PatioGallery() {
         </ul>
       </nav>
       <div className="App-gallery">
-        <h1>Patio Cleaning Gallery</h1>
+        <h1>Windows Cleaning Gallery</h1>
         {loading ? (
           <div className="loading-spinner"></div>
         ) : (

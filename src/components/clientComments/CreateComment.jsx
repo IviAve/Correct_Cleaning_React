@@ -49,7 +49,7 @@ function CreateComment() {
 
       
       setCommentText('');
-      navigate('/');
+      navigate('/allComments');
       
     } catch (error) {
       showError("Error posting comment:", error);
@@ -67,6 +67,7 @@ function CreateComment() {
         placeholder="Write your comment..."
         required
       ></textarea>
+      <span className={styles.helpinfo}>comment must be at least 10 charactrs</span>
       </div>
       <button className={styles.btnreglog} type="submit" disabled={loading}>
         {loading ? "Posting..." : "Post Comment"}

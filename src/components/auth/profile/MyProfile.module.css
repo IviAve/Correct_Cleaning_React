@@ -112,9 +112,9 @@ h3 {
 
 
 .commentItem {
-    cursor: pointer;
-    text-decoration: underline;
-    color: blue;
+    /* cursor: pointer;
+    text-decoration: underline; */
+    color: rgb(51, 51, 54);
 }
 
 .commentItem:hover {

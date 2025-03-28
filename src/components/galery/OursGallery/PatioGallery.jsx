@@ -77,7 +77,7 @@ export default function PatioGallery() {
     <>
       <div className="center-contents">
         <h1>Welcome to our gallery!</h1>
-        <p>Browse our galleries.</p>
+        <Link to="/gallery" className="back-link">⬅ Back to gallery</Link>
       </div>
       <nav className="gal-navbar">
         <ul className="gal-navbar-links">
