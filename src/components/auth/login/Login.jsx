@@ -11,8 +11,8 @@ export default function Login() {
   if (isLoading) {
     return (
       <div className={styles.loader}>
-        <p>Loading...</p> 
-      </div>
+      <div className={styles.circle}></div> 
+    </div>
     );
   }
 

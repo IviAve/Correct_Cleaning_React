@@ -189,3 +189,28 @@ input[type="submit"]:hover {
     100% { transform: rotate(360deg); }
   }
   
+
+  .btnreglog.validComment {
+    background:  rgb(3, 93, 3);
+  }
+  
+  .btnreglog {
+    background:  #cccccc;  
+    border-radius: 6px;
+  }
+  
+  /* Default (disabled) button style - gray */
+.btnDisabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  border: 1px solid #aaa;
+}
+
+/* Active button style - green */
+.btnValid {
+  background-color: rgb(10, 171, 168);
+  cursor: pointer;
+  border: 1px solid rgb(4, 160, 113);
+}
+
+/* Add more button styles as necessary */
