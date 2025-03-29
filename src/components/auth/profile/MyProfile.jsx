@@ -42,7 +42,9 @@ function MyProfile() {
                     </button>
                 </div>
             ) : (
-                <p>Loading...</p>
+               <div className={styles.loader}>
+                               <div className={styles.circle}></div>
+                             </div>
             )}
 
             <div className={styles.section}>

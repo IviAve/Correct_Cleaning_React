@@ -9,7 +9,9 @@ export default function EditProfile() {
     const { showError } = useError(); 
 
     if (loading) {
-        return <p>Loading...</p>;
+        return <div className={styles.loader}>
+                <div className={styles.circle}></div>
+              </div>
     }
 
     const handleSubmit = (e) => {
