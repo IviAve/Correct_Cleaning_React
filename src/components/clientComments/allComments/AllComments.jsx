@@ -88,8 +88,10 @@ import { Parse } from "../../../services/parse";
 
 import styles from "./AllComments.module.css"
 
+
 export default function AllComments() {
     const [comments, setComments] = useState([]);
+    const [loading, setLoading] = useState(true);
     
     useEffect(() => {
         fetchComments();
@@ -102,8 +104,10 @@ export default function AllComments() {
             query.descending("createdAt");
             const results = await query.find();
             setComments(results);
+            setLoading(false);
         } catch (error) {
             console.error("Error fetching comments:", error);
+            setLoading(false);
         }
     };
 
@@ -112,7 +116,12 @@ export default function AllComments() {
             <div className={styles.containercomm}>
                 <h2 className={styles.commentstitle}>What Our Clients Say</h2>
                 <div className={styles.commentsgrid}>
-                    {comments.length > 0 ? (
+
+                     {loading ? (
+                        <div className={styles.loader}>
+                                  <div className={styles.circle}></div>
+                                </div>
+                    ) : comments.length > 0 ? (
                         comments.map((comment) => (
                             <div key={comment.id} className={styles.commentbox}>
                                 <div className={styles.commentheader}>

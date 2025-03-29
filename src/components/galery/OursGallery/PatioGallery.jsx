@@ -67,6 +67,7 @@
 // }
 
 
+import styles from '../../auth/Forms.module.css'
 import { useGallery } from "../../../hooks/useGallery";
 import { Link } from "react-router";
 
@@ -89,7 +90,9 @@ export default function PatioGallery() {
       <div className="App-gallery">
         <h1>Patio Cleaning Gallery</h1>
         {loading ? (
-          <div className="loading-spinner"></div>
+          <div className={styles.loader}>
+          <div className={styles.circle}></div>
+        </div>
         ) : (
           <div className="photo-gallery">
             {photos.length > 0 ? (

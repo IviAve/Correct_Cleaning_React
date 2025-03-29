@@ -1,12 +1,13 @@
 
 
 
-
+import styles from "../auth/Forms.module.css";
 import { useGallery } from "../../hooks/useGallery";
 
 export default function OursGallery() {
   const { photos, loading } = useGallery(null, 3); // Взимаме последните 3 снимки, без значение от service
 
+   
   return (
     <>
       <div className="center-contents">
@@ -23,7 +24,9 @@ export default function OursGallery() {
       <div className="App-gallery">
         <h1>Last three images</h1>
         {loading ? (
-          <p>Loading photos...</p>
+          <div className={styles.loader}>
+          <div className={styles.circle}></div>
+        </div>
         ) : (
           <div className="photo-gallery">
             {photos.length > 0 ? (

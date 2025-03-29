@@ -1,14 +1,17 @@
 
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import styles from "./ContactWithUs.module.css";
 
 export default function ContactWithUs() {
   const form = useRef();
+  const [loading, setLoading] = useState(false);
 
   const sendEmail = (e) => {
     e.preventDefault();
+
+    setLoading(true);
 
     emailjs
       .sendForm("service_pggvp4y", "template_rcqxxlo", form.current, "F3XLGzUzBVnvo88iO")
@@ -16,10 +19,12 @@ export default function ContactWithUs() {
         (result) => {
           console.log("Email sent!", result.text);
           alert("Email sent successfully!");
+          setLoading(false);
         },
         (error) => {
           console.log("Error sending:", error.text);
           alert("Error sending.");
+          setLoading(false);
         }
       );
 
@@ -65,7 +70,9 @@ export default function ContactWithUs() {
                 <textarea className={styles.messagebox} name="message" placeholder="Message" required></textarea>
               </div>
               <div className={styles.dflex}>
-                <button type="submit">SEND</button>
+              <button type="submit" disabled={loading}>
+                  {loading ? "Sending..." : "SEND"} 
+                </button>
               </div>
             </form>
           </div>
