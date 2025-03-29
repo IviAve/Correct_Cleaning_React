@@ -1,5 +1,6 @@
 
 
+
 // import { Link } from "react-router-dom";
 // import { useRegister } from "../../../hooks/useRegister"; 
 // import styles from "../Forms.module.css";
@@ -10,12 +11,17 @@
 //   if (isLoading) {
 //     return (
 //       <div className={styles.loader}>
-//       <div className={styles.circle}></div> 
-//     </div>
+//         <div className={styles.circle}></div>
+//       </div>
 //     );
 //   }
 
   
+//   const isEmailValid = formData.email.length >= 9;
+//   const isPasswordValid = formData.password.length >= 6;
+//   const isPasswordsMatch = formData.password === formData.rePassword && formData.password.length > 0;
+
+//   const isFormValid = isEmailValid && isPasswordValid && isPasswordsMatch;
 
 //   return (
 //     <div className={styles.logincenter}>
@@ -45,7 +51,7 @@
 //             value={formData.email}
 //             onChange={handleChange}
 //           />
-//           <span className={styles.helpinfo}>example: iviave@abv.bg</span>
+//           <span className={styles.helpinfo}>Email must be at least 9 characters</span>
 //         </div>
 
 //         <div className={styles.field}>
@@ -58,7 +64,7 @@
 //             value={formData.password}
 //             onChange={handleChange}
 //           />
-//           <span className={styles.helpinfo}>minimum 6 characters, letters and numbers, at least 1 special character</span>
+//           <span className={styles.helpinfo}>Minimum 6 characters, letters and numbers, at least 1 special character</span>
 //         </div>
 
 //         <div className={styles.field}>
@@ -71,9 +77,19 @@
 //             value={formData.rePassword}
 //             onChange={handleChange}
 //           />
+//           <span className={styles.helpinfo}>
+//             {isPasswordsMatch ? "✔ Passwords match" : "❌ Passwords do not match"}
+//           </span>
 //         </div>
 
-//         <button className={styles.btnreglog} type="submit">Register</button>
+//         <button
+//           className={`${styles.btnreglog} ${isFormValid ? styles.btnValid : styles.btnDisabled}`}
+//           type="submit"
+//           disabled={!isFormValid || isLoading}
+//         >
+//           {isLoading ? "Registering..." : "Register"}
+//         </button>
+
 //         <p className="login">
 //           Already have an account? <Link to="/login">Login here</Link>
 //         </p>
@@ -88,7 +104,7 @@ import { useRegister } from "../../../hooks/useRegister";
 import styles from "../Forms.module.css";
 
 export default function Register() {
-  const { formData, handleChange, handleSubmit, isLoading } = useRegister();
+  const { formData, handleChange, handleSubmit, validateUsername, validateEmail, validatePassword, validateRePassword, isFormValid, isLoading } = useRegister();
 
   if (isLoading) {
     return (
@@ -97,13 +113,6 @@ export default function Register() {
       </div>
     );
   }
-
-  
-  const isEmailValid = formData.email.length >= 9;
-  const isPasswordValid = formData.password.length >= 6;
-  const isPasswordsMatch = formData.password === formData.rePassword && formData.password.length > 0;
-
-  const isFormValid = isEmailValid && isPasswordValid && isPasswordsMatch;
 
   return (
     <div className={styles.logincenter}>
@@ -116,9 +125,9 @@ export default function Register() {
             type="text"
             id="username"
             name="username"
-            placeholder=""
             value={formData.username}
             onChange={handleChange}
+            onBlur={validateUsername}
           />
           <span className={styles.helpinfo}>example: todorov</span>
         </div>
@@ -129,9 +138,9 @@ export default function Register() {
             type="email"
             id="email"
             name="email"
-            placeholder=""
             value={formData.email}
             onChange={handleChange}
+            onBlur={validateEmail}
           />
           <span className={styles.helpinfo}>Email must be at least 9 characters</span>
         </div>
@@ -142,9 +151,9 @@ export default function Register() {
             type="password"
             id="password"
             name="password"
-            placeholder=""
             value={formData.password}
             onChange={handleChange}
+            onBlur={validatePassword}
           />
           <span className={styles.helpinfo}>Minimum 6 characters, letters and numbers, at least 1 special character</span>
         </div>
@@ -155,12 +164,12 @@ export default function Register() {
             type="password"
             id="confirm-password"
             name="rePassword"
-            placeholder=""
             value={formData.rePassword}
             onChange={handleChange}
+            onBlur={validateRePassword}
           />
           <span className={styles.helpinfo}>
-            {isPasswordsMatch ? "✔ Passwords match" : "❌ Passwords do not match"}
+            {formData.password && formData.password === formData.rePassword ? "✔ Passwords match" : "❌ Passwords do not match"}
           </span>
         </div>
 

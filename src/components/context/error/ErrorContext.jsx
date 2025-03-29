@@ -12,8 +12,15 @@ export const ErrorProvider = ({ children }) => {
         });
     };
 
+    const showSuccess = (message) => {
+        toast.success(message, {
+            position: "top-right",
+            autoClose: 3000,
+        });
+    };
+
     return (
-        <ErrorContext.Provider value={{ showError }}>
+        <ErrorContext.Provider value={{ showError, showSuccess }}>
             {children}
             <ToastContainer />
         </ErrorContext.Provider>

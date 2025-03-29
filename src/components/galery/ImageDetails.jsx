@@ -45,7 +45,7 @@ import { usePhotoDetails } from "../../hooks/usePhotoDetails";
 
 function PhotoDetails() {
     const { id } = useParams();
-    const { photo, loading, handleDelete, isOwner } = usePhotoDetails(id); // Добавяме isOwner тук
+    const { photo, loading, handleDelete, isOwner } = usePhotoDetails(id); 
 
     return (
         <div className="App-gallery">

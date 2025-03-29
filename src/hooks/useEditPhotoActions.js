@@ -61,9 +61,9 @@ export const useEditPhotoActions = (id) => {
 
 
 
-    const imageRegex = /\.(jpg|jpeg|png|gif)$/i;
+    const imageRegex = /^https?:\/\//;
     if (!imageUrl || !imageRegex.test(imageUrl)) {
-      showError("URL must to end on '.jpg', '.jpeg', '.png' или '.gif'.");
+      showError("URL must start with https.");
       return;
     }
     if (imageUrl.length < 6) {
@@ -74,7 +74,7 @@ export const useEditPhotoActions = (id) => {
     //   showError("Description must be at least 6 characters")
     // }
 
-    if (!imageUrl || !selectedService || !description) {
+    if (!imageUrl || !selectedService ) {
       showError('Please provide an image URL and a service.');
       return;
     }

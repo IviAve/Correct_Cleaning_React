@@ -11,7 +11,7 @@ export function usePhotoDetails(photoId) {
     const [photo, setPhoto] = useState(null);
     const [loading, setLoading] = useState(true);
     const [isOwner, setIsOwner] = useState(false); 
-    const { showError} = useError(); 
+    const { showError, showSuccess} = useError(); 
 
     useEffect(() => {
         const fetchPhotoDetails = async () => {
@@ -51,7 +51,7 @@ export function usePhotoDetails(photoId) {
         const result = await deletePhoto(photoId);
 
         if (result.success) {
-            showError("The photo was deleted successfully!");
+            showSuccess("The photo was deleted successfully!");
             navigate("/gallery");
         } else {
             showError("Error while deleting!");

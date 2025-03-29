@@ -94,7 +94,7 @@ function CreateComment() {
   const [commentText, setCommentText] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  const { showError } = useError(); 
+  const { showError, showSuccess } = useError(); 
 
   const handleCommentSubmit = async (e) => {
     e.preventDefault();
@@ -132,6 +132,7 @@ function CreateComment() {
       await newComment.save();
 
       setCommentText('');
+      showSuccess("Comment is post successfully");
       navigate('/allComments');
       
     } catch (error) {

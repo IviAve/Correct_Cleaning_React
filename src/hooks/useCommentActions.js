@@ -8,7 +8,7 @@ import { useError} from "../components/context/error/useError";
 export function useCommentActions(setComments) {
     const [editingCommentId, setEditingCommentId] = useState(null);
     const [editedText, setEditedText] = useState("");
-    const { showError } = useError();
+    const { showError, showSuccess } = useError();
 
     const fetchComments = async () => {
         try {
@@ -29,6 +29,7 @@ export function useCommentActions(setComments) {
                 photoId: comment.get("photoId"),
             })));
         } catch (error) {
+            showError("Error fetching comments. Please try again later.");
             console.error("Error fetching comments:", error);
         }
     };
@@ -61,6 +62,7 @@ export function useCommentActions(setComments) {
             setEditingCommentId(null);
             fetchComments(); 
         } catch (error) {
+            
             console.error("Error updating comment:", error);
         }
     };
@@ -76,9 +78,10 @@ export function useCommentActions(setComments) {
                 await commentToDelete.destroy();
 
 
-                showError("Comment deleted successfully.");
+                showSuccess("Comment deleted successfully.");
                 fetchComments(); 
             } catch (error) {
+                showError("Error deleting comment. Please try again.");
                 console.error("Error deleting comment:", error);
             }
         }

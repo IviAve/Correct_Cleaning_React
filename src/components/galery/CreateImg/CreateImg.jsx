@@ -11,7 +11,7 @@ function CreateImg() {
   const [selectedService, setSelectedService] = useState('');
   const [description, setDescription] = useState(''); 
   const [loading, setLoading] = useState(false);
-  const { showError } = useError();
+  const { showError,showSuccess } = useError();
   const navigate = useNavigate();
 
   const handleUpload = async (e) => {
@@ -36,8 +36,8 @@ function CreateImg() {
     // }
 
 
-    if (!imageUrl || !selectedService || !description) {
-      showError('Please provide an image URL and a service and description.');
+    if (!imageUrl || !selectedService ) {
+      showError('Please provide an image URL and a service .');
       return;
     }
     
@@ -74,6 +74,7 @@ function CreateImg() {
       showError('Error saving photo:', error);
     }
     setLoading(false);
+    showSuccess('Your imageUrl was successfully added')
     navigate("/gallery");
   };
 
@@ -105,6 +106,7 @@ function CreateImg() {
             onChange={(e) => setImageUrl(e.target.value)}
             required
           />
+          <span className={styles.helpinfo}>Your imageUrl must start with https.</span>
         </div>
 
         <div className={styles.field}>
@@ -112,7 +114,7 @@ function CreateImg() {
           <textarea
             value={description}
             onChange={(e) => setDescription(e.target.value)}
-            required
+            
             placeholder=""
             rows="4"
           ></textarea>
@@ -128,3 +130,4 @@ function CreateImg() {
 }
 
 export default CreateImg;
+
