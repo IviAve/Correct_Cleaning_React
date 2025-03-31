@@ -34,6 +34,8 @@ import "react-toastify/dist/ReactToastify.css";
 import Footer from './components/footer/Footer';
 import AllComments  from "./components/clientComments/allComments/AllComments";
 
+import ErrorBoundary from './components/errorBoundary/ErrorBoundary';
+
 
 
 // import '../public/css/styles.css'
@@ -43,6 +45,7 @@ function App() {
      <ErrorProvider>
      <ToastContainer />
     <AuthProvider>
+      <ErrorBoundary>
       <HeaderArea /> 
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -74,6 +77,7 @@ function App() {
       {/* <Infosection /> */}
       <Footer />
       <Footerpage />
+      </ErrorBoundary>
       </AuthProvider>
       </ErrorProvider>
       </>
