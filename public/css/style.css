@@ -387,8 +387,8 @@ a:focus {
 .img-home img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Запазва пропорциите без изрязване */
-  border-radius: 15px; /* Леко заобляне на снимката, за да съвпада с контейнера */
+  object-fit: cover;
+  border-radius: 15px; 
 }
 
 
@@ -482,10 +482,22 @@ a:focus {
 .about_section .detail-box h2 {
   text-transform: uppercase;
   font-weight: bold;
+  text-align: center;
+  color: #040c6b;
+  font-size: 40px;
+  
+  
+}
+.about_section .detail-box {
+  text-align: center;  
+  margin-right: 30px;
 }
 
 .about_section .detail-box p {
   margin-top: 10px;
+  font-size: 23px;
+  text-align: center;
+  color:rgb(19, 18, 18);
 }
 
 .about_section .detail-box a {
@@ -496,8 +508,10 @@ a:focus {
   padding: 10px 45px;
   background-color: #0355cc;
   border: 1px solid #0355cc;
-  border-radius: 2px;
+  border-radius: 5px;
   color: #ffffff;
+  text-align: center;
+  
 }
 
 .about_section .detail-box a:hover {

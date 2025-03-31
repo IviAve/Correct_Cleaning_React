@@ -144,6 +144,7 @@ function CreateComment() {
   const isCommentValid = commentText.length >= 10;
 
   return (
+    <div className={styles.addcomm}>
     <div className={styles.logincenter}>
       <form className={styles.login} onSubmit={handleCommentSubmit}>
         <div className={styles.field}>
@@ -172,6 +173,7 @@ function CreateComment() {
           </button>
         )}
       </form>
+    </div>
     </div>
   );
 }
