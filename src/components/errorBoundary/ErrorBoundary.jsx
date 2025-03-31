@@ -1,44 +1,8 @@
-// import { Component } from "react";
 
-
-// class ErrorBoundary extends Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = { hasError: false, errorInfo: null };
-//   }
-
-//   componentDidCatch(error, errorInfo) {
-//     console.error("Caught an error:", error, errorInfo);
-//     this.setState({ hasError: true, errorInfo });
-
-    
-//     this.sendErrorToServer(error, errorInfo);
-//   }
-
-//   sendErrorToServer(error, errorInfo) {
-    
-//     console.log("Sending error to server:", error, errorInfo);
-//   }
-
-//   render() {
-//     if (this.state.hasError) {
-//       return (
-//         <div>
-//           <h2>Нещо се обърка! 🛑</h2>
-//           <p>Моля, презаредете страницата или опитайте отново по-късно.</p>
-//         </div>
-//       );
-//     }
-
-//     return this.props.children;
-//   }
-// }
-
-// export default ErrorBoundary;
 
 
 import { Component } from "react";
-import Parse from "parse"; // Импортирай Parse
+import Parse from "parse"; 
 
 class ErrorBoundary extends Component {
   constructor(props) {
@@ -61,7 +25,7 @@ console.error("Error cautch in boundary:", error)
   
     const currentUser = Parse.User.current();
     if (currentUser) {
-      errorLog.set("user", currentUser); // Свързване с потребителя
+      errorLog.set("user", currentUser); 
     }
   
     try {
