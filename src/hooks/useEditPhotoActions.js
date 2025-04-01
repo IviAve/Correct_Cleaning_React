@@ -201,7 +201,7 @@ export const useEditPhotoActions = (id) => {
 
     setLoading(true);
     try {
-      await updatePhotoDetails(id, imageUrl, selectedService, description); // Извикваме функцията за актуализиране на снимката
+      await updatePhotoDetails(id, imageUrl, selectedService, description); 
       navigate("/gallery");
     } catch (error) {
       console.error("Error updating photo:", error);

@@ -95,10 +95,10 @@ export function useEditProfile() {
         e.preventDefault();
 
         try {
-            await updateUserProfile(formData.username, formData.email); // Извикваме функцията за актуализиране
+            await updateUserProfile(formData.username, formData.email);
             navigate("/MyProfile");
         } catch (error) {
-            showError(error.message); // Показваме грешка, ако има
+            showError(error.message); 
         }
     };
 

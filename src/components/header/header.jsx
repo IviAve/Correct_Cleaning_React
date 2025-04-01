@@ -161,8 +161,11 @@ export default function HeaderArea() {
                         </li>
                       )}
 
-                      <li className="nav-item">
+                      {/* <li className="nav-item">
                         <button className="nav-link btn btn-link" onClick={handleLogout}>Logout</button>
+                      </li> */}
+                      <li className="nav-item">
+                        <Link className="nav-link" to="#" onClick={handleLogout}>Logout</Link>
                       </li>
                     </>
                   ) : (

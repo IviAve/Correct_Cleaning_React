@@ -5,7 +5,7 @@ import styles from "../auth/Forms.module.css";
 import { useGallery } from "../../hooks/useGallery";
 
 export default function OursGallery() {
-  const { photos, loading } = useGallery(null, 3); // Взимаме последните 3 снимки, без значение от service
+  const { photos, loading } = useGallery(null, 3); 
 
    
   return (

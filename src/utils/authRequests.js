@@ -1,4 +1,4 @@
-import { Parse } from "../services/parse"; // Път към Parse, ако е нужно
+import { Parse } from "../services/parse"; 
 
 export const registerUser = async (username, email, password) => {
   const user = new Parse.User();

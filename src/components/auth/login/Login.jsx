@@ -6,7 +6,7 @@ import { useLogin } from "../../../hooks/useLogin";
 import styles from "../Forms.module.css";
 
 export default function Login() {
-  const { formData, rememberMe, handleChange, handleSubmit, setRememberMe, isLoading } = useLogin();
+  const { formData,  handleChange, handleSubmit,  isLoading } = useLogin();
 
   const isFormValid = formData.email.length >= 9 && formData.password.length >= 6;
 
@@ -51,7 +51,7 @@ export default function Login() {
           <span className={styles.helpinfo}>Minimum 6 characters, letters and numbers, at least 1 special character</span>
         </div>
 
-        <div className={styles.fieldcheck}>
+        {/* <div className={styles.fieldcheck}>
           <label>
             <input
               type="checkbox"
@@ -60,7 +60,7 @@ export default function Login() {
             />
             Remember Me
           </label>
-        </div>
+        </div> */}
 
         <button
           className={`${styles.btnreglog} ${isFormValid ? styles.btnValid : styles.btnDisabled}`}
