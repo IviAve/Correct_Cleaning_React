@@ -105,3 +105,33 @@
   100% { transform: rotate(360deg); }
 }
 
+.likeSection {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: flex-start; 
+}
+
+.likeCount {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.likeButton {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.like {
+  background-color: rgb(14, 182, 168);
+  color: white;
+}
+
+.unlike {
+  background-color: rgb(88, 4, 4);
+  color: white;
+}

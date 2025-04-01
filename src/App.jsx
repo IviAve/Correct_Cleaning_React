@@ -36,6 +36,8 @@ import AllComments  from "./components/clientComments/allComments/AllComments";
 
 import ErrorBoundary from './components/errorBoundary/ErrorBoundary';
 
+// import Dashboard from "./components/admin/Dashboard"; 
+// import AdminGuard from './components/guards/AdminGuard';
 
 
 // import '../public/css/styles.css'
@@ -71,6 +73,10 @@ function App() {
         <Route path="/EditProfile" element={<EditProfile />} />
 
         </Route>
+
+        {/* <Route element={<AdminGuard />}>
+                <Route path="/admin" element={<Dashboard />} />
+              </Route> */}
         
         <Route path="*" element={<Page404 />} />
       </Routes>

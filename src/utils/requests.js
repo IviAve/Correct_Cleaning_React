@@ -240,3 +240,22 @@ export const deleteComment = async (commentId) => {
     throw new Error("Error deleting comment. Please try again.");
   }
 };
+
+
+
+export const isAdmin = async () => {
+  const currentUser = Parse.User.current();
+  if (!currentUser) return false;
+
+  try {
+    const roleQuery = new Parse.Query(Parse.Role);
+    roleQuery.equalTo("name", "admin");
+    roleQuery.equalTo("users", currentUser);
+    const adminRole = await roleQuery.first();
+
+    return !!adminRole;
+  } catch (error) {
+    console.error("Error checking admin role:", error);
+    return false;
+  }
+};
