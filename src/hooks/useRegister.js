@@ -73,7 +73,7 @@
 
 
 
-import { useState, useContext } from "react";
+import { useState, useContext, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../components/context/authContext/authCont";
 import { registerUser } from "../utils/authRequests"; 
@@ -91,13 +91,21 @@ export const useRegister = () => {
   const [isLoading, setIsLoading] = useState(false); 
   const navigate = useNavigate();
 
-  const handleChange = (e) => {
+  
+
+  // const handleChange = (e) => {
+  //   setFormData({ ...formData, [e.target.name]: e.target.value });
+    
+  // };
+
+  const handleChange = useCallback((e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+  }, [formData]);
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    console.log("Final form data:", formData); 
     if (formData.username.length < 3) {
       showError("Username must be min 3 characters.");
       return;
@@ -128,6 +136,7 @@ export const useRegister = () => {
       navigate("/gallery");
     } else {
       setFormData((prevData) => ({ ...prevData, password: "", rePassword: "" }));
+      showError(result.message || "Registration failed.");
     }
 
     setIsLoading(false); 
