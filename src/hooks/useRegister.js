@@ -105,7 +105,7 @@ export const useRegister = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Final form data:", formData); 
+   
     if (formData.username.length < 3) {
       showError("Username must be min 3 characters.");
       return;
