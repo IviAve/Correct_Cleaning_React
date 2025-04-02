@@ -152,11 +152,11 @@ function CreateImg() {
 
     const imageRegex = /^https?:\/\//;
     if (!imageUrl || !imageRegex.test(imageUrl)) {
-      showError("URL must start with https.");
+      showError("URL must start with http or https.");
       return;
     }
-    if (imageUrl.length < 6) {
-      showError("ImageUrl must be at least 6 characters");
+    if (imageUrl.length < 10) {
+      showError("ImageUrl must be at least 10 characters");
       return;
     }
     if (!imageUrl || !selectedService) {
@@ -183,7 +183,7 @@ function CreateImg() {
     setLoading(false);
   };
 
-  const isFormValid = imageUrl.length >= 6;
+  const isFormValid = imageUrl.length >= 10;
   return (
     <div className={styles.logincenter}>
       <form className={styles.login} onSubmit={handleUpload}>
@@ -210,7 +210,7 @@ function CreateImg() {
             onChange={(e) => setImageUrl(e.target.value)}
             required
           />
-          <span className={styles.helpinfo}>Your imageUrl must start with https.</span>
+          <span className={styles.helpinfo}>Your imageUrl must start with http or https and must be 10 simbols at least.</span>
         </div>
 
         <div className={styles.field}>

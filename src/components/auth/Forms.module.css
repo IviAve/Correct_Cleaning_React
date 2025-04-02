@@ -129,7 +129,9 @@ input[type="submit"]:hover {
     border: 1px solid red;
   }
 
-
+  .success {
+    color: green;
+}
 
 
   .fieldcheck input[type="checkbox"] {

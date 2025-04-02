@@ -91,7 +91,7 @@ export default function Register() {
         </button>
 
         <p className="login">
-          Already have an account? <Link to="/login">Login here</Link>
+          Already have an account? <Link to="/login"><span style={{ color: 'royalblue' }}>Login</span> here</Link>
         </p>
       </form>
     </div>

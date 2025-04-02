@@ -70,7 +70,7 @@ export default function Login() {
         </button>
 
         <p className="login">
-          No account yet? <Link to="/register">Register here</Link>
+          No account yet? <Link   to="/register"><span style={{ color: 'royalblue' }}>Register</span> here</Link>
         </p>
       </form>
     </div>

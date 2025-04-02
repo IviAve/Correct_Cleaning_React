@@ -122,7 +122,7 @@ function EditImg() {
 
   const imageRegex = /^https?:\/\//;
   const isUrlValid = imageRegex.test(imageUrl);
-  const isFormValid = isUrlValid && imageUrl.length >= 6 && selectedService;
+  const isFormValid = isUrlValid && imageUrl.length >= 10 && selectedService;
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
@@ -174,7 +174,7 @@ function EditImg() {
             required
           />
           <span className={styles.helpinfo}>
-            URL must start with https.
+            URL must start with http or https and must be 10 simbols at least.
           </span>
         </div>
 
@@ -183,7 +183,7 @@ function EditImg() {
           <textarea
             value={description}
             onChange={(e) => setDescription(e.target.value)}
-            required
+            
             placeholder="Description"
             rows="4"
           ></textarea>
