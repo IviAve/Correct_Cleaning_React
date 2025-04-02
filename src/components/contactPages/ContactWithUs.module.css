@@ -47,7 +47,7 @@
     border: none;
     height: 50px;
     margin-bottom: 25px;
-    padding-left: 25px;
+    /* padding-left: 25px; */
     background-color: #ffffff;
     outline: none;
     color: #0e0c0c;
@@ -85,7 +85,7 @@
     padding: 10px 55px;
     background-color: #0355cc;
     border: 1px solid #0355cc;
-    border-radius: 0;
+    border-radius: 5px;
     color: #ffffff;
     margin-top: 15px;
   }
