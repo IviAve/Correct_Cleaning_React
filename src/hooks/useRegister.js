@@ -75,9 +75,9 @@
 
 import { useState, useContext, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../components/context/authContext/authCont";
+import { AuthContext } from "../context/authContext/authCont";
 import { registerUser } from "../utils/authRequests"; 
-import { useError } from "../components/context/error/useError";
+import { useError } from "../context/error/useError";
 
 export const useRegister = () => {
   const { login } = useContext(AuthContext);

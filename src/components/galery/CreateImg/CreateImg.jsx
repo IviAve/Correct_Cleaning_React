@@ -136,7 +136,7 @@
 import styles from "../../auth/Forms.module.css";
 import { useState } from 'react';
 import { useNavigate } from "react-router-dom"; 
-import { useError } from "../../context/error/useError"; 
+import { useError } from "../../../context/error/useError"; 
 import { createPhoto } from "../../../utils/requests";
 
 function CreateImg() {

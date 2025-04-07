@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router";
 import { useProfile } from "../../../hooks/useProfile";
 import { useCommentActions } from "../../../hooks/useCommentActions";
-import EditCommentModal from "../../../components/clientComments/EditCommentModal";
+import EditCommentModal from "../../clientComments/editComment/EditCommentModal";
 import styles from "./MyProfile.module.css";
 
 function MyProfile() {

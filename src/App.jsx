@@ -1,6 +1,6 @@
 import {  Routes, Route } from 'react-router-dom';
 
-import { AuthProvider } from './components/context/authContext/authContext';
+import { AuthProvider } from './context/authContext/authContext';
 import HeaderArea from "./components/header/header";
 import HomePage from "./components/home/HomePage";
 import Footerpage from "./components/footer/Footerpage";
@@ -23,18 +23,18 @@ import FurnitureCleanGallery from './components/galery/OursGallery/FurnitureClea
 import CreateComment from './components/clientComments/CreateComment';
 import EditImg from "./components/galery/EditImg/EditImg";
 
-import AuthGuard from "./components/guards/AuthGuard";
-import GuestGuard from "./components/guards/GuestGuard";
+import AuthGuard from "./guards/AuthGuard";
+import GuestGuard from "./guards/GuestGuard";
 
 import MyProfile from "./components/auth/profile/MyProfile";
 import EditProfile from "./components/auth/profile/EditProfile"
-import { ErrorProvider } from "../src/components/context/error/ErrorContext"; 
+import { ErrorProvider } from "./context/error/ErrorContext"; 
 import { ToastContainer } from "react-toastify"; 
 import "react-toastify/dist/ReactToastify.css"; 
 import Footer from './components/footer/Footer';
 import AllComments  from "./components/clientComments/allComments/AllComments";
 
-import ErrorBoundary from './components/errorBoundary/ErrorBoundary';
+import ErrorBoundary from './errorBoundary/ErrorBoundary';
 
 // import Dashboard from "./components/admin/Dashboard"; 
 // import AdminGuard from './components/guards/AdminGuard';

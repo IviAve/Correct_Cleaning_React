@@ -90,7 +90,7 @@
 
 import { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom"; 
-import { AuthContext } from "../../components/context/authContext/authCont";
+import { AuthContext } from "../../context/authContext/authCont";
 import { isAdmin } from "../../utils/requests";
 
 export default function HeaderArea() {

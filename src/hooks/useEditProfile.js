@@ -58,7 +58,7 @@
 
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useError } from "../components/context/error/useError";
+import { useError } from "../context/error/useError";
 import { updateUserProfile } from "../utils/authRequests"; 
 import { Parse} from "parse";
 

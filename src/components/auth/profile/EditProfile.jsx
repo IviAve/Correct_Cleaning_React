@@ -2,7 +2,7 @@
 
 import { useEditProfile } from "../../../hooks/useEditProfile";
 import styles from "./EditProfile.module.css";
-import { useError } from "../../../components/context/error/useError";
+import { useError } from "../../../context/error/useError";
 
 export default function EditProfile() {
     const { formData, loading, handleChange, handleSubmit: submitProfile } = useEditProfile();

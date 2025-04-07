@@ -90,7 +90,7 @@
 import { useParams } from 'react-router';
 import { useEditPhotoActions } from '../../../hooks/useEditPhotoActions';
 import styles from "../../auth/Forms.module.css";
-import { useError } from "../../context/error/useError";  
+import { useError } from "../../../context/error/useError";  
 
 
 function EditImg() {

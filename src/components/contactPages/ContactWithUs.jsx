@@ -14,7 +14,10 @@ export default function ContactWithUs() {
     setLoading(true);
 
     emailjs
-      .sendForm("service_pggvp4y", "template_rcqxxlo", form.current, "F3XLGzUzBVnvo88iO")
+      .sendForm( import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        form.current,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY)
       .then(
         (result) => {
           console.log("Email sent!", result.text);

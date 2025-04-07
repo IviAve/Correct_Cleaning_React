@@ -125,7 +125,7 @@
 
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
-import { useError } from "../components/context/error/useError";
+import { useError } from "../context/error/useError";
 import { updatePhotoDetails } from "../utils/requests"; 
 import Parse from "parse";
 

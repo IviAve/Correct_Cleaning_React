@@ -4,7 +4,7 @@ import { Parse } from "../services/parse";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import { getPhoto, deletePhoto } from "../utils/requests";  
-import { useError } from "../components/context/error/useError";
+import { useError } from "../context/error/useError";
 
 export function usePhotoDetails(photoId) {
     const navigate = useNavigate();

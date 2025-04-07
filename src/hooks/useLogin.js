@@ -83,8 +83,8 @@
 
 import { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../components/context/authContext/authCont";
-import { useError } from "../components/context/error/useError";
+import { AuthContext } from "../context/authContext/authCont";
+import { useError } from "../context/error/useError";
 import { loginUser } from "../utils/authRequests"; 
 import {Parse} from "parse";
 

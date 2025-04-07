@@ -103,7 +103,7 @@
 
 
 import { useState } from "react";
-import { useError } from "../components/context/error/useError";
+import { useError } from "../context/error/useError";
 import { fetchComments, updateComment, deleteComment } from "../utils/requests"; 
 
 export function useCommentActions(setComments) {
