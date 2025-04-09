@@ -102,22 +102,87 @@
 
 
 
-import { useState } from "react";
+// import { useState } from "react";
+// import { useError } from "../context/error/useError";
+// import { fetchComments, updateComment, deleteComment } from "../utils/requests"; 
+
+// export function useCommentActions(setComments) {
+//   const [editingCommentId, setEditingCommentId] = useState(null);
+//   const [editedText, setEditedText] = useState("");
+//   const { showError, showSuccess } = useError();
+
+//   const fetchAllComments = async () => {
+//     try {
+//       await fetchComments(setComments); 
+//     } catch (error) {
+//       showError(error.message);
+//     }
+//   };
+
+//   const handleEdit = (comment) => {
+//     setEditingCommentId(comment.id);
+//     setEditedText(comment.text || comment.get("text"));
+//   };
+
+//   const handleCancelEdit = () => {
+//     setEditingCommentId(null);
+//     setEditedText("");
+//   };
+
+//   const handleSaveEdit = async () => {
+//     try {
+//       await updateComment(editingCommentId, editedText); 
+//       setEditingCommentId(null);
+//       fetchAllComments(); 
+//     } catch (error) {
+//       console.error("Error updating comment:", error);
+//     }
+//   };
+
+//   const handleDelete = async (commentId) => {
+//     const isConfirmed = window.confirm("Are you sure you want to delete this comment?");
+//     if (isConfirmed) {
+//       try {
+//         await deleteComment(commentId); 
+//         showSuccess("Comment deleted successfully.");
+//         fetchAllComments(); 
+//       } catch (error) {
+//         showError(error.message);
+//         console.error("Error deleting comment:", error);
+//       }
+//     }
+//   };
+
+//   return {
+//     editingCommentId,
+//     editedText,
+//     setEditedText,
+//     handleEdit,
+//     handleCancelEdit,
+//     handleSaveEdit,
+//     handleDelete,
+//     fetchComments: fetchAllComments,
+//   };
+// }
+
+
+import { useCallback, useState } from "react";
+
 import { useError } from "../context/error/useError";
-import { fetchComments, updateComment, deleteComment } from "../utils/requests"; 
+ import { fetchComments, updateComment, deleteComment } from "../utils/requests"; 
 
 export function useCommentActions(setComments) {
   const [editingCommentId, setEditingCommentId] = useState(null);
   const [editedText, setEditedText] = useState("");
   const { showError, showSuccess } = useError();
 
-  const fetchAllComments = async () => {
+  const fetchAllComments = useCallback(async () => {
     try {
-      await fetchComments(setComments); 
+      await fetchComments(setComments);
     } catch (error) {
       showError(error.message);
     }
-  };
+  }, [setComments, showError]);
 
   const handleEdit = (comment) => {
     setEditingCommentId(comment.id);

@@ -85,7 +85,7 @@ import { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/authContext/authCont";
 import { useError } from "../context/error/useError";
-import { loginUser } from "../utils/authRequests"; 
+// import { loginUser } from "../utils/authRequests"; 
 import {Parse} from "parse";
 
 export const useLogin = () => {
@@ -143,7 +143,7 @@ export const useLogin = () => {
     }
 
     try {
-     await loginUser(formData.email, formData.password, rememberMe);
+    //  await loginUser(formData.email, formData.password, rememberMe);
       await login(formData.email, formData.password, rememberMe); 
       showSuccess("Login successful!");
       navigate("/gallery");
