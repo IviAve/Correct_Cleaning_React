@@ -14,13 +14,7 @@ deploy
 
 
 
-KEYS FOR BACK4APP must use in parse.js:
 
-VITE_APP_ID=Ean7ER6LcWvTWRbXiE8on65F4S4zwWEnBzQ1zPW8
-
-VITE_JS_KEY=wnkEUp5EaP0FO5PHZzQC5UCgGqdsmiu0qZCpaVgy
-
-VITE_SERVER_URL=https://parseapi.back4app.com/
 
 
 
